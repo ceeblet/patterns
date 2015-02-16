@@ -1,1 +1,21 @@
-<!-- This is where my base HTML template will go. -->
+<!-- This is the base HTML template. -->
+
+<!DOCTYPE html>
+
+<html>
+    <head>  
+    </head>
+    <body>
+
+        <h3>Fractal Art</h3>
+
+        <a href="/create">Create</a>
+        <a href="/gallery">Gallery</a>
+        <a href="/about">About</a>
+
+        {% block body %}
+
+        {% endblock %}
+
+    </body>
+</html>

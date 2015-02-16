@@ -1,1 +1,2 @@
-This is where my requirements will go.
+Flask==0.9
+Jinja2==2.6
