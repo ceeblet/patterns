@@ -6,14 +6,11 @@
 
 <p>Hi! This is the fractal art home page. Comming soon: make your own art here.</p>
 
-
-<!-- TODO: Move this to style.css file. -->
-<style type="text/css">canvas { border: 1px solid black; }</style>
+<link rel="stylesheet" type="text/css" href="../static/style.css">
 
 <!-- Q: Can I use onload="draw()" in a div tag instead of body? -->
 <div onload="draw();"><canvas id="canvas" width="150" height="150"></canvas></div>
 
 <script type="text/javascript" src="../static/draw_to_canvas.js"></script>
-
 
 {% endblock %}

@@ -1,1 +1,5 @@
 /*This is where my styling will go.*/
+
+#canvas {
+	border: 1px solid black; 
+}
