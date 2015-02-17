@@ -1,10 +1,14 @@
 # This file will contain server code that responds to user interaction, communicates with the model, and updates the view.
 
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, session
 
 app = Flask(__name__)
 
-@app.route('/home')
+#TODO: Hide this.  
+app.secret_key = 'fU0Og5yop7EddZQOGUE$FMENpdw1'
+
+#TODO: Rename home route to just '/'?
+@app.route('/home', methods=['GET', 'POST'])
 def home():
     return render_template("home.html")
 
