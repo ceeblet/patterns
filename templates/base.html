@@ -5,14 +5,12 @@
 <html>
     <head>  
         <title>Fractal Art</title>
-    </head>
-    <body>
-
         <h3>Fractal Art</h3>
-
         <a href="{{url_for('home')}}">Home</a>
         <a href="{{url_for('about')}}">About</a>
         <a href="{{url_for('gallery')}}">Gallery</a>
+    </head>
+    <body onload="draw();">
 
         {% block body %}
 
