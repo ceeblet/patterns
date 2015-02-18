@@ -1,17 +1,13 @@
 function draw(){
-  var canvas = document.getElementById('canvas');
-  if (canvas.getContext){
-    var context = canvas.getContext('2d');
-    drawFractalTree(context); 
-  }
-  else{
-    alert("HTML5 Canvas isn't supported by your browser!");
-  }
-}
-
-function drawFractalTree(context){
-
-	drawTree(context,250,500,-90,8);
+	var canvas = document.getElementById('canvas');
+	if (canvas.getContext){
+		var ctx = canvas.getContext('2d');
+		ctx.clearRect(0,0,500,500); // clear canvas
+		//window.requestAnimationFrame(draw);
+		drawTree(ctx,250,500,-90,8); 
+	}else{
+		alert("HTML5 Canvas isn't supported by your browser!");
+	}
 }
 
 function drawTree(context, x1, y1, angle, depth){
@@ -21,7 +17,7 @@ function drawTree(context, x1, y1, angle, depth){
 	if (depth != 0){
 		var x2 = x1 + (cos(angle) * depth * BRANCH_LENGTH);
 		var y2 = y1 + (sin(angle) * depth * BRANCH_LENGTH);
-		
+
 		drawLine(context, x1, y1, x2, y2, depth);
 		drawTree(context, x2, y2, angle - random(15,20), depth - 1);
 		drawTree(context, x2, y2, angle + random(15,20), depth - 1);
@@ -30,7 +26,7 @@ function drawTree(context, x1, y1, angle, depth){
 
 function drawLine(context, x1, y1, x2, y2, thickness){
 	context.fillStyle   = '#000';
-	context.strokeStyle = 'rgb(120, 80, 54)'; //Brown		
+	context.strokeStyle = 'rgb(120, 80, 54)'; // brown		
 
 	context.lineWidth = thickness;
 	context.beginPath();
@@ -40,9 +36,10 @@ function drawLine(context, x1, y1, x2, y2, thickness){
 
 	context.closePath();
 	context.stroke();
+	context.save();
 }
 
-
+// TODO: Return to this
 function cos (angle) {
 	return Math.cos(deg_to_rad(angle));
 }
@@ -59,7 +56,10 @@ function random(min, max){
 	return min + Math.floor(Math.random()*(max+1-min));
 }
 
+
+// draw tree on mouse click
 $("#canvas").on("click", draw);
+
 
 
 
