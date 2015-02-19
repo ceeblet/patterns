@@ -2,7 +2,7 @@
 
 from flask import Flask, render_template, request, url_for
 from flask import session as flask_session
-#import model
+import model
 
 
 app = Flask(__name__)
