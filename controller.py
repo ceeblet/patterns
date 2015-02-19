@@ -1,6 +1,9 @@
 # This file will contain server code that responds to user interaction, communicates with the model, and updates the view.
 
-from flask import Flask, render_template, request, url_for, session
+from flask import Flask, render_template, request, url_for
+from flask import session as flask_session
+#import model
+
 
 app = Flask(__name__)
 
