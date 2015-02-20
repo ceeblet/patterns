@@ -61,8 +61,10 @@ class Image(Base):
         return "<Image: id=%r user_id=%d" % (self.id, self.user_id)
 
 
+# FIXME: Do I still need these?
 def main():
-    pass
+    #connect()
+    pass 
 
 
 if __name__ == "__main__":

@@ -50,6 +50,7 @@ function sin (angle) {
 	return Math.sin(deg_to_rad(angle));
 }
 
+//TODO: Change to camelCase
 function deg_to_rad(angle){
 	return angle*(Math.PI/180.0);
 }
@@ -62,15 +63,15 @@ function random(min, max){
 $("#canvas").on("click", draw);
 
 // save canvas image as data url (png format by default)
-function save_img() {
+function saveImgLocally() {
 	var canvas = document.getElementById('canvas');
 	var dataURL = canvas.toDataURL();
 	// set canvasImg image src to dataURL so it can be saved as an image
 	document.getElementById('canvasImg').src = dataURL;
 }
 
-// alerts user that their image has been saved
-// TODO: change this alert to a prettier notification format
+// alerts user that their image has been saved 
+// FIXME: duplicates flash in commented out function save_img()
 $("#save").on("click", 
 	function(evt){
 		evt.preventDefault();
