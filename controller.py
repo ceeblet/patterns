@@ -1,6 +1,6 @@
 # This file will contain server code that responds to user interaction, communicates with the model, and updates the view.
 
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, redirect
 from flask import session as flask_session
 import model
 
@@ -23,5 +23,12 @@ def about():
 def gallery():
     return render_template("gallery.html")
     
+@app.route('/save')
+def save_img():
+	#TODO: save img to database 
+	return redirect("/gallery")
+
+#TODO: make another function to query db and display image on gallery pg
+
 if __name__ == '__main__':
     app.run(debug=True)

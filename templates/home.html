@@ -9,7 +9,16 @@
 <br>
 <br>
 <canvas id="canvas" width="500" height="500"></canvas>
-<img id="canvasImg" alt="Right click on image to save!">
+<br>
+<br>
+<!-- TODO: Update the action -->
+<form action="/save" method="GET">
+  <button type="submit" value="submit" name="save" id="save">Save</button>
+</form>
+
+<br>
+<!-- TODO: Remove this once 'Save' is up and running? -->
+<img id="canvasImg" alt="Right click on image to save locally!">
 <script type="text/javascript" src="../static/draw_to_canvas.js"></script>
 
 {% endblock %}

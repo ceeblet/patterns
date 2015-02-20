@@ -69,4 +69,11 @@ function save_img() {
 	document.getElementById('canvasImg').src = dataURL;
 }
 
+// alerts user that their image has been saved
+// TODO: change this alert to a prettier notification format
+$("#save").on("click", 
+	function(evt){
+		evt.preventDefault();
+		alert("Saved!");
+	});
 
