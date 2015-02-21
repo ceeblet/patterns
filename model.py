@@ -63,9 +63,9 @@ class Image(Base):
         return '<Image: id=%r user_id=%r filename=%s title=%s' % (self.id, self.user_id, self.filename, self.title)
 
 
-# FIXME: Do I still need these?
+# FIXME: Remove once DB established?
 def main():
-    #connect()
+    connect()
     pass 
 
 
