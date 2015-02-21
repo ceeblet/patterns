@@ -8,7 +8,7 @@ import base64
 
 app = Flask(__name__)
 
-#TODO: Hide this.  
+# TODO: Hide this.  
 app.secret_key = 'fU0Og5yop7EddZQOGUE$FMENpdw1'
 
 @app.route('/home')
@@ -26,21 +26,17 @@ def gallery():
 @app.route('/save', methods=['POST'])
 def save_img():
 	# get DATAURL from draw_to_canvas.js and convert from unicode to string
-	img = str(request.form.get("data"))
-	print type(img)
-	print img[-10:]
-	b64img = base64.urlsafe_b64decode(img)
-	fractal_img = open("test.png", "w")
-	for line in b64img:
-		fractal_img.write(line)
-	return "I made a file"
-
-	#Goal: Create a file with the img in it, following this idea (but not this syntax)
-		# f = open('some_unique_name.png', "a")
-		# f.write(img)
-		# f.close()
+	# split DATAURL and ignore leading 'data:image/png;base64'
+	_, b64data = str(request.form.get('data')).split(',')
 	
+	# decode base64 data string ensuring the length is a multiple of 4 bytes
+	decoded_img = base64.urlsafe_b64decode(b64data + '=' * (4 - len(b64data) % 4))
+	img_file = open('some_unique_name' + '.png', 'w')
+	for line in decoded_img:
+		img_file.write(line)
+	img_file.close()
 
+	return 'I made a file'
 
 
 if __name__ == '__main__':
