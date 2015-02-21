@@ -17,7 +17,7 @@ def create_db():
     '''Creates a new database when called'''
     Base.metadata.create_all(ENGINE)
 
-# Q: Duplicates code above. Remove?
+# Q: Remove?
 def connect():
     global ENGINE
     global Session
@@ -63,7 +63,7 @@ class Image(Base):
         return '<Image: id=%r user_id=%r filename=%s title=%s' % (self.id, self.user_id, self.filename, self.title)
 
 
-# FIXME: Remove once DB established?
+# Q: Remove once DB established?
 def main():
     connect()
     pass 
