@@ -50,7 +50,7 @@ function sin (angle) {
 	return Math.sin(deg_to_rad(angle));
 }
 
-//TODO: Change to camelCase
+// TODO: Change to camelCase
 function deg_to_rad(angle){
 	return angle*(Math.PI/180.0);
 }
@@ -62,19 +62,29 @@ function random(min, max){
 // draw tree on mouse click
 $("#canvas").on("click", draw);
 
-// save canvas image as data url (png format by default)
-function saveImgLocally() {
-	var canvas = document.getElementById('canvas');
-	var dataURL = canvas.toDataURL();
-	// set canvasImg image src to dataURL so it can be saved as an image
-	document.getElementById('canvasImg').src = dataURL;
-}
 
-// alerts user that their image has been saved 
-// FIXME: duplicates flash in commented out function save_img()
-$("#save").on("click", 
-	function(evt){
-		evt.preventDefault();
-		alert("Saved!");
-	});
+$("#save").on("click", function(evt){
+		var canvas = document.getElementById('canvas');
+		var dataURL = canvas.toDataURL();
+		//document.getElementById('canvasImg').src = dataURL;
+		$.post('/save', {data: dataURL}, function(d){
+			alert("Saved!");
+			});
+});
 
+
+// TODO: This is a model for form to pop up when clicking save to get more user info
+// $("#save").on("click", 
+// 	info = promptUserForInfo();
+// 	sendPictureToServer(info);
+
+// 	});
+
+// function sendPictureToServer(userInfo) {
+// 		var canvas = document.getElementById('canvas');
+// 		var dataURL = canvas.toDataURL();
+// 		//document.getElementById('canvasImg').src = dataURL;
+// 		$.post('/save', {data: dataURL}, function(d){
+// 			alert("Saved!");
+// 			});
+// }
