@@ -3,6 +3,7 @@
 from flask import Flask, render_template, request, url_for, redirect, flash
 from flask import session as flask_session
 import model
+import base64
 
 
 app = Flask(__name__)
@@ -22,14 +23,23 @@ def about():
 def gallery():
     return render_template('gallery.html')
    
-@app.route('/save')
+@app.route('/save', methods=['POST'])
 def save_img():
-	# gets the DATAURL from draw_to_canvas.js
-	img = request.form.get("data")
+	# get DATAURL from draw_to_canvas.js and convert from unicode to string
+	img = str(request.form.get("data"))
+	print type(img)
+	print img[-10:]
+	b64img = base64.urlsafe_b64decode(img)
+	fractal_img = open("test.png", "w")
+	for line in b64img:
+		fractal_img.write(line)
+	return "I made a file"
+
 	#Goal: Create a file with the img in it, following this idea (but not this syntax)
 		# f = open('some_unique_name.png', "a")
 		# f.write(img)
 		# f.close()
+	
 
 
 

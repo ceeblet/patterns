@@ -41,7 +41,6 @@ function drawLine(context, x1, y1, x2, y2, thickness){
 	context.save();
 }
 
-// TODO: Return to this
 function cos (angle) {
 	return Math.cos(deg_to_rad(angle));
 }
@@ -50,7 +49,7 @@ function sin (angle) {
 	return Math.sin(deg_to_rad(angle));
 }
 
-// TODO: Change to camelCase
+// FIXME: Rename and change to camelCase
 function deg_to_rad(angle){
 	return angle*(Math.PI/180.0);
 }
@@ -62,18 +61,19 @@ function random(min, max){
 // draw tree on mouse click
 $("#canvas").on("click", draw);
 
-
+// save image as base64 string
+// submit POST request to '/save' route in controller.py
+// alert user image has saved
 $("#save").on("click", function(evt){
 		var canvas = document.getElementById('canvas');
-		var dataURL = canvas.toDataURL();
-		//document.getElementById('canvasImg').src = dataURL;
-		$.post('/save', {data: dataURL}, function(d){
+		var dataURL = canvas.toDataURL(); // a string
+		$.post('/save', {'data': dataURL}, function(d){
 			alert("Saved!");
 			});
 });
 
 
-// TODO: This is a model for form to pop up when clicking save to get more user info
+// TODO: Model for form to pop up on 'save' to get more user info. Use ajax.
 // $("#save").on("click", 
 // 	info = promptUserForInfo();
 // 	sendPictureToServer(info);
