@@ -1,9 +1,9 @@
 import model
 from model import db_session
 
-def add_image_to_db(session, filename, title):
+def add_image_to_db(session, filepath, filename):
     image = model.Image()
+    image.filepath = filepath
     image.filename = filename
-    image.title = title
-    image.save
+    image.save()
    

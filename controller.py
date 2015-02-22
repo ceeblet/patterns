@@ -53,7 +53,7 @@ def save_img():
 	img_file.close()
 
 	# FIXME: Should add reference to image filepath to database
-	add_image_to_db(db_session, 'some_unique_name.png', 'Tree')
+	add_image_to_db(db_session, fullpath, filename)
 
 	return 'I made a file'
 

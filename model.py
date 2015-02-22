@@ -50,8 +50,8 @@ class Image(Base):
     __tablename__= 'images'
     id = Column(Integer, primary_key = True)
     user_id = Column(Integer, ForeignKey('users.id'))
-    filename = Column(String(50), nullable = False)
-    title = Column(String(100), nullable = True)
+    filepath = Column(String(50), nullable = False)
+    filename = Column(String(100), nullable = True)
 
     user = relationship('User', backref = backref('images', order_by = id))
 
@@ -60,13 +60,12 @@ class Image(Base):
         db_session.commit()
 
     def __repr__(self):
-        return '<Image: id=%r user_id=%r filename=%s title=%s' % (self.id, self.user_id, self.filename, self.title)
+        return '<Image: id=%r user_id=%r filepath=%s filename=%s' % (self.id, self.user_id, self.filepath, self.filename)
 
 
 # Q: Remove once DB established?
 def main():
     connect()
-    pass 
 
 
 if __name__ == '__main__':
