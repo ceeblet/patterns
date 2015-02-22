@@ -2,8 +2,8 @@ function draw(){
 	var canvas = document.getElementById('canvas');
 	if (canvas.getContext){
 		var ctx = canvas.getContext('2d');
-		ctx.clearRect(0, 0, 500, 500); // clear canvas
-		drawTree(ctx, 250, 500, -90, 9, 1); // initiate chain of recursive calls
+		ctx.clearRect(0, 0, 600, 600); // clear canvas
+		drawTree(ctx, 300, 600, -90, 9, 1); // initiate chain of recursive calls
 	}else{
 		alert("HTML5 Canvas isn't supported by your browser!");
 	}

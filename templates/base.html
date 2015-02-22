@@ -4,17 +4,19 @@
 
 <html>
     <head>  
+        <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="../static/style.css">
+        <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
         <title>Fractal Art</title>
-        <h3>Fractal Art</h3>
-        <a href="{{url_for('home')}}">Home</a>
-        <a href="{{url_for('about')}}">About</a>
-        <a href="{{url_for('gallery')}}">Gallery</a>
     </head>
     <body>
-
-        {% block body %}
-
-        {% endblock %}
-
+        <div class = "container-fluid">
+            <h3>Fractal Art</h3>
+            <a href="{{url_for('home')}}">Home</a>
+            <a href="{{url_for('about')}}">About</a>
+            <a href="{{url_for('gallery')}}">Gallery</a>
+            {% block body %}
+            {% endblock %}
+        </div>
     </body>
 </html>

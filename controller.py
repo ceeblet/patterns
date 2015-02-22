@@ -1,4 +1,4 @@
-# This file will contain server code that responds to user interaction, communicates with the model, and updates the view.
+# This file contains server code that responds to user interaction, communicates with the model, and updates the view.
 
 from flask import Flask, render_template, request, url_for, redirect, flash
 from flask import session as flask_session
@@ -12,7 +12,7 @@ import base64
 
 app = Flask(__name__)
 
-# TODO: Hide this.  
+# TODO: hide this  
 app.secret_key = 'fU0Og5yop7EddZQOGUE$FMENpdw1'
 
 @app.route('/home')
@@ -28,8 +28,8 @@ def gallery():
     return render_template('gallery.html')
    
 
-# TODO: create unique name for each image.
-# TODO: save image to database.
+# TODO: create unique name for each image
+# TODO: save image to database
 
 @app.route('/save', methods=['POST'])
 def save_img():
@@ -44,6 +44,7 @@ def save_img():
 		img_file.write(line)
 	img_file.close()
 
+	# FIXME: Should add reference to image filepath to database
 	add_image_to_db(db_session, 'some_unique_name.png', 'Tree')
 
 	return 'I made a file'

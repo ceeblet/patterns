@@ -4,20 +4,12 @@
 
 {% block body %}
 
-<link rel="stylesheet" type="text/css" href="../static/style.css">
-<script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
-<br>
-<br>
-<canvas id="canvas" width="500" height="500"></canvas>
-<br>
-<br>
-<!-- TODO: Update the action. Should this be a GET or POST request? -->
-
+<br><br>
+<canvas id="canvas" width="600" height="600"></canvas>
+<br><br>
 <button type="submit" value="submit" name="save" id="save">Save</button>
-
 <br>
-<!-- TODO: Remove this once 'Save' is up and running? -->
-<img id="canvasImg" alt="Right click on image to save locally!">
+<!-- TODO: Move this tag to base.html? -->
 <script type="text/javascript" src="../static/draw_to_canvas.js"></script>
 
 {% endblock %}
