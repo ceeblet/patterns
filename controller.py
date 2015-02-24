@@ -25,7 +25,7 @@ def about():
 @app.route('/gallery')
 def gallery():
 	# a list of image objects
-	images = Image.query.limit(5).all()
+	images = Image.query.limit(15).all()
 	return render_template('gallery.html', images = images)
    
 
@@ -41,7 +41,7 @@ def save_img():
 	# decode base64 data string ensuring the length is a multiple of 4 bytes
 	decoded_img = base64.urlsafe_b64decode(b64data + '=' * (4 - len(b64data) % 4))
 	
-	filename = "temp_name.png"
+	filename = "temp_name" + '.png'
 	path = '/Users/sarafalkoff/fractal-art/static/img_uploads'
 	fullpath = os.path.join(path, filename)
 	
