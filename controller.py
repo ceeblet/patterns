@@ -7,6 +7,7 @@ import model
 from model import User, Image
 
 import base64, os
+#import tempfile
 
 
 app = Flask(__name__)
@@ -41,7 +42,11 @@ def save_img():
 	# decode base64 data string ensuring the length is a multiple of 4 bytes
 	decoded_img = base64.urlsafe_b64decode(b64data + '=' * (4 - len(b64data) % 4))
 	
-	filename = "temp_name" + '.png'
+	# FIXME: Images save with tempfile do not display in gallery
+	# tf = tempfile.NamedTemporaryFile(delete=False)
+	# filename = str(tf.name) + '.png'
+
+	filename = 'temp_name.png'
 	path = '/Users/sarafalkoff/fractal-art/static/img_uploads'
 	fullpath = os.path.join(path, filename)
 	
