@@ -44,7 +44,7 @@ class User(Base):
     def __repr__(self):
         return '<User: id=%r first name=%s last name=%s email=%s>' % (self.id, self.first_name, self.last_name, self.email)
 
-
+#TODO: add created_at datetime to table
 class Image(Base):
     __tablename__= 'images'
     id = Column(Integer, primary_key = True)
