@@ -26,7 +26,9 @@ def about():
 
 @app.route('/gallery')
 def gallery():
-    return render_template('gallery.html')
+	# a list of image objects
+	images = model.Image.query.limit(5).all()
+	return render_template('gallery.html', images = images)
    
 
 # TODO: create unique name for each image
@@ -41,8 +43,9 @@ def save_img():
 	# decode base64 data string ensuring the length is a multiple of 4 bytes
 	decoded_img = base64.urlsafe_b64decode(b64data + '=' * (4 - len(b64data) % 4))
 	
-	filename = "some_unique_name.png"
-	path = "/Users/sarafalkoff/fractal-art/static/img_uploads"
+	filename = "temp_name.png"
+	print filename
+	path = '/Users/sarafalkoff/fractal-art/static/img_uploads'
 	fullpath = os.path.join(path, filename)
 	
 	img_file = open(fullpath, 'wb')
@@ -54,7 +57,9 @@ def save_img():
 
 	add_image_to_db(db_session, fullpath, filename)
 
-	return 'I made a file'
+	# FIXME: This isn't redirecting.
+	return redirect(url_for('gallery'))
+
 
 
 if __name__ == '__main__':

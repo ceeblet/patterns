@@ -4,7 +4,16 @@
 
 {% block body %}
 
-<br><p>You made it to the 'Gallery' page. Comming soon: a public place to save your fractal art.</p>
+<br><br><p>You made it to the 'Gallery' page. Comming soon: a public place to save your fractal art.</p>
+<br>
 
+{% for image in images %}
+
+</div id="gallary-display">
+<figure>
+<img src = "/static/img_uploads/{{image.filename}}" alt="{{image.filename}}">
+</figure></div>
+
+{% endfor %}
 
 {% endblock %}
