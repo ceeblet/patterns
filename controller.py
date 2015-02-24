@@ -2,13 +2,11 @@
 
 from flask import Flask, render_template, request, url_for, redirect, flash
 from flask import session as flask_session
-from add_to_db import add_image_to_db
 
 import model
-from model import db_session
+from model import User, Image
 
 import base64, os
-
 
 
 app = Flask(__name__)
@@ -27,12 +25,12 @@ def about():
 @app.route('/gallery')
 def gallery():
 	# a list of image objects
-	images = model.Image.query.limit(5).all()
+	images = Image.query.limit(5).all()
 	return render_template('gallery.html', images = images)
    
 
 # TODO: create unique name for each image
-# TODO: save image file locations to database
+# TODO: split line 40 into function in utils.py file
 
 @app.route('/save', methods=['POST'])
 def save_img():
@@ -44,7 +42,6 @@ def save_img():
 	decoded_img = base64.urlsafe_b64decode(b64data + '=' * (4 - len(b64data) % 4))
 	
 	filename = "temp_name.png"
-	print filename
 	path = '/Users/sarafalkoff/fractal-art/static/img_uploads'
 	fullpath = os.path.join(path, filename)
 	
@@ -55,7 +52,8 @@ def save_img():
 	
 	img_file.close()
 
-	add_image_to_db(db_session, fullpath, filename)
+	img = Image(fullpath, filename)
+	img.save()
 
 	# FIXME: This isn't redirecting.
 	return redirect(url_for('gallery'))

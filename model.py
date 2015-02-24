@@ -42,10 +42,9 @@ class User(Base):
         db_session.commit()
 
     def __repr__(self):
-        return '<User: id=%r first name=%s last name=%s email=%s >' % (self.id, self.first_name, self.last_name, self.email)
+        return '<User: id=%r first name=%s last name=%s email=%s>' % (self.id, self.first_name, self.last_name, self.email)
 
 
-# FIXME: This class needs to be updated. Will pass image to DB as reference to file. Potentially user for a filename. 
 class Image(Base):
     __tablename__= 'images'
     id = Column(Integer, primary_key = True)
@@ -55,12 +54,16 @@ class Image(Base):
 
     user = relationship('User', backref = backref('images', order_by = id))
 
+    def __init__(self, filepath, filename):
+        self.filepath = filepath
+        self.filename = filename
+
     def save(self):
         db_session.add(self)
         db_session.commit()
 
     def __repr__(self):
-        return '<Image: id=%r user_id=%r filepath=%s filename=%s >' % (self.id, self.user_id, self.filepath, self.filename)
+        return '<Image: id=%r user_id=%r filepath=%s filename=%s>' % (self.id, self.user_id, self.filepath, self.filename)
 
 
 # Q: Remove once DB established?
