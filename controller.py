@@ -53,10 +53,14 @@ def save_img():
 	img_file.close()
 
 	img = Image(fullpath, filename)
+	
 	img.save()
 
-	# FIXME: This isn't redirecting.
-	return redirect(url_for('gallery'))
+	return "Image saved!"
+
+@app.route('/save', methods=['POST'])
+def tweet_img():
+	pass
 
 
 
