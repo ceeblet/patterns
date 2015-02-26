@@ -12,13 +12,14 @@ function draw(){
 function drawTree(context, x1, y1, angle, depth, delay){
 
 	var BRANCH_LENGTH = random(0, 16);
+	var color =  ["ff", "8c", "3c"];
 
 	if (depth != 0){
 		var x2 = x1 + (cos(angle) * depth * BRANCH_LENGTH);
 		var y2 = y1 + (sin(angle) * depth * BRANCH_LENGTH);
 	
 		window.setTimeout(function(){
-			drawLine(context, x1, y1, x2, y2, depth);
+			drawLine(context, x1, y1, x2, y2, depth, color);
 		}, 100 * delay);
 
 		drawTree(context, x2, y2, angle - random(15, 20), depth - 1, delay * 1.2);
@@ -26,9 +27,10 @@ function drawTree(context, x1, y1, angle, depth, delay){
 	}
 }
 
-function drawLine(context, x1, y1, x2, y2, thickness){
+function drawLine(context, x1, y1, x2, y2, thickness, color){
 	context.fillStyle   = '#000';
-	context.strokeStyle = 'rgb(120, 80, 54)'; // brown		
+	// context.strokeStyle = 'rgb(120, 80, 54)'; // brown
+	context.strokeStyle = color;		
 
 	context.lineWidth = thickness;
 	context.beginPath();
@@ -90,12 +92,15 @@ $("#save").on("click", function(evt){
 // }
 
 //set min and max values for slider
-$( ".selector" ).slider({
-  min: 0
-});
+// $( ".selector" ).slider({
+//   min: 0
+// });
 
-$( ".selector" ).slider({
-  max: 16
-});
+// $( ".selector" ).slider({
+//   max: 16
+// });
 
+// var slider_value = $( ".selector" ).slider( "value" );
+
+// console.log(slider_value);
 
