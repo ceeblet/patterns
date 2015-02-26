@@ -88,3 +88,14 @@ $("#save").on("click", function(evt){
 // 			alert("Saved!");
 // 			});
 // }
+
+//set min and max values for slider
+$( ".selector" ).slider({
+  min: 0
+});
+
+$( ".selector" ).slider({
+  max: 16
+});
+
+

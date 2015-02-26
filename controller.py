@@ -6,7 +6,7 @@ from model import User, Image
 from utils import decode_img
 
 # Q: only import the specific methods used from these modules?
-import base64, os, uuid, twitter
+import base64, os, uuid
 
 
 app = Flask(__name__)
@@ -60,25 +60,7 @@ def save_img():
 
 # @app.route('/save', methods=['POST'])
 # def tweet_img():
-
-# 	# access secret keys
-# 	TWITTER_CONSUMER_KEY = os.environ['TWITTER_CONSUMER_KEY']
-# 	TWITTER_CONSUMER_SECRET = os.environ['TWITTER_CONSUMER_SECRET']
-# 	TWITTER_ACCESS_TOKEN = os.environ['TWITTER_ACCESS_TOKEN']
-# 	TWITTER_ACCESS_TOKEN_SECRET = os.environ['TWITTER_ACCESS_TOKEN_SECRET']
-
-# 	api = TwitterAPI(
-# 	    consumer_key=TWITTER_CONSUMER_KEY,
-# 	    consumer_secret=TWITTER_CONSUMER_SECRET,
-# 	    access_token_key=TWITTER_ACCESS_TOKEN,
-# 	    access_token_secret=TWITTER_ACCESS_TOKEN_SECRET
-# 	)
-
-# 	file = open('f0a15dea-eb53-42e5-9948-2c057b201f07.png', 'rb')
-# 	data = file.read()
-
-# 	r = api.request('statuses/update_with_media', {'status':'test tweet'}, {'media[]':data})
-# 	print(r.status_code)
+# pass
 
 	
 

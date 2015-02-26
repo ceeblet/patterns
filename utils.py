@@ -28,12 +28,6 @@ def tweet():
     )
 
     # Post to Twitter
-    # status = api.PostUpdate("Test!")
-
-    # img_file = open('/Users/sarafalkoff/fractal-art/static/img_uploads/fb97b23c-80be-4ec6-b17f-69505d024a65.png', 'rb')
-    # img = img_file.read()
-    # print img
-
     media_status = api.PostMedia(status="Test tweet please ignore.", media='/Users/sarafalkoff/fractal-art/static/img_uploads/fb97b23c-80be-4ec6-b17f-69505d024a65.png', possibly_sensitive=None, in_reply_to_status_id=None, latitude=None, longitude=None, place_id=None, display_coordinates=False)
 	
 	

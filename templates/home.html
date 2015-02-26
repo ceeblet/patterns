@@ -7,16 +7,41 @@
 <br><br>
 <canvas id="canvas" width="600" height="600"></canvas>
 <br><br>
+
+<!-- slider  -->
+<div id="slider">
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js">
+
+// FIXME - this isn't rendering
+ </script>
+ 	<link rel="stylesheet" href="/resources/demos/style.css">
+ <script>
+	$(function() {
+	$( "#slider" ).slider();
+	});
+</script> </div>
+<!-- end slider -->
+
+<br>
+
+<!-- save button -->
 <button type="submit" value="submit" name="save" id="save">Save</button>
+<!-- end save button -->
+
 
 <!--FIXME: Make sure this can actually send mail. -->
 <a href="mailto:">Send Email</a>
+
 
 <!-- Q: Move JS to draw_to_canvas.js? -->
 <!-- Twitter button -->
 <a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 <!-- end Twitter button -->
+
 
 <!-- TODO: Move this tag to base.html? -->
 <script type="text/javascript" src="../static/draw_to_canvas.js"></script>
