@@ -1,25 +1,31 @@
+//var hex;
+//console.log(hex);
+
 // color picker
 function hexFromRGB(r, g, b) {
-	var hex = [
+	var hex1 = [
 	  r.toString( 16 ),
 	  g.toString( 16 ),
 	  b.toString( 16 )
 	];
-	$.each( hex, function( nr, val ) {
+	$.each( hex1, function( nr, val ) {
 	  if ( val.length === 1 ) {
-	    hex[ nr ] = "0" + val;
+	    hex1[ nr ] = "0" + val;
 	  }
 	});
-	console.log(hex);
+	
 	//returns hex values for red, green, and blue sliders
-	return hex.join( "" ).toUpperCase();
+	return hex1.join( "" ).toUpperCase();
 	}
 
 function refreshSwatch() {
-	var red = $( "#red" ).slider( "value" ),
-	  green = $( "#green" ).slider( "value" ),
-	  blue = $( "#blue" ).slider( "value" ),
-	  hex = hexFromRGB( red, green, blue );
+	var red = $( "#red" ).slider( "value" );
+	var green = $( "#green" ).slider( "value" );
+	var blue = $( "#blue" ).slider( "value" );
+
+	// creates one hex code with the combined rgb color values
+	hex = hexFromRGB( red, green, blue );
+
 	$( "#swatch" ).css( "background-color", "#" + hex );
 	}
 	$(function() {
@@ -53,17 +59,13 @@ function draw(){
 function drawTree(context, x1, y1, angle, depth, delay){
 
 	var BRANCH_LENGTH = random(0, 16);
-	var color = "#ff8c3c";
-
-
-
-
+	
 	if (depth != 0){
 		var x2 = x1 + (cos(angle) * depth * BRANCH_LENGTH);
 		var y2 = y1 + (sin(angle) * depth * BRANCH_LENGTH);
 	
 		window.setTimeout(function(){
-			drawLine(context, x1, y1, x2, y2, depth, color);
+			drawLine(context, x1, y1, x2, y2, depth, hex);
 		}, 100 * delay);
 
 		drawTree(context, x2, y2, angle - random(15, 20), depth - 1, delay * 1.2);
@@ -74,7 +76,7 @@ function drawTree(context, x1, y1, angle, depth, delay){
 function drawLine(context, x1, y1, x2, y2, thickness, color){
 	context.fillStyle   = '#000';
 	// context.strokeStyle = 'rgb(120, 80, 54)'; // brown
-	context.strokeStyle = color;		
+	context.strokeStyle = "#" + hex;		
 
 	context.lineWidth = thickness;
 	context.beginPath();
