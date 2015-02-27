@@ -84,12 +84,12 @@ function drawTree(context, x1, y1, angle, branchLength, depth, delay){
 			drawLine(context, x1, y1, x2, y2, depth, hex);
 		}, 100 * delay);
 
-		drawTree(context, x2, y2, angle - branchLength, branchLength, depth - 1, delay * 1.2);
-		drawTree(context, x2, y2, angle + branchLength, branchLength, depth - 1, delay * 1.2);
-		
 
 		// drawTree(context, x2, y2, angle - random(15, 20), depth - 1, delay * 1.2);
 		// drawTree(context, x2, y2, angle + random(15, 20), depth - 1, delay * 1.2);
+		drawTree(context, x2, y2, angle - branchLength, branchLength, depth - 1, delay * 1.2);
+		drawTree(context, x2, y2, angle + branchLength, branchLength, depth - 1, delay * 1.2);
+		
 	}
 }
 
@@ -139,7 +139,6 @@ $("#save").on("click", function(evt){
 			alert("Saved!");
 			});
 });
-
 // end create tree
 
 

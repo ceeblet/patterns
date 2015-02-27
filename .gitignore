@@ -7,3 +7,5 @@ twitter_keys.sh
 image_uploads/*.png
 
 *.pyc
+
+keys.boto

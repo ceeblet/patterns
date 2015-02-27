@@ -28,6 +28,6 @@ def tweet():
     )
 
     # Post to Twitter
-    media_status = api.PostMedia(status="Test tweet please ignore.", media='/Users/sarafalkoff/fractal-art/static/img_uploads/fb97b23c-80be-4ec6-b17f-69505d024a65.png', possibly_sensitive=None, in_reply_to_status_id=None, latitude=None, longitude=None, place_id=None, display_coordinates=False)
+    media_status = api.PostMedia(status="Test tweet please ignore.", media='/Users/sarafalkoff/fractal-art/static/img_uploads/dd991aef-acbf-456a-9d5c-3ead6a297803.png', possibly_sensitive=None, in_reply_to_status_id=None, latitude=None, longitude=None, place_id=None, display_coordinates=False)
 	
 	
