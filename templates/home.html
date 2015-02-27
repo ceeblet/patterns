@@ -4,20 +4,21 @@
 
 {% block body %}
 
-<br><br>
+<br>
+<br>
 <canvas id="canvas" width="600" height="600"></canvas>
-<br><br>
+<br>
+<br>
 
 <!-- color picker -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-<!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
 <div id="red"></div>
 <div id="green"></div>
 <div id="blue"></div>
 <div id="swatch" class="ui-widget-content ui-corner-all"></div>
-<!--  end color picker -->
+<!-- end color picker -->
 
 <br>
 
@@ -25,17 +26,6 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-<script>
-	//TODO: Move to js file and pass value as parameter to drawline function.
-	// initialize slider
-	$(function() {
-		$( "#slider" ).slider({max: 10, min: 0, value: 5})
-		$( "#slider" ).on( "slide", function( event, ui ) {
-			value = ui.value;
-			console.log(value);
-		} );
-	});
-</script>
 <div id="slider"></div>
 <!-- end numeric value slider -->
 
@@ -49,27 +39,14 @@
 <!--FIXME: Make sure this can actually send mail. -->
 <a href="mailto:">Send Email</a>
 
-<!-- TODO: Include link to unique image. -->
-<!-- Q: Move JS to draw_to_canvas.js? -->
+
 <!-- Twitter button -->
+<!-- TODO: Include link to unique image. -->
 <a href="https://twitter.com/share" class="twitter-share-button" data-text="I made a thing! Check it out:" data-count="none" data-hashtags="fractalart">Tweet</a>
-<script>
-	!function(d,s,id){
-		var js,fjs=d.getElementsByTagName(s)[0],
-			p=/^http:/.test(d.location)?'http':'https';
-		if(!d.getElementById(id)){
-			js=d.createElement(s);
-			js.id=id;
-			js.src=p+'://platform.twitter.com/widgets.js';
-			fjs.parentNode.insertBefore(js,fjs);
-		}
-	}
-	(document, 'script', 'twitter-wjs');
-</script>
 <!-- end Twitter button -->
 
 
-<!-- TODO: Move this tag to base.html? -->
+<!-- Get Javascript from draw_to_canvas.js -->
 <script type="text/javascript" src="../static/draw_to_canvas.js"></script>
 
 {% endblock %}

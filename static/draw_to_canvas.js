@@ -1,4 +1,4 @@
-// color picker
+// color picker slider
 function hexFromRGB(r, g, b) {
 	var rgb_hex = [
 	  r.toString( 16 ),
@@ -11,7 +11,7 @@ function hexFromRGB(r, g, b) {
 	  }
 	});
 	
-	//returns hex values for red, green, and blue sliders
+	// returns hex values for red, green, and blue sliders
 	return rgb_hex.join( "" ).toUpperCase();
 	}
 
@@ -38,7 +38,18 @@ function refreshSwatch() {
 	$( "#green" ).slider( "value", 140 );
 	$( "#blue" ).slider( "value", 60 );
 });
-// end color picker
+// end color picker slider
+
+
+//branch length slider
+$(function() {
+	$("#slider").slider({max: 16, min: 0, value: 8})
+	$("#slider").on("slide", function(event, ui) {
+		value = ui.value;
+		//console.log(value);
+	});
+});
+// end branch length slider
 
 
 // create tree
@@ -53,17 +64,25 @@ function draw(){
 	}
 }
 
+//function drawTree(context, x1, y1, angle, branchLength, depth, delay){
 function drawTree(context, x1, y1, angle, depth, delay){
 
 	var BRANCH_LENGTH = random(0, 16);
+	//console.log(value);
 	
 	if (depth != 0){
 		var x2 = x1 + (cos(angle) * depth * BRANCH_LENGTH);
 		var y2 = y1 + (sin(angle) * depth * BRANCH_LENGTH);
+		// var x2 = x1 + (cos(angle) * depth * value);
+		// var y2 = y1 + (sin(angle) * depth * value);
 	
 		window.setTimeout(function(){
 			drawLine(context, x1, y1, x2, y2, depth, hex);
 		}, 100 * delay);
+
+		// drawTree(context, x2, y2, angle - value, depth - 1, delay * 1.2);
+		// drawTree(context, x2, y2, angle + value, depth - 1, delay * 1.2);
+		
 
 		drawTree(context, x2, y2, angle - random(15, 20), depth - 1, delay * 1.2);
 		drawTree(context, x2, y2, angle + random(15, 20), depth - 1, delay * 1.2);
@@ -73,7 +92,7 @@ function drawTree(context, x1, y1, angle, depth, delay){
 function drawLine(context, x1, y1, x2, y2, thickness, color){
 	context.fillStyle   = '#000';
 	// context.strokeStyle = 'rgb(120, 80, 54)'; // brown
-	context.strokeStyle = "#" + hex;		
+	context.strokeStyle = '#' + hex;		
 
 	context.lineWidth = thickness;
 	context.beginPath();
@@ -106,7 +125,7 @@ function random(min, max){
 // draw tree on mouse click
 $("#canvas").on("click", draw);
 
-// save image as base64 string
+// save image as base64 string, 
 // submit POST request to '/save' route in controller.py
 // alert user image has saved
 $("#save").on("click", function(evt){
@@ -116,7 +135,28 @@ $("#save").on("click", function(evt){
 			alert("Saved!");
 			});
 });
+
 // end create tree
+
+
+// twitter button
+!function(d,s,id) {
+	var js,fjs=d.getElementsByTagName(s)[0],
+		p=/^http:/.test(d.location)?'http':'https';
+	if (!d.getElementById(id)) {
+		js=d.createElement(s);
+		js.id=id;
+		js.src=p+'://platform.twitter.com/widgets.js';
+		fjs.parentNode.insertBefore(js,fjs);
+	}
+}
+(document, 'script', 'twitter-wjs');
+
+
+
+
+
+
 
 
 // TODO: Model for form to pop up on 'save' to get more user info. Use ajax.
@@ -135,16 +175,4 @@ $("#save").on("click", function(evt){
 // 			});
 // }
 
-//set min and max values for slider
-// $( ".selector" ).slider({
-//   min: 0
-// });
-
-// $( ".selector" ).slider({
-//   max: 16
-// });
-
-// var slider_value = $( ".selector" ).slider( "value" );
-
-// console.log(slider_value);
 
