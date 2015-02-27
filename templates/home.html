@@ -36,53 +36,34 @@
   #green .ui-slider-handle { border-color: #8ae234; }
   #blue .ui-slider-range { background: #729fcf; }
   #blue .ui-slider-handle { border-color: #729fcf; }
-  </style>
-<!-- 
-  <script>
-  function hexFromRGB(r, g, b) {
-    var hex = [
-      r.toString( 16 ),
-      g.toString( 16 ),
-      b.toString( 16 )
-    ];
-    $.each( hex, function( nr, val ) {
-      if ( val.length === 1 ) {
-        hex[ nr ] = "0" + val;
-      }
-    });
-    console.log(hex);
-    //returns hex values for red, green, and blue sliders
-    return hex.join( "" ).toUpperCase();
-    
-  }
-  function refreshSwatch() {
-    var red = $( "#red" ).slider( "value" ),
-      green = $( "#green" ).slider( "value" ),
-      blue = $( "#blue" ).slider( "value" ),
-      hex = hexFromRGB( red, green, blue );
-    $( "#swatch" ).css( "background-color", "#" + hex );
-  }
-  $(function() {
-    $( "#red, #green, #blue" ).slider({
-      orientation: "horizontal",
-      range: "min",
-      max: 255,
-      value: 127,
-      slide: refreshSwatch,
-      change: refreshSwatch
-    });
-    $( "#red" ).slider( "value", 255 );
-    $( "#green" ).slider( "value", 140 );
-    $( "#blue" ).slider( "value", 60 );
-  });
-  </script>
- -->
+</style>
+
 <div id="red"></div>
 <div id="green"></div>
 <div id="blue"></div>
 
 <div id="swatch" class="ui-widget-content ui-corner-all"></div>
 <!--  end color picker -->
+
+<br>
+
+<!-- numeric value slider   -->
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+<script>
+	//TODO: Move to js file and pass value as parameter to drawline function.
+	// initialize slider
+	$(function() {
+		$( "#slider" ).slider({max: 10, min: 0, value: 5})
+		$( "#slider" ).on( "slide", function( event, ui ) {
+			value = ui.value;
+			console.log(value);
+		} );
+	});
+</script>
+<div id="slider"></div>
+<!-- end numeric value slider -->
 
 <br>
 
@@ -94,11 +75,23 @@
 <!--FIXME: Make sure this can actually send mail. -->
 <a href="mailto:">Send Email</a>
 
-
+<!-- TODO: Include link to unique image. -->
 <!-- Q: Move JS to draw_to_canvas.js? -->
 <!-- Twitter button -->
-<a href="https://twitter.com/share" class="twitter-share-button" data-count="none">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<a href="https://twitter.com/share" class="twitter-share-button" data-text="I made a thing! Check it out:" data-count="none" data-hashtags="fractalart">Tweet</a>
+<script>
+	!function(d,s,id){
+		var js,fjs=d.getElementsByTagName(s)[0],
+			p=/^http:/.test(d.location)?'http':'https';
+		if(!d.getElementById(id)){
+			js=d.createElement(s);
+			js.id=id;
+			js.src=p+'://platform.twitter.com/widgets.js';
+			fjs.parentNode.insertBefore(js,fjs);
+		}
+	}
+	(document, 'script', 'twitter-wjs');
+</script>
 <!-- end Twitter button -->
 
 

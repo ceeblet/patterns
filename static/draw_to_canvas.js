@@ -1,21 +1,18 @@
-//var hex;
-//console.log(hex);
-
 // color picker
 function hexFromRGB(r, g, b) {
-	var hex1 = [
+	var rgb_hex = [
 	  r.toString( 16 ),
 	  g.toString( 16 ),
 	  b.toString( 16 )
 	];
-	$.each( hex1, function( nr, val ) {
+	$.each( rgb_hex, function( nr, val ) {
 	  if ( val.length === 1 ) {
-	    hex1[ nr ] = "0" + val;
+	    rgb_hex[ nr ] = "0" + val;
 	  }
 	});
 	
 	//returns hex values for red, green, and blue sliders
-	return hex1.join( "" ).toUpperCase();
+	return rgb_hex.join( "" ).toUpperCase();
 	}
 
 function refreshSwatch() {
