@@ -69,20 +69,61 @@ def save_img():
 	# Access secret keys
 	AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
 	AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
-    
+
 	# Q: should I not be doing this every time?
 	# Create a new bucket
 	bucket = s3.create_bucket('fractal-art')
 
+	fp = '/Users/sarafalkoff/fractal-art/static/img_uploads/9ba91c79-312a-4f58-b040-2f92b34a1615.png'
+
+	file_1 = open(fp)
+	img_1 = file_1.read()
+
 
 	# Create a new key/value pair
-	key = bucket.new_key('filename2_here.txt')
-	key.set_contents_from_string("Hello World!")
+	key = bucket.new_key("Test_Img.png")
+	key.set_contents_from_string(img_1)
 	# key.set_contents_from_file
 
 	# Retrieve the contents of 'mykey'
 	print key.get_contents_as_string()
 	return 'successful upload'
+
+
+# import boto
+# import cStringIO
+# import urllib
+# import Image
+
+# #Retrieve our source image from a URL
+# fp = urllib.urlopen('http://example.com/test.png')
+
+# #Load the URL data into an image
+# img = cStringIO.StringIO(fp.read())
+# im = Image.open(img)
+
+# #Resize the image
+# im2 = im.resize((500, 100), Image.NEAREST)  
+
+# #NOTE, we're saving the image into a cStringIO object to avoid writing to disk
+# out_im2 = cStringIO.StringIO()
+# #You MUST specify the file type because there is no file name to discern it from
+# im2.save(out_im2, 'PNG')
+
+# #Now we connect to our s3 bucket and upload from memory
+# #credentials stored in environment AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY
+# conn = boto.connect_s3()
+
+# #Connect to bucket and create key
+# b = conn.get_bucket('example')
+# k = b.new_key('example.png')
+
+# #Note we're setting contents from the in-memory string provided by cStringIO
+# k.set_contents_from_string(out_im2.getvalue())
+
+
+
+
 
 
  
