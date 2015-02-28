@@ -50,13 +50,23 @@ def save_img():
 
 	decoded_img = decode_img(b64data)
 
+	path = 'https://s3.amazonaws.com/fractal-art/'
+
+	# TODO: UUID collision avoidence 
 	filename = str(uuid.uuid4()) + '.png'
+
+	fullpath = os.path.join(path, filename)
 
 	# create a new key/value pair
 	key = bucket.new_key(filename)
 	key.set_contents_from_string(decoded_img)
 
+	img = Image(fullpath, filename)
+	
+	img.save()
+
 	return 'successful upload'
+
 
 # saves images to file system on disk
 # @app.route('/save', methods=['POST'])

@@ -49,7 +49,7 @@ class Image(Base):
     __tablename__= 'images'
     id = Column(Integer, primary_key = True)
     user_id = Column(Integer, ForeignKey('users.id'))
-    filepath = Column(String(50), nullable = False)
+    filepath = Column(String(200), nullable = False) 
     filename = Column(String(100), nullable = True)
 
     user = relationship('User', backref = backref('images', order_by = id))

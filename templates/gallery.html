@@ -9,11 +9,13 @@
 
 {% for image in images %}
 
+
 </div id="gallary-display">
 	<figure>
-	<img src = "/static/img_uploads/{{image.filename}}" alt="{{image.filename}}">
+	<img src = "https://s3.amazonaws.com/fractal-art/{{image.filename}}" alt="{{image.filename}}">
 	</figure>
 </div>
+
 
 {% endfor %}
 
