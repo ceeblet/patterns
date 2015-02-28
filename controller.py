@@ -32,6 +32,7 @@ def gallery():
 	return render_template('gallery.html', images = images)
 
 
+# TOD0: s3 does not care about format for data -- check to see if decoding image is necessary
 @app.route('/save', methods=['POST'])
 def save_img():
 	'''Saves user created image to database and s3'''
@@ -68,10 +69,13 @@ def save_img():
 	key = bucket.new_key(filename)
 	key.set_contents_from_string(decoded_img)
 
+	# grant everyone read access so image will be available for public display
+	key.set_acl('public-read')
+
 	# instantiate instance of Image class
 	img = Image(fullpath, filename)
 	
-	# save image to database
+	# save image details to database
 	img.save()
 
 	return 'successful upload'
