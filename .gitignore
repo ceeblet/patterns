@@ -8,4 +8,4 @@ image_uploads/*.png
 
 *.pyc
 
-keys.boto
+s3_keys.sh
