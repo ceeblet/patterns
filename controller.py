@@ -11,30 +11,34 @@ import base64, os, uuid, boto
 
 app = Flask(__name__)
 
+
 # TODO: hide this  
 app.secret_key = 'fU0Og5yop7EddZQOGUE$FMENpdw1'
 
 
 @app.route('/home')
 def home():
+    
     return render_template('home.html')
 
 
 @app.route('/about')
 def about():
+    
     return render_template('about.html')
 
 
 @app.route('/gallery')
 def gallery():
-	# a list of image objects
-	images = Image.query.limit(15).all()
+	
+	images = Image.query.limit(15).all() # a list of image objects
+	
 	return render_template('gallery.html', images = images)
 
 
-# TOD0: s3 does not care about format for data -- check to see if decoding image is necessary
 @app.route('/save', methods=['POST'])
 def save_img():
+	
 	'''Saves user created image to database and s3'''
 	
 	boto.set_stream_logger('boto')
@@ -82,6 +86,10 @@ def save_img():
 
 
 
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
 
 # saves images to file system on disk
 # @app.route('/save', methods=['POST'])
@@ -120,8 +128,3 @@ def save_img():
 # pass
 
 	
-
-
-
-if __name__ == '__main__':
-    app.run(debug=True)

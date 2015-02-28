@@ -2,7 +2,7 @@
 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
-from sqlalchemy import Column, Integer, String, BLOB, ForeignKey
+from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import sessionmaker, scoped_session, relationship, backref
 
 
