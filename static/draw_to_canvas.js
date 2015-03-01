@@ -64,31 +64,31 @@ function draw(){
 	if (canvas.getContext){
 		var ctx = canvas.getContext('2d');
 		ctx.clearRect(0, 0, 600, 600); // clear canvas
-		drawTree(ctx, 300, 600, -90, branchLength, 9, 1); // initiate chain of recursive calls
+		drawTree(ctx, 300, 600, -90,9, 1); // initiate chain of recursive calls
 	}else{
 		alert("HTML5 Canvas isn't supported by your browser!");
 	}
 }
 
-function drawTree(context, x1, y1, angle, branchLength, depth, delay){
-//function drawTree(context, x1, y1, angle, depth, delay){
-	//var BRANCH_LENGTH = random(0, 16);
+//function drawTree(context, x1, y1, angle, branchLength, depth, delay){
+function drawTree(context, x1, y1, angle, depth, delay){
+	var BRANCH_LENGTH = random(0, 16);
 	
 	if (depth != 0){
-		// var x2 = x1 + (cos(angle) * depth * BRANCH_LENGTH);
-		// var y2 = y1 + (sin(angle) * depth * BRANCH_LENGTH);
-		var x2 = x1 + (cos(angle) * depth * branchLength);
-		var y2 = y1 + (sin(angle) * depth * branchLength);
+		var x2 = x1 + (cos(angle) * depth * BRANCH_LENGTH);
+		var y2 = y1 + (sin(angle) * depth * BRANCH_LENGTH);
+		// var x2 = x1 + (cos(angle) * depth * branchLength);
+		// var y2 = y1 + (sin(angle) * depth * branchLength);
 	
 		window.setTimeout(function(){
 			drawLine(context, x1, y1, x2, y2, depth, hex);
 		}, 100 * delay);
 
 
-		// drawTree(context, x2, y2, angle - random(15, 20), depth - 1, delay * 1.2);
-		// drawTree(context, x2, y2, angle + random(15, 20), depth - 1, delay * 1.2);
-		drawTree(context, x2, y2, angle - branchLength, branchLength, depth - 1, delay * 1.2);
-		drawTree(context, x2, y2, angle + branchLength, branchLength, depth - 1, delay * 1.2);
+		drawTree(context, x2, y2, angle - random(15, 20), depth - 1, delay * 1.2);
+		drawTree(context, x2, y2, angle + random(15, 20), depth - 1, delay * 1.2);
+		// drawTree(context, x2, y2, angle - branchLength, branchLength, depth - 1, delay * 1.2);
+		// drawTree(context, x2, y2, angle + branchLength, branchLength, depth - 1, delay * 1.2);
 		
 	}
 }
