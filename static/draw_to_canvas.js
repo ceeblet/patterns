@@ -142,18 +142,6 @@ $("#save").on("click", function(evt){
 // end create tree
 
 
-// twitter button
-!function(d,s,id) {
-	var js,fjs=d.getElementsByTagName(s)[0],
-		p=/^http:/.test(d.location)?'http':'https';
-	if (!d.getElementById(id)) {
-		js=d.createElement(s);
-		js.id=id;
-		js.src=p+'://platform.twitter.com/widgets.js';
-		fjs.parentNode.insertBefore(js,fjs);
-	}
-}
-(document, 'script', 'twitter-wjs');
 
 
 
@@ -162,7 +150,8 @@ $("#save").on("click", function(evt){
 
 
 
-// TODO: Model for form to pop up on 'save' to get more user info. Use ajax.
+
+// Model for form to pop up on 'save' to get more user info. Use ajax.
 // $("#save").on("click", 
 // 	info = promptUserForInfo();
 // 	sendPictureToServer(info);

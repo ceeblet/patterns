@@ -2,7 +2,7 @@
 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import create_engine
-from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy import Column, Integer, String, DateTime, ForeignKey
 from sqlalchemy.orm import sessionmaker, scoped_session, relationship, backref
 
 
@@ -44,13 +44,15 @@ class User(Base):
     def __repr__(self):
         return '<User: id=%r first name=%s last name=%s email=%s>' % (self.id, self.first_name, self.last_name, self.email)
 
-#TODO: add created_at datetime to table
+
+#TODO: Make sure DateTime is capturing created at time
 class Image(Base):
     __tablename__= 'images'
     id = Column(Integer, primary_key = True)
     user_id = Column(Integer, ForeignKey('users.id'))
     filepath = Column(String(200), nullable = False) # a url
     filename = Column(String(100), nullable = True)
+    created_at = Column(DateTime, nullable = True)
 
     user = relationship('User', backref = backref('images', order_by = id))
 
@@ -63,7 +65,7 @@ class Image(Base):
         db_session.commit()
 
     def __repr__(self):
-        return '<Image: id=%r user_id=%r filepath=%s filename=%s>' % (self.id, self.user_id, self.filepath, self.filename)
+        return '<Image: id=%r user_id=%r filepath=%s filename=%s created_at=%s>' % (self.id, self.user_id, self.filepath, self.filename, self.created_at)
 
 
 # Q: Remove once DB established?

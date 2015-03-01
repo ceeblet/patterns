@@ -74,7 +74,7 @@ def save_img():
 	key.set_contents_from_string(decoded_img)
 
 	# grant everyone read access so image will be available for public display
-	key.set_acl('public-read')
+	key.set_acl('public-read-write')
 
 	# instantiate instance of Image class
 	img = Image(fullpath, filename)
@@ -91,40 +91,5 @@ if __name__ == '__main__':
 
 
 
-# saves images to file system on disk
-# @app.route('/save', methods=['POST'])
-# def save_img():
-# 	# get dataURL from draw_to_canvas.js and convert from unicode to string
-# 	# split dataURL and ignore leading 'data:image/png;base64'
-# 	_, b64data = str(request.form.get('data')).split(',')
-
-# 	# decode base64 data string ensuring the length is a multiple of 4 bytes
-# 	decoded_img = decode_img(b64data)
-
-# 	# TODO: UUID collision avoidence 
-# 	# create random UUID, convert to string and add .png file extension
-# 	filename = str(uuid.uuid4()) + '.png'
-
-# 	path = '/Users/sarafalkoff/fractal-art/static/img_uploads'
-# 	fullpath = os.path.join(path, filename)
-	
-# 	img_file = open(fullpath, 'wb')
-	
-# 	for line in decoded_img:
-# 		img_file.write(line)
-	
-# 	img_file.close()
-
-# 	img = Image(fullpath, filename)
-	
-# 	img.save()
-
-# 	return "Image saved!"
-
-
-
-# @app.route('/save', methods=['POST'])
-# def tweet_img():
-# pass
 
 	
