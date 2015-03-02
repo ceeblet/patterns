@@ -1,6 +1,13 @@
+//TODO: refactor to avoid using these globals!
+
 // global variables
 var branchLength;
 var hex;
+
+// var xCord;
+// var yCord;
+// var cordDiff;
+
 
 // stuff for color picker slider
 function hexFromRGB(r, g, b) {
@@ -126,8 +133,21 @@ function random(min, max){
 	return min + Math.floor(Math.random()*(max+1-min));
 }
 
-// draw tree on mouse click
-$("#canvas").on("click", draw);
+// // draw tree on mouse click
+// $("#canvas").on("click", draw);
+
+// draw tree when mouse moves over canvas
+$("#canvas").on("mouseover", draw);
+
+
+//gets the x and y coordinates of mouse (for entire page or just canvas?)
+$("#canvas" ).mousemove(function(event) {
+ 	var xCord = event.clientX;
+  	var yCord = event.clientY;
+	cordDiff = Math.abs(xCord - yCord);
+  console.log ("x= ", xCord, "y= ", yCord, "Diff=", cordDiff);
+});
+
 
 // save image as base64 string, 
 // submit POST request to '/save' route in controller.py
