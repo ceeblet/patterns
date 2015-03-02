@@ -4,37 +4,35 @@
 
 {% block body %}
 
-<br>
-<br>
-<canvas id="canvas" width="600" height="600"></canvas>
-<br>
-<br>
+<br><br><br>
 
-<!-- color picker -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-<div id="red"></div>
-<div id="green"></div>
-<div id="blue"></div>
-<div id="swatch" class="ui-widget-content ui-corner-all"></div>
-<!-- end color picker -->
+<div class="row">
+  <div class="col-sm-6">
+	<canvas id="canvas" width="700" height="600"></canvas>
+  </div>
+	<div class="col-sm-6">
+		<!-- color picker -->
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+		<div id="red"></div>
+		<div id="green"></div>
+		<div id="blue"></div>
+		<div id="swatch" class="ui-widget-content ui-corner-all"></div>
+		<!-- end color picker -->
 
-<br>
+		<!-- numeric value slider   -->
+		<!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+		<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+		<div id="slider"></div> -->
+		<!-- end numeric value slider -->
 
-<!-- numeric value slider   -->
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-<div id="slider"></div>
-<!-- end numeric value slider -->
-
-<br>
-
-<!-- save button -->
-<button type="submit" value="submit" name="save" id="save">Save</button>
-<!-- end save button -->
-
+		<!-- save button -->
+		<button type="submit" value="submit" name="save" id="save">Save</button>
+		<!-- end save button -->
+	</div>
+</div>
 
 <!-- Get Javascript from draw_to_canvas.js -->
 <script type="text/javascript" src="../static/draw_to_canvas.js"></script>

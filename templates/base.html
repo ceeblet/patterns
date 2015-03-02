@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
     <head>  
         <link rel="stylesheet" href="../static/bootstrap/css/bootstrap.min.css">
         <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
@@ -12,18 +12,19 @@
     </head>
     <body>
         <div class = "container-fluid">
-        <!-- TODO: Make responsive. Add rows and columns to hold content. -->
+        <!-- TODO: Make responsive. Add rows and columns to hold content. --> 
             <br>
             <ul class = "navigation">
                 <li><a href="{{url_for('home')}}">Home</a></li> /
                 <li><a href="{{url_for('about')}}">About</a></li> /
                 <li><a href="{{url_for('gallery')}}">Gallery</a></li> 
            </ul>
-
+   
             {% block body %}
 
+            
             {% endblock %}
-
+                  
         </div>
     </body>
 </html>

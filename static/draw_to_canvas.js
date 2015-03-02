@@ -48,14 +48,14 @@ $(function() {
 // end color picker slider
 
 
-// branch length slider
-$(function() {
-	$("#slider").slider({max: 16, min: 0, value: 8});
-	$("#slider").on("slide", function(event, ui) {
-		branchLength = ui.value;
-	});
-});
-// end branch length slider
+// // branch length slider
+// $(function() {
+// 	$("#slider").slider({max: 16, min: 0, value: 8});
+// 	$("#slider").on("slide", function(event, ui) {
+// 		branchLength = ui.value;
+// 	});
+// });
+// // end branch length slider
 
 
 // create tree
@@ -63,8 +63,8 @@ function draw(){
 	var canvas = document.getElementById('canvas');
 	if (canvas.getContext){
 		var ctx = canvas.getContext('2d');
-		ctx.clearRect(0, 0, 600, 600); // clear canvas
-		drawTree(ctx, 300, 600, -90,9, 1); // initiate chain of recursive calls
+		ctx.clearRect(0, 0, 700, 600); // clear canvas
+		drawTree(ctx, 350, 600, -90, 9, 1); // initiate chain of recursive calls
 	}else{
 		alert("HTML5 Canvas isn't supported by your browser!");
 	}
@@ -72,7 +72,7 @@ function draw(){
 
 //function drawTree(context, x1, y1, angle, branchLength, depth, delay){
 function drawTree(context, x1, y1, angle, depth, delay){
-	var BRANCH_LENGTH = random(0, 16);
+	var BRANCH_LENGTH = random(0, 18);
 	
 	if (depth != 0){
 		var x2 = x1 + (cos(angle) * depth * BRANCH_LENGTH);
