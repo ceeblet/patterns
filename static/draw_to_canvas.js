@@ -72,9 +72,9 @@ $(function() {
 
 // create tree
 //pass in hex there - when slider moved, call draw with new hex
-function draw(branchLength){
+function draw(branchLength, delay){
 		ctx.clearRect(0, 0, 700, 600); // clear canvas
-		drawTree(ctx, 350, 600, -90, branchLength, 9, 0); // initiate chain of recursive calls
+		drawTree(ctx, 350, 600, -90, branchLength, 9, delay); // initiate chain of recursive calls
 	
 }
 
@@ -136,22 +136,23 @@ function random(min, max){
 }
 
 // draw tree on mouse click
-// $("#canvas").on("click", draw(10, hex, 1));
+$("#canvas").on("click", function(event) {
+	draw(12, 1);
 
-// draw tree when mouse moves over canvas
+});
+	
+
+//draw tree when mouse moves over canvas
 $("#canvas").on("mouseover", draw);
 
 
 //gets the x and y coordinates of mouse (for entire page or just canvas?)
 $("#canvas" ).mousemove(function(event) {
 	if (Date.now() % 5 == 0){
-			var xCord = event.clientX;
-		 	var yCord = event.clientY;
-		 	draw(yCord/25);
+		var xCord = event.clientX;
+	 	var yCord = event.clientY;
+	 	draw(yCord/25, 0);
 	}
- 		
-  // console.log ("x=", xCord, "y=", yCord);
-  // console.log("xcord=", xcoordintes, "ycord=", ycoordinates);
 });
 
 
