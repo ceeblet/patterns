@@ -3,11 +3,7 @@
 // global variables
 var branchLength;
 var hex;
-
-// var xCord;
-// var yCord;
-// var cordDiff;
-
+var ctx;
 
 // stuff for color picker slider
 function hexFromRGB(r, g, b) {
@@ -64,39 +60,45 @@ $(function() {
 // });
 // // end branch length slider
 
-
-// create tree
-function draw(){
+$(function() { 
 	var canvas = document.getElementById('canvas');
 	if (canvas.getContext){
-		var ctx = canvas.getContext('2d');
-		ctx.clearRect(0, 0, 700, 600); // clear canvas
-		drawTree(ctx, 350, 600, -90, 9, 1); // initiate chain of recursive calls
+		ctx = canvas.getContext('2d');
 	}else{
 		alert("HTML5 Canvas isn't supported by your browser!");
 	}
+});
+
+
+// create tree
+//pass in hex there - when slider moved, call draw with new hex
+function draw(branchLength){
+		ctx.clearRect(0, 0, 700, 600); // clear canvas
+		drawTree(ctx, 350, 600, -90, branchLength, 9, 0); // initiate chain of recursive calls
+	
 }
 
-//function drawTree(context, x1, y1, angle, branchLength, depth, delay){
-function drawTree(context, x1, y1, angle, depth, delay){
-	var BRANCH_LENGTH = random(0, 18);
+function drawTree(context, x1, y1, angle, branchLength, depth, delay){
+//function drawTree(context, x1, y1, angle, depth, delay){
+	//var BRANCH_LENGTH = random(0, 18);
 	
 	if (depth != 0){
-		var x2 = x1 + (cos(angle) * depth * BRANCH_LENGTH);
-		var y2 = y1 + (sin(angle) * depth * BRANCH_LENGTH);
-		// var x2 = x1 + (cos(angle) * depth * branchLength);
-		// var y2 = y1 + (sin(angle) * depth * branchLength);
-	
+		//var x2 = x1 + (cos(angle) * depth * BRANCH_LENGTH);
+		//var y2 = y1 + (sin(angle) * depth * BRANCH_LENGTH);
+
+		var x2 = x1 + (cos(angle) * depth * branchLength);
+		var y2 = y1 + (sin(angle) * depth * branchLength);
+		
 		window.setTimeout(function(){
 			drawLine(context, x1, y1, x2, y2, depth, hex);
 		}, 100 * delay);
+	
+		// subtract x constant from both sides to tilt one way, or add to both sides for the other
+		// drawTree(context, x2, y2, angle - random(15, 20), depth - 1, delay * 1.2);
+		// drawTree(context, x2, y2, angle + random(15, 20), depth - 1, delay * 1.2);
+		drawTree(context, x2, y2, angle - branchLength, branchLength, depth - 1, delay * 1.2);
+		drawTree(context, x2, y2, angle + branchLength, branchLength, depth - 1, delay * 1.2);
 
-
-		drawTree(context, x2, y2, angle - random(15, 20), depth - 1, delay * 1.2);
-		drawTree(context, x2, y2, angle + random(15, 20), depth - 1, delay * 1.2);
-		// drawTree(context, x2, y2, angle - branchLength, branchLength, depth - 1, delay * 1.2);
-		// drawTree(context, x2, y2, angle + branchLength, branchLength, depth - 1, delay * 1.2);
-		
 	}
 }
 
@@ -133,8 +135,8 @@ function random(min, max){
 	return min + Math.floor(Math.random()*(max+1-min));
 }
 
-// // draw tree on mouse click
-// $("#canvas").on("click", draw);
+// draw tree on mouse click
+// $("#canvas").on("click", draw(10, hex, 1));
 
 // draw tree when mouse moves over canvas
 $("#canvas").on("mouseover", draw);
@@ -142,10 +144,14 @@ $("#canvas").on("mouseover", draw);
 
 //gets the x and y coordinates of mouse (for entire page or just canvas?)
 $("#canvas" ).mousemove(function(event) {
- 	var xCord = event.clientX;
-  	var yCord = event.clientY;
-	cordDiff = Math.abs(xCord - yCord);
-  console.log ("x= ", xCord, "y= ", yCord, "Diff=", cordDiff);
+	if (Date.now() % 5 == 0){
+			var xCord = event.clientX;
+		 	var yCord = event.clientY;
+		 	draw(yCord/25);
+	}
+ 		
+  // console.log ("x=", xCord, "y=", yCord);
+  // console.log("xcord=", xcoordintes, "ycord=", ycoordinates);
 });
 
 
