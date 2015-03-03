@@ -32,6 +32,7 @@ function refreshSwatch() {
 
 	// sets swatch backbround to user selected color 
 	$( "#swatch" ).css( "background-color", "#" + hex );
+
 }
 
 //document ready event prevents jQuery from loading before document has loaded
@@ -48,7 +49,7 @@ $(function() {
 	$( "#green" ).slider( "value", 140 );
 	$( "#blue" ).slider( "value", 60 );
 });
-// end color picker slider
+//end color picker slider
 
 
 // // branch length slider
@@ -72,7 +73,7 @@ $(function() {
 
 // create tree
 //pass in hex there - when slider moved, call draw with new hex
-function draw(branchLength, delay){
+function draw(branchLength, delay, hex){
 		ctx.clearRect(0, 0, 700, 600); // clear canvas
 		drawTree(ctx, 350, 600, -90, branchLength, 9, delay); // initiate chain of recursive calls
 	
@@ -135,19 +136,23 @@ function random(min, max){
 	return min + Math.floor(Math.random()*(max+1-min));
 }
 
+
 // draw tree on mouse click with delay so it appears to grow
 $("#canvas").on("click", function(event) {
-	draw(12, 1);
+	draw(12, 1, hex);
 	// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
 	$("#canvas" ).mousemove(function(event) {
 		if (Date.now() % 5 == 0){
 			var xCord = event.clientX;
 		 	var yCord = event.clientY;
-		 	draw(yCord/25, 0);
+		 	draw(yCord/25, 0, hex);
+		 	//draw(xCord/25, 0, hex);
 		}
 	});
 });
-	
+
+// end create tree
+
 
 // save image as base64 string, 
 // submit POST request to '/save' route in controller.py
@@ -159,8 +164,12 @@ $("#save").on("click", function(evt){
 			alert("Saved!");
 			});
 });
-// end create tree
 
+
+// clear canvas on mouse click
+$("#clearCanvas").on("click", function(evt) {
+	ctx.clearRect(0, 0, 700, 600);
+});
 
 
 
