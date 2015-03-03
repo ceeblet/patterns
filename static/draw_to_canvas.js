@@ -1,9 +1,12 @@
 //TODO: refactor to avoid using these globals!
 
 // global variables
-var branchLength;
+//var branchLength;
+var branchTilt;
 var hex;
 var ctx;
+
+branchTilt = 10;
 
 // stuff for color picker slider
 function hexFromRGB(r, g, b) {
@@ -72,13 +75,13 @@ $(function() {
 
 
 // create tree
-function draw(branchLength, delay, hex){
+function draw(branchTilt, branchLength, delay, hex){
 		ctx.clearRect(0, 0, 700, 600); // clear canvas
-		drawTree(ctx, 350, 600, -90, branchLength, 9, delay); // initiate chain of recursive calls
+		drawTree(ctx, 350, 600, -90, branchTilt, branchLength, 9, delay); // initiate chain of recursive calls
 	
 }
 
-function drawTree(context, x1, y1, angle, branchLength, depth, delay){
+function drawTree(context, x1, y1, angle, branchTilt, branchLength, depth, delay){
 //function drawTree(context, x1, y1, angle, depth, delay){
 	//var BRANCH_LENGTH = random(0, 18);
 	
@@ -88,7 +91,6 @@ function drawTree(context, x1, y1, angle, branchLength, depth, delay){
 
 		var x2 = x1 + (cos(angle) * depth * branchLength);
 		var y2 = y1 + (sin(angle) * depth * branchLength);
-		
 		window.setTimeout(function(){
 			drawLine(context, x1, y1, x2, y2, depth, hex);
 		}, 100 * delay);
@@ -98,8 +100,8 @@ function drawTree(context, x1, y1, angle, branchLength, depth, delay){
 		// subtract x constant from both sides to tilt one way, or add to both sides for the other
 		// drawTree(context, x2, y2, angle - random(15, 20), depth - 1, delay * 1.2);
 		// drawTree(context, x2, y2, angle + random(15, 20), depth - 1, delay * 1.2);
-		drawTree(context, x2, y2, angle + branchLength, branchLength, depth - 1, delay * 1.2);
-		drawTree(context, x2, y2, angle - branchLength, branchLength, depth - 1, delay * 1.2);
+		drawTree(context, x2, y2, angle + branchTilt, branchTilt, branchLength, depth - 1, delay * 1.2);
+		drawTree(context, x2, y2, angle - branchTilt, branchTilt, branchLength, depth - 1, delay * 1.2);
 
 	}
 }
@@ -128,7 +130,6 @@ function sin (angle) {
 	return Math.sin(deg_to_rad(angle));
 }
 
-// FIXME: Rename and change to camelCase
 function deg_to_rad(angle){
 	return angle*(Math.PI/180.0);
 }
@@ -143,13 +144,13 @@ var clicked = false;
 $("#canvas").on("click", function(event) {
 	clicked = !clicked;
 	if (clicked) {
-		draw(12, 1, hex);
+		draw(5, 12, 1, hex); //change the first arg to tilt
 	// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
 		$("#canvas" ).mousemove(function(event) {
 			if (Date.now() % 5 == 0){
 				var xCord = event.clientX;
 			 	var yCord = event.clientY;
-			 	draw(yCord/25, 0, hex);
+			 	draw(xCord/30, yCord/52, 0, hex);
 			}
 		});
 	}
