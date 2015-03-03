@@ -72,7 +72,6 @@ $(function() {
 
 
 // create tree
-//pass in hex there - when slider moved, call draw with new hex
 function draw(branchLength, delay, hex){
 		ctx.clearRect(0, 0, 700, 600); // clear canvas
 		drawTree(ctx, 350, 600, -90, branchLength, 9, delay); // initiate chain of recursive calls
@@ -94,11 +93,13 @@ function drawTree(context, x1, y1, angle, branchLength, depth, delay){
 			drawLine(context, x1, y1, x2, y2, depth, hex);
 		}, 100 * delay);
 	
+		//angle - branchLength
+		//angle + branchLength
 		// subtract x constant from both sides to tilt one way, or add to both sides for the other
 		// drawTree(context, x2, y2, angle - random(15, 20), depth - 1, delay * 1.2);
 		// drawTree(context, x2, y2, angle + random(15, 20), depth - 1, delay * 1.2);
-		drawTree(context, x2, y2, angle - branchLength, branchLength, depth - 1, delay * 1.2);
 		drawTree(context, x2, y2, angle + branchLength, branchLength, depth - 1, delay * 1.2);
+		drawTree(context, x2, y2, angle - branchLength, branchLength, depth - 1, delay * 1.2);
 
 	}
 }
@@ -138,20 +139,35 @@ function random(min, max){
 
 
 // draw tree on mouse click with delay so it appears to grow
+var clicked = false;
 $("#canvas").on("click", function(event) {
-	draw(12, 1, hex);
+	clicked = !clicked;
+	if (clicked) {
+		draw(12, 1, hex);
 	// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
-	$("#canvas" ).mousemove(function(event) {
-		if (Date.now() % 5 == 0){
-			var xCord = event.clientX;
-		 	var yCord = event.clientY;
-		 	draw(yCord/25, 0, hex);
-		 	//draw(xCord/25, 0, hex);
-		}
-	});
+		$("#canvas" ).mousemove(function(event) {
+			if (Date.now() % 5 == 0){
+				var xCord = event.clientX;
+			 	var yCord = event.clientY;
+			 	draw(yCord/25, 0, hex);
+			}
+		});
+	}
+	//turn off mouse movement
+	if (!clicked) {
+		$( "#canvas").unbind( "mousemove" );
+	}
+
 });
 
 // end create tree
+
+
+// clear canvas on mouse click
+$("#clearCanvas").on("click", function(evt) {
+	ctx.clearRect(0, 0, 700, 600);
+	$( "#canvas").unbind( "mousemove" );
+});
 
 
 // save image as base64 string, 
@@ -164,14 +180,6 @@ $("#save").on("click", function(evt){
 			alert("Saved!");
 			});
 });
-
-
-// clear canvas on mouse click
-$("#clearCanvas").on("click", function(evt) {
-	ctx.clearRect(0, 0, 700, 600);
-});
-
-
 
 
 
