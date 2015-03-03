@@ -135,26 +135,19 @@ function random(min, max){
 	return min + Math.floor(Math.random()*(max+1-min));
 }
 
-// draw tree on mouse click
+// draw tree on mouse click with delay so it appears to grow
 $("#canvas").on("click", function(event) {
 	draw(12, 1);
-
+	// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
+	$("#canvas" ).mousemove(function(event) {
+		if (Date.now() % 5 == 0){
+			var xCord = event.clientX;
+		 	var yCord = event.clientY;
+		 	draw(yCord/25, 0);
+		}
+	});
 });
 	
-
-//draw tree when mouse moves over canvas
-$("#canvas").on("mouseover", draw);
-
-
-//gets the x and y coordinates of mouse (for entire page or just canvas?)
-$("#canvas" ).mousemove(function(event) {
-	if (Date.now() % 5 == 0){
-		var xCord = event.clientX;
-	 	var yCord = event.clientY;
-	 	draw(yCord/25, 0);
-	}
-});
-
 
 // save image as base64 string, 
 // submit POST request to '/save' route in controller.py
