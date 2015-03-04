@@ -1,12 +1,17 @@
 //TODO: refactor to avoid using these globals!
 
 // global variables
-//var branchLength;
-var branchTilt;
 var hex;
 var ctx;
 
-branchTilt = 10;
+// event object
+var treeParams = new Object;
+treeParams["ctx"] = ctx;
+treeParams["hex"] = hex;
+
+console.log(treeParams);
+
+
 
 // stuff for color picker slider
 function hexFromRGB(r, g, b) {
@@ -32,7 +37,7 @@ function refreshSwatch() {
 
 	// creates one hex code with the combined rgb color values
 	hex = hexFromRGB( red, green, blue );
-
+	console.log(treeParams);
 	// sets swatch backbround to user selected color 
 	$( "#swatch" ).css( "background-color", "#" + hex );
 
@@ -75,13 +80,13 @@ $(function() {
 
 
 // create tree
-function draw(branchTilt, branchLength, delay, hex){
+function draw(branchWidth, branchLength, delay, hex){
 		ctx.clearRect(0, 0, 700, 600); // clear canvas
-		drawTree(ctx, 350, 600, -90, branchTilt, branchLength, 9, delay); // initiate chain of recursive calls
+		drawTree(ctx, 350, 600, -90, branchWidth, branchLength, 9, delay); // initiate chain of recursive calls
 	
 }
 
-function drawTree(context, x1, y1, angle, branchTilt, branchLength, depth, delay){
+function drawTree(context, x1, y1, angle, branchWidth, branchLength, depth, delay){
 //function drawTree(context, x1, y1, angle, depth, delay){
 	//var BRANCH_LENGTH = random(0, 18);
 	
@@ -95,20 +100,16 @@ function drawTree(context, x1, y1, angle, branchTilt, branchLength, depth, delay
 			drawLine(context, x1, y1, x2, y2, depth, hex);
 		}, 100 * delay);
 	
-		//angle - branchLength
-		//angle + branchLength
-		// subtract x constant from both sides to tilt one way, or add to both sides for the other
 		// drawTree(context, x2, y2, angle - random(15, 20), depth - 1, delay * 1.2);
 		// drawTree(context, x2, y2, angle + random(15, 20), depth - 1, delay * 1.2);
-		drawTree(context, x2, y2, angle + branchTilt, branchTilt, branchLength, depth - 1, delay * 1.2);
-		drawTree(context, x2, y2, angle - branchTilt, branchTilt, branchLength, depth - 1, delay * 1.2);
+		drawTree(context, x2, y2, angle + branchWidth, branchWidth, branchLength, depth - 1, delay * 1.2);
+		drawTree(context, x2, y2, angle - branchWidth, branchWidth, branchLength, depth - 1, delay * 1.2);
 
 	}
 }
 
 function drawLine(context, x1, y1, x2, y2, thickness, color){
 	context.fillStyle   = '#000';
-	// context.strokeStyle = 'rgb(120, 80, 54)'; // brown
 	context.strokeStyle = '#' + hex;		
 
 	context.lineWidth = thickness;
@@ -138,19 +139,20 @@ function random(min, max){
 	return min + Math.floor(Math.random()*(max+1-min));
 }
 
-
+// TODO: put this inside a function
 // draw tree on mouse click with delay so it appears to grow
 var clicked = false;
 $("#canvas").on("click", function(event) {
 	clicked = !clicked;
 	if (clicked) {
-		draw(5, 12, 1, hex); //change the first arg to tilt
+		draw(20, 12, 1, hex); 
 	// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
 		$("#canvas" ).mousemove(function(event) {
 			if (Date.now() % 5 == 0){
 				var xCord = event.clientX;
 			 	var yCord = event.clientY;
-			 	draw(xCord/30, yCord/52, 0, hex);
+			 	// pass scaled coordinates to draw() as branchWidth and branchLength respectively
+			 	draw(xCord/30, yCord/45, 0, hex);
 			}
 		});
 	}
@@ -164,7 +166,7 @@ $("#canvas").on("click", function(event) {
 // end create tree
 
 
-// clear canvas on mouse click
+// clear canvas on mouse click and unbind mousemove event
 $("#clearCanvas").on("click", function(evt) {
 	ctx.clearRect(0, 0, 700, 600);
 	$( "#canvas").unbind( "mousemove" );
@@ -181,10 +183,6 @@ $("#save").on("click", function(evt){
 			alert("Saved!");
 			});
 });
-
-
-
-
 
 
 

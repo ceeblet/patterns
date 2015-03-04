@@ -1,0 +1,92 @@
+/* Styling */
+
+body {
+    background-color: #1A1A1A;
+}
+
+a:hover {
+	color: #FFFFFF;
+	background-color: #1A1A1A;
+}
+
+nav a {
+	color: #FFFFFF;
+}
+
+nav li {
+	display: inline;
+}
+
+nav {
+	background-color: #1A1A1A;
+	list-style-type: none;
+	font-size: 25px;
+	position: fixed;
+}
+
+#canvas {
+	border: 1px solid white; 
+	background-color: #1A1A1A;
+	padding-left: 0;
+    padding-right: 0;
+    margin-left: 20px;
+    margin-right: auto;
+    display: inline-block;
+}
+
+#save {
+	float: right;
+	margin: 20px;
+}
+
+#clearCanvas {
+	float: right;
+	margin: 0px;
+}
+
+/*#slider {
+	width: 600px; 
+	height: 20px;
+
+}*/
+
+/* color picker */
+ #red, #green, #blue {
+    float: right;
+    clear: right;
+    width: 300px;
+    margin: 15px;
+}
+
+  #swatch {
+    width: 120px;
+    height: 120px;
+    margin-top: 15px;
+    margin-left: 150px;
+    background-image: none;
+}
+
+#red .ui-slider-range { 
+	background: #ef2929; 
+}
+
+#red .ui-slider-handle { 
+	border-color: #ef2929; 
+}
+
+#green .ui-slider-range { 
+	background: #8ae234; 
+}
+
+#green .ui-slider-handle { 
+	border-color: #8ae234; 
+}
+
+#blue .ui-slider-range { 
+	background: #729fcf; 
+}
+
+#blue .ui-slider-handle { 
+	border-color: #729fcf; 
+}
+/* end color picker */
