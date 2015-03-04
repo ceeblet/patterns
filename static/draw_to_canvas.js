@@ -8,19 +8,19 @@ var Tree = {
 	hex: undefined,
 	branchWidth: undefined,
 	branchLength: undefined,
-	draw: function(branchWidth, branchLength, delay, hex) {
+	draw: function(delay) {
 		ctx.clearRect(0, 0, 700, 600); // clear canvas
-		Tree.drawTree(ctx, 350, 600, -90, branchWidth, branchLength, 9, delay); // initiate chain of recursive calls
+		Tree.drawTree(350, 600, -90, 9, delay); // initiate chain of recursive calls
 	},
-	drawTree: function(context, x1, y1, angle, branchWidth, branchLength, depth, delay){
+	drawTree: function(x1, y1, angle, depth, delay){
 		if (depth != 0){
-			var x2 = x1 + (drawMath.cos(angle) * depth * branchLength);
-			var y2 = y1 + (drawMath.sin(angle) * depth * branchLength);
+			var x2 = x1 + (drawMath.cos(angle) * depth * Tree.branchLength);
+			var y2 = y1 + (drawMath.sin(angle) * depth * Tree.branchLength);
 			window.setTimeout(function(){
-				drawLine(context, x1, y1, x2, y2, depth, hex);
+				drawLine(x1, y1, x2, y2, depth); //temporarily using depth as the thickness
 			}, 100 * delay);
-			Tree.drawTree(context, x2, y2, angle + branchWidth, branchWidth, branchLength, depth - 1, delay * 1.2);
-			Tree.drawTree(context, x2, y2, angle - branchWidth, branchWidth, branchLength, depth - 1, delay * 1.2);
+			Tree.drawTree(x2, y2, angle + Tree.branchWidth, depth - 1, delay * 1.2);
+			Tree.drawTree(x2, y2, angle - Tree.branchWidth, depth - 1, delay * 1.2);
 		}
 	}			
 }
@@ -42,13 +42,20 @@ var drawMath = {
 }
 
 
+function drawLine(x1, y1, x2, y2, thickness){
+	ctx.fillStyle   = '#000';
+	ctx.strokeStyle = '#' + Tree.hex;		
 
+	ctx.lineWidth = thickness;
+	ctx.beginPath();
 
+	ctx.moveTo(x1, y1);
+	ctx.lineTo(x2, y2);
 
-
-
-
-
+	ctx.closePath();
+	ctx.stroke();
+	ctx.save();
+}
 
 
 
@@ -88,9 +95,10 @@ function refreshSwatch() {
 
 	// creates one hex code with the combined rgb color values
 	hex = hexFromRGB( red, green, blue );
+
+	Tree.hex = hex; 
 	
-	Tree.hex = hex; //testing
-	Tree.draw(20, 12, 0, hex); //testing
+	Tree.draw(0); 
 
 	// sets swatch backbround to user selected color 
 	$( "#swatch" ).css( "background-color", "#" + hex );
@@ -126,40 +134,22 @@ $(function() {
 
 
 
-function drawLine(context, x1, y1, x2, y2, thickness, color){
-	context.fillStyle   = '#000';
-	context.strokeStyle = '#' + hex;		
-
-	context.lineWidth = thickness;
-	context.beginPath();
-
-	context.moveTo(x1, y1);
-	context.lineTo(x2, y2);
-
-	context.closePath();
-	context.stroke();
-	context.save();
-}
-
-
-
-
 // draw tree on mouse click with delay so it appears to grow
 var clicked = false;
 $("#canvas").on("click", function(event) {
 	clicked = !clicked;
 	if (clicked) {
-		Tree.draw(20, 12, 1, hex); 
+		Tree.draw(1); 
 	// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
 		$("#canvas" ).mousemove(function(event) {
 			if (Date.now() % 5 == 0){
 				var xCord = event.clientX;
 			 	var yCord = event.clientY;
 			
-			 	console.log("hex inside mousemove=", hex); //testing
+			 	Tree.branchWidth = xCord/30;
+			 	Tree.branchLength = yCord/45;
 
-			 	// pass scaled coordinates to draw() as branchWidth and branchLength respectively
-			 	Tree.draw(xCord/30, yCord/45, 0, hex);
+			 	Tree.draw(0);
 			}
 		});
 	}
