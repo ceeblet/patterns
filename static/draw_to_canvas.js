@@ -20,6 +20,7 @@ var Tree = {
 	
 	hex: undefined,
 	depth: true,
+	branchAngle: undefined,
 	branchWidth: undefined,
 	branchLength: undefined,
 	branchThickness: undefined,
@@ -36,8 +37,8 @@ var Tree = {
 			
 			window.setTimeout(function() {drawLine(x1, y1, x2, y2); }, 100 * delay);
 
-			Tree.drawTree(x2, y2, angle + Tree.branchWidth, depth - 1, delay * 1.2);
-			Tree.drawTree(x2, y2, angle - Tree.branchWidth, depth - 1, delay * 1.2);
+			Tree.drawTree(x2, y2, angle + Tree.branchAngle, depth - 1, delay * 1.2);
+			Tree.drawTree(x2, y2, angle - Tree.branchAngle, depth - 1, delay * 1.2);
 		}
 	}			
 }
@@ -148,6 +149,14 @@ $("#depthSlider").on("slide", function(event, ui) {
 });
 
 
+// branch angle slider
+$("#angleSlider").slider({max: 360, min: -360, value: 10});
+$("#angleSlider").on("slide", function(event, ui) {
+	Tree.branchAngle = ui.value;
+	Tree.draw(0); // draw tree with new angles
+});
+
+
 
 // draw tree on mouse click with delay so it appears to grow
 var clicked = false;
@@ -158,12 +167,13 @@ $("#canvas").on("click", function(event) {
 	if (clicked) {
 
 		Tree.depth = 9;
+		Tree.branchAngle = 18;
 		Tree.branchThickness = 3;
 		Tree.branchLength = 12; 
 		Tree.branchWidth = 20;
 		
 		Tree.draw(1); 
-		console.log(Tree);
+		console.log("Tree obj inside of 'clicked':", Tree);
 	
 		// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
 		$("#canvas" ).mousemove(function(event) {
