@@ -75,6 +75,14 @@ nav {
     margin: 15px;
 }
 
+#orientationSlider {
+	float: right;
+	width: 300px;
+	height: 5px;
+    margin: 15px;
+}
+
+
 /* color picker sliders */
  #red, #green, #blue {
     float: right;

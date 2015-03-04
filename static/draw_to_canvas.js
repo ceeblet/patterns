@@ -20,6 +20,7 @@ var Tree = {
 	
 	hex: undefined,
 	depth: true,
+	orientation: undefined,
 	tilt: undefined,
 	branchAngle: undefined,
 	branchWidth: undefined,
@@ -28,7 +29,7 @@ var Tree = {
 	
 	draw: function(delay) {
 		ctx.clearRect(0, 0, 700, 600); // clear canvas
-		Tree.drawTree(350, 600, -90, Tree.depth, delay); // initiate chain of recursive calls
+		Tree.drawTree(350, 600, Tree.orientation, Tree.depth, delay); // initiate chain of recursive calls
 	},
 	
 	drawTree: function(x1, y1, angle, depth, delay) {
@@ -135,7 +136,7 @@ $( "#blue" ).slider( "value", 60 );
 
 
 // branch thickness slider
-$("#thickSlider").slider({max: 10, min: 1, value: 3});
+$("#thickSlider").slider({max: 5, min: 1, value: 3});
 $("#thickSlider").on("slide", function(event, ui) {
 	Tree.branchThickness = ui.value;
 	Tree.draw(0); // draw tree with new branch thickness
@@ -165,6 +166,15 @@ $("#tiltSlider").on("slide", function(event, ui) {
 });
 
 
+// orientation slider
+$("#orientationSlider").slider({max: -10, min: -180, value: -90});
+$("#orientationSlider").on("slide", function(event, ui) {
+	Tree.orientation = ui.value;
+	Tree.draw(0); // draw tree with new orientation
+});
+
+
+
 // draw tree on mouse click with delay so it appears to grow
 var clicked = false;
 
@@ -173,7 +183,10 @@ $("#canvas").on("click", function(event) {
 	clicked = !clicked;
 	if (clicked) {
 
+		// default values for first image
 		Tree.depth = 9;
+		Tree.orientation = -90;
+		Tree.hex = "fcee21"; 
 		Tree.tilt = 0;
 		Tree.branchAngle = 18;
 		Tree.branchThickness = 3;
@@ -181,6 +194,7 @@ $("#canvas").on("click", function(event) {
 		Tree.branchWidth = 20;
 		
 		Tree.draw(1); 
+		
 		console.log("Tree obj inside of 'clicked':", Tree);
 	
 		// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
