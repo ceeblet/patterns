@@ -1,17 +1,27 @@
-// set canvas context
+// set canvas context -- PUT THIS IN A FUNCTION
+
 var ctx; // global variable
+
 var canvas = document.getElementById('canvas');
-ctx = canvas.getContext('2d');
+	if (canvas.getContext) {
+		ctx = canvas.getContext('2d');
+	} else {
+		alert("HTML5 Canvas isn't supported by your browser!");
+}
+
 
 
 var Tree = {
+	
 	hex: undefined,
 	branchWidth: undefined,
 	branchLength: undefined,
+	
 	draw: function(delay) {
 		ctx.clearRect(0, 0, 700, 600); // clear canvas
 		Tree.drawTree(350, 600, -90, 9, delay); // initiate chain of recursive calls
 	},
+	
 	drawTree: function(x1, y1, angle, depth, delay){
 		if (depth != 0){
 			var x2 = x1 + (drawMath.cos(angle) * depth * Tree.branchLength);
@@ -26,7 +36,9 @@ var Tree = {
 }
 
 
+
 var drawMath = {
+	
 	cos: function(angle) {
 		return Math.cos(drawMath.deg_to_rad(angle));
 	},
@@ -42,7 +54,9 @@ var drawMath = {
 }
 
 
+
 function drawLine(x1, y1, x2, y2, thickness){
+	
 	ctx.fillStyle   = '#000';
 	ctx.strokeStyle = '#' + Tree.hex;		
 
@@ -59,25 +73,15 @@ function drawLine(x1, y1, x2, y2, thickness){
 
 
 
-// draw: function () {
-// 	this.branchWidth ..
-// },
-
-// drawBranch: function () {
-// 	this.draw
-// }
-
-
-
-
-
-// stuff for color picker slider
+// color picker slider
 function hexFromRGB(r, g, b) {
+	
 	var rgb_hex = [
 	  r.toString( 16 ),
 	  g.toString( 16 ),
 	  b.toString( 16 )
 	];
+	
 	$.each( rgb_hex, function( nr, val ) {
 	  if ( val.length === 1 ) {
 	    rgb_hex[ nr ] = "0" + val;
@@ -89,6 +93,7 @@ function hexFromRGB(r, g, b) {
 }
 
 function refreshSwatch() {
+	
 	var red = $( "#red" ).slider( "value" );
 	var green = $( "#green" ).slider( "value" );
 	var blue = $( "#blue" ).slider( "value" );
@@ -96,52 +101,45 @@ function refreshSwatch() {
 	// creates one hex code with the combined rgb color values
 	hex = hexFromRGB( red, green, blue );
 
-	Tree.hex = hex; 
+	Tree.hex = hex; // sets hex to current slider swatch value
 	
-	Tree.draw(0); 
+	Tree.draw(0); // draw tree with new color
 
 	// sets swatch backbround to user selected color 
 	$( "#swatch" ).css( "background-color", "#" + hex );
 
 }
 
-//document ready event prevents jQuery from loading before document has loaded
-$(function() {
-	$( "#red, #green, #blue" ).slider({
-	  orientation: "horizontal",
-	  range: "min",
-	  max: 255,
-	  value: 127,
-	  slide: refreshSwatch,
-	  change: refreshSwatch
-	});
-	$( "#red" ).slider( "value", 255 );
-	$( "#green" ).slider( "value", 140 );
-	$( "#blue" ).slider( "value", 60 );
+$( "#red, #green, #blue" ).slider({
+	orientation: "horizontal",
+	range: "min",
+	max: 255,
+	value: 127,
+	slide: refreshSwatch,
+	change: refreshSwatch
 });
+
+
+$( "#red" ).slider( "value", 255 );
+$( "#green" ).slider( "value", 140 );
+$( "#blue" ).slider( "value", 60 );
+
 //end color picker slider
-
-
-
-$(function() { 
-	var canvas = document.getElementById('canvas');
-	if (canvas.getContext){
-		ctx = canvas.getContext('2d');
-	}else{
-		alert("HTML5 Canvas isn't supported by your browser!");
-	}
-});
 
 
 
 // draw tree on mouse click with delay so it appears to grow
 var clicked = false;
+
 $("#canvas").on("click", function(event) {
+	
 	clicked = !clicked;
 	if (clicked) {
 		Tree.draw(1); 
+	
 	// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
 		$("#canvas" ).mousemove(function(event) {
+			
 			if (Date.now() % 5 == 0){
 				var xCord = event.clientX;
 			 	var yCord = event.clientY;
@@ -153,36 +151,49 @@ $("#canvas").on("click", function(event) {
 			}
 		});
 	}
-	//turn off mouse movement
+	// turn off mouse movement
 	if (!clicked) {
 		$( "#canvas").unbind( "mousemove" );
 	}
 
 });
 
-// end create tree
 
 
-// clear canvas on mouse click and unbind mousemove event
-$("#clearCanvas").on("click", function(evt) {
+// clear canvas on mouse click 
+$("#clearCanvas").on("click", function(event) {
 	ctx.clearRect(0, 0, 700, 600);
 	$( "#canvas").unbind( "mousemove" );
 });
 
 
-// save image as base64 string, 
-// submit POST request to '/save' route in controller.py
-// alert user image has saved
-$("#save").on("click", function(evt){
+
+// save image to gallery
+$("#save").on("click", function(event){
+		
 		var canvas = document.getElementById('canvas');
-		var dataURL = canvas.toDataURL(); // a string
+		var dataURL = canvas.toDataURL(); // save image as base64 string
+		
+		// submit POST request to '/save' route in controller.py
 		$.post('/save', {'data': dataURL}, function(d){
-			alert("Saved!");
+			alert("Saved!"); // alert user image has saved
 			});
 });
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+// Things I may use later:
 
 // // branch length slider
 // $(function() {
@@ -209,6 +220,14 @@ $("#save").on("click", function(evt){
 // }
 
 
+// If I have multiple trees:
+// draw: function () {
+// 	this.branchWidth ..
+// },
+
+// drawBranch: function () {
+// 	this.draw
+// }
 
 
 
