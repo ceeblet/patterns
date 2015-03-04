@@ -4,12 +4,29 @@
 var hex;
 var ctx;
 
-// event object
-var treeParams = new Object;
-treeParams["ctx"] = ctx;
-treeParams["hex"] = hex;
+var branchWidth;
+var branchLength;
 
-console.log(treeParams);
+
+// WIP: event object
+var treeParams = new Object;
+treeParams["ctx"] = "tempValue";
+treeParams["hex"] = "tempValue";
+treeParams["branchWidth"] = "tempValue";
+treeParams["branchLength"] = "tempValue";
+
+
+var canvas = document.getElementById('canvas');
+ctx = canvas.getContext('2d');
+hex = "temp";
+branchLength = "temp";
+branchWidth = "temp";
+
+treeParams.ctx = ctx;
+treeParams.hex = hex;
+treeParams.branchWidth = branchWidth;
+treeParams.branchLength = branchLength;
+
 
 
 
@@ -37,7 +54,10 @@ function refreshSwatch() {
 
 	// creates one hex code with the combined rgb color values
 	hex = hexFromRGB( red, green, blue );
-	console.log(treeParams);
+	
+	treeParams.hex = hex; //testing
+	draw(20, 12, 0, hex); //testing
+
 	// sets swatch backbround to user selected color 
 	$( "#swatch" ).css( "background-color", "#" + hex );
 
@@ -139,7 +159,7 @@ function random(min, max){
 	return min + Math.floor(Math.random()*(max+1-min));
 }
 
-// TODO: put this inside a function
+
 // draw tree on mouse click with delay so it appears to grow
 var clicked = false;
 $("#canvas").on("click", function(event) {
@@ -151,6 +171,9 @@ $("#canvas").on("click", function(event) {
 			if (Date.now() % 5 == 0){
 				var xCord = event.clientX;
 			 	var yCord = event.clientY;
+			
+			 	console.log("hex inside mousemove=", hex); //testing
+			 	
 			 	// pass scaled coordinates to draw() as branchWidth and branchLength respectively
 			 	draw(xCord/30, yCord/45, 0, hex);
 			}
