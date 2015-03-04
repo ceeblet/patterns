@@ -68,6 +68,12 @@ nav {
     margin: 15px;
 }
 
+#tiltSlider {
+	float: right;
+	width: 300px;
+	height: 5px;
+    margin: 15px;
+}
 
 /* color picker sliders */
  #red, #green, #blue {

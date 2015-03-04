@@ -20,6 +20,7 @@ var Tree = {
 	
 	hex: undefined,
 	depth: true,
+	tilt: undefined,
 	branchAngle: undefined,
 	branchWidth: undefined,
 	branchLength: undefined,
@@ -37,8 +38,8 @@ var Tree = {
 			
 			window.setTimeout(function() {drawLine(x1, y1, x2, y2); }, 100 * delay);
 
-			Tree.drawTree(x2, y2, angle + Tree.branchAngle, depth - 1, delay * 1.2);
-			Tree.drawTree(x2, y2, angle - Tree.branchAngle, depth - 1, delay * 1.2);
+			Tree.drawTree(x2, y2, angle + Tree.branchAngle + Tree.tilt, depth - 1, delay * 1.2);
+			Tree.drawTree(x2, y2, angle - Tree.branchAngle + Tree.tilt, depth - 1, delay * 1.2);
 		}
 	}			
 }
@@ -156,6 +157,12 @@ $("#angleSlider").on("slide", function(event, ui) {
 	Tree.draw(0); // draw tree with new angles
 });
 
+// tilt slider
+$("#tiltSlider").slider({max: 90, min: -90, value: 0});
+$("#tiltSlider").on("slide", function(event, ui) {
+	Tree.tilt = ui.value;
+	Tree.draw(0); // draw tree with new depth
+});
 
 
 // draw tree on mouse click with delay so it appears to grow
@@ -167,6 +174,7 @@ $("#canvas").on("click", function(event) {
 	if (clicked) {
 
 		Tree.depth = 9;
+		Tree.tilt = 0;
 		Tree.branchAngle = 18;
 		Tree.branchThickness = 3;
 		Tree.branchLength = 12; 
