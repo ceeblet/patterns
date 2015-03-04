@@ -1,31 +1,65 @@
-//TODO: refactor to avoid using these globals!
-
-// global variables
-var hex;
-var ctx;
-
-var branchWidth;
-var branchLength;
-
-
-// WIP: event object
-var treeParams = new Object;
-treeParams["ctx"] = "tempValue";
-treeParams["hex"] = "tempValue";
-treeParams["branchWidth"] = "tempValue";
-treeParams["branchLength"] = "tempValue";
-
-
+// set canvas context
+var ctx; // global variable
 var canvas = document.getElementById('canvas');
 ctx = canvas.getContext('2d');
-hex = "temp";
-branchLength = "temp";
-branchWidth = "temp";
 
-treeParams.ctx = ctx;
-treeParams.hex = hex;
-treeParams.branchWidth = branchWidth;
-treeParams.branchLength = branchLength;
+
+var Tree = {
+	hex: undefined,
+	branchWidth: undefined,
+	branchLength: undefined,
+	draw: function(branchWidth, branchLength, delay, hex) {
+		ctx.clearRect(0, 0, 700, 600); // clear canvas
+		Tree.drawTree(ctx, 350, 600, -90, branchWidth, branchLength, 9, delay); // initiate chain of recursive calls
+	},
+	drawTree: function(context, x1, y1, angle, branchWidth, branchLength, depth, delay){
+		if (depth != 0){
+			var x2 = x1 + (drawMath.cos(angle) * depth * branchLength);
+			var y2 = y1 + (drawMath.sin(angle) * depth * branchLength);
+			window.setTimeout(function(){
+				drawLine(context, x1, y1, x2, y2, depth, hex);
+			}, 100 * delay);
+			Tree.drawTree(context, x2, y2, angle + branchWidth, branchWidth, branchLength, depth - 1, delay * 1.2);
+			Tree.drawTree(context, x2, y2, angle - branchWidth, branchWidth, branchLength, depth - 1, delay * 1.2);
+		}
+	}			
+}
+
+
+var drawMath = {
+	cos: function(angle) {
+		return Math.cos(drawMath.deg_to_rad(angle));
+	},
+	sin: function(angle) {
+		return Math.sin(drawMath.deg_to_rad(angle));
+	},
+	deg_to_rad: function(angle) {
+		return angle*(Math.PI/180.0);
+	},
+	random: function (min, max) {
+		return min + Math.floor(Math.random()*(max+1-min));
+	}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// draw: function () {
+// 	this.branchWidth ..
+// },
+
+// drawBranch: function () {
+// 	this.draw
+// }
+
 
 
 
@@ -55,8 +89,8 @@ function refreshSwatch() {
 	// creates one hex code with the combined rgb color values
 	hex = hexFromRGB( red, green, blue );
 	
-	treeParams.hex = hex; //testing
-	draw(20, 12, 0, hex); //testing
+	Tree.hex = hex; //testing
+	Tree.draw(20, 12, 0, hex); //testing
 
 	// sets swatch backbround to user selected color 
 	$( "#swatch" ).css( "background-color", "#" + hex );
@@ -80,14 +114,6 @@ $(function() {
 //end color picker slider
 
 
-// // branch length slider
-// $(function() {
-// 	$("#slider").slider({max: 16, min: 0, value: 8});
-// 	$("#slider").on("slide", function(event, ui) {
-// 		branchLength = ui.value;
-// 	});
-// });
-// // end branch length slider
 
 $(function() { 
 	var canvas = document.getElementById('canvas');
@@ -99,34 +125,6 @@ $(function() {
 });
 
 
-// create tree
-function draw(branchWidth, branchLength, delay, hex){
-		ctx.clearRect(0, 0, 700, 600); // clear canvas
-		drawTree(ctx, 350, 600, -90, branchWidth, branchLength, 9, delay); // initiate chain of recursive calls
-	
-}
-
-function drawTree(context, x1, y1, angle, branchWidth, branchLength, depth, delay){
-//function drawTree(context, x1, y1, angle, depth, delay){
-	//var BRANCH_LENGTH = random(0, 18);
-	
-	if (depth != 0){
-		//var x2 = x1 + (cos(angle) * depth * BRANCH_LENGTH);
-		//var y2 = y1 + (sin(angle) * depth * BRANCH_LENGTH);
-
-		var x2 = x1 + (cos(angle) * depth * branchLength);
-		var y2 = y1 + (sin(angle) * depth * branchLength);
-		window.setTimeout(function(){
-			drawLine(context, x1, y1, x2, y2, depth, hex);
-		}, 100 * delay);
-	
-		// drawTree(context, x2, y2, angle - random(15, 20), depth - 1, delay * 1.2);
-		// drawTree(context, x2, y2, angle + random(15, 20), depth - 1, delay * 1.2);
-		drawTree(context, x2, y2, angle + branchWidth, branchWidth, branchLength, depth - 1, delay * 1.2);
-		drawTree(context, x2, y2, angle - branchWidth, branchWidth, branchLength, depth - 1, delay * 1.2);
-
-	}
-}
 
 function drawLine(context, x1, y1, x2, y2, thickness, color){
 	context.fillStyle   = '#000';
@@ -143,21 +141,7 @@ function drawLine(context, x1, y1, x2, y2, thickness, color){
 	context.save();
 }
 
-function cos (angle) {
-	return Math.cos(deg_to_rad(angle));
-}
 
-function sin (angle) {
-	return Math.sin(deg_to_rad(angle));
-}
-
-function deg_to_rad(angle){
-	return angle*(Math.PI/180.0);
-}
-
-function random(min, max){
-	return min + Math.floor(Math.random()*(max+1-min));
-}
 
 
 // draw tree on mouse click with delay so it appears to grow
@@ -165,7 +149,7 @@ var clicked = false;
 $("#canvas").on("click", function(event) {
 	clicked = !clicked;
 	if (clicked) {
-		draw(20, 12, 1, hex); 
+		Tree.draw(20, 12, 1, hex); 
 	// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
 		$("#canvas" ).mousemove(function(event) {
 			if (Date.now() % 5 == 0){
@@ -173,9 +157,9 @@ $("#canvas").on("click", function(event) {
 			 	var yCord = event.clientY;
 			
 			 	console.log("hex inside mousemove=", hex); //testing
-			 	
+
 			 	// pass scaled coordinates to draw() as branchWidth and branchLength respectively
-			 	draw(xCord/30, yCord/45, 0, hex);
+			 	Tree.draw(xCord/30, yCord/45, 0, hex);
 			}
 		});
 	}
@@ -210,6 +194,34 @@ $("#save").on("click", function(evt){
 
 
 
+// // branch length slider
+// $(function() {
+// 	$("#slider").slider({max: 16, min: 0, value: 8});
+// 	$("#slider").on("slide", function(event, ui) {
+// 		branchLength = ui.value;
+// 	});
+// });
+// // end branch length slider
+
+
+// Tree with random branch length
+// function drawTree(context, x1, y1, angle, depth, delay){
+// 	var BRANCH_LENGTH = random(0, 18);
+// 	if (depth != 0){
+// 		var x2 = x1 + (cos(angle) * depth * BRANCH_LENGTH);
+// 		var y2 = y1 + (sin(angle) * depth * BRANCH_LENGTH);
+// 		window.setTimeout(function(){
+// 			drawLine(context, x1, y1, x2, y2, depth, hex);
+// 		}, 100 * delay);
+// 		drawTree(context, x2, y2, angle - random(15, 20), depth - 1, delay * 1.2);
+// 		drawTree(context, x2, y2, angle + random(15, 20), depth - 1, delay * 1.2);	
+// 	}
+// }
+
+
+
+
+
 // Model for form to pop up on 'save' to get more user info. Use ajax.
 // $("#save").on("click", 
 // 	info = promptUserForInfo();
@@ -225,5 +237,3 @@ $("#save").on("click", function(evt){
 // 			alert("Saved!");
 // 			});
 // }
-
-
