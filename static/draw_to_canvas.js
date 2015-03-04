@@ -1,34 +1,40 @@
-// set canvas context -- PUT THIS IN A FUNCTION
 
 var ctx; // global variable
 
+
+// global variable
 var canvas = document.getElementById('canvas');
-	if (canvas.getContext) {
-		ctx = canvas.getContext('2d');
-	} else {
-		alert("HTML5 Canvas isn't supported by your browser!");
+
+	
+// TODO: put this in a function?
+// set canvas context
+if (canvas.getContext) {
+	ctx = canvas.getContext('2d');
+} else {
+	alert("HTML5 Canvas isn't supported by your browser!");
 }
 
 
-
+// global class
 var Tree = {
 	
 	hex: undefined,
 	branchWidth: undefined,
 	branchLength: undefined,
+	branchThickness: undefined,
 	
 	draw: function(delay) {
 		ctx.clearRect(0, 0, 700, 600); // clear canvas
 		Tree.drawTree(350, 600, -90, 9, delay); // initiate chain of recursive calls
 	},
 	
-	drawTree: function(x1, y1, angle, depth, delay){
+	drawTree: function(x1, y1, angle, depth, delay) {
 		if (depth != 0){
 			var x2 = x1 + (drawMath.cos(angle) * depth * Tree.branchLength);
 			var y2 = y1 + (drawMath.sin(angle) * depth * Tree.branchLength);
-			window.setTimeout(function(){
-				drawLine(x1, y1, x2, y2, depth); //temporarily using depth as the thickness
-			}, 100 * delay);
+			
+			window.setTimeout(function() {drawLine(x1, y1, x2, y2); }, 100 * delay);
+
 			Tree.drawTree(x2, y2, angle + Tree.branchWidth, depth - 1, delay * 1.2);
 			Tree.drawTree(x2, y2, angle - Tree.branchWidth, depth - 1, delay * 1.2);
 		}
@@ -36,7 +42,7 @@ var Tree = {
 }
 
 
-
+// global class
 var drawMath = {
 	
 	cos: function(angle) {
@@ -55,18 +61,16 @@ var drawMath = {
 
 
 
-function drawLine(x1, y1, x2, y2, thickness){
+function drawLine(x1, y1, x2, y2) {
 	
-	ctx.fillStyle   = '#000';
 	ctx.strokeStyle = '#' + Tree.hex;		
-
-	ctx.lineWidth = thickness;
+	ctx.lineWidth = Tree.branchThickness;
+	
 	ctx.beginPath();
-
 	ctx.moveTo(x1, y1);
 	ctx.lineTo(x2, y2);
-
 	ctx.closePath();
+	
 	ctx.stroke();
 	ctx.save();
 }
@@ -127,6 +131,14 @@ $( "#blue" ).slider( "value", 60 );
 //end color picker slider
 
 
+// branch thickness slider
+$("#slider").slider({max: 10, min: 1, value: 3});
+$("#slider").on("slide", function(event, ui) {
+	Tree.branchThickness = ui.value;
+	Tree.draw(0); // draw tree with new branch thickness
+});
+
+
 
 // draw tree on mouse click with delay so it appears to grow
 var clicked = false;
@@ -135,9 +147,13 @@ $("#canvas").on("click", function(event) {
 	
 	clicked = !clicked;
 	if (clicked) {
+
+		Tree.branchLength = 12; 
+		Tree.branchWidth = 20;
+		
 		Tree.draw(1); 
 	
-	// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
+		// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
 		$("#canvas" ).mousemove(function(event) {
 			
 			if (Date.now() % 5 == 0){
@@ -151,6 +167,7 @@ $("#canvas").on("click", function(event) {
 			}
 		});
 	}
+
 	// turn off mouse movement
 	if (!clicked) {
 		$( "#canvas").unbind( "mousemove" );
@@ -179,6 +196,18 @@ $("#save").on("click", function(event){
 			alert("Saved!"); // alert user image has saved
 			});
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

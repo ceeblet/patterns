@@ -44,13 +44,17 @@ nav {
 	margin: 0px;
 }
 
-/*#slider {
-	width: 600px; 
-	height: 20px;
+/*branch thickness slider*/
+#slider {
+	float: right;
+	width: 300px;
+	height: 10px;
+    margin: 15px;
+}
 
-}*/
 
-/* color picker */
+
+/* color picker sliders */
  #red, #green, #blue {
     float: right;
     clear: right;
@@ -89,4 +93,4 @@ nav {
 #blue .ui-slider-handle { 
 	border-color: #729fcf; 
 }
-/* end color picker */
+/* end color picker sliders */
