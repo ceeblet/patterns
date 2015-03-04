@@ -44,14 +44,21 @@ nav {
 	margin: 0px;
 }
 
-/*branch thickness slider*/
-#slider {
+
+#thickSlider {
 	float: right;
 	width: 300px;
 	height: 10px;
     margin: 15px;
 }
 
+
+#depthSlider {
+	float: right;
+	width: 300px;
+	height: 10px;
+    margin: 15px;
+}
 
 
 /* color picker sliders */

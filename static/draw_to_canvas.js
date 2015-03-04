@@ -19,13 +19,14 @@ if (canvas.getContext) {
 var Tree = {
 	
 	hex: undefined,
+	depth: true,
 	branchWidth: undefined,
 	branchLength: undefined,
 	branchThickness: undefined,
 	
 	draw: function(delay) {
 		ctx.clearRect(0, 0, 700, 600); // clear canvas
-		Tree.drawTree(350, 600, -90, 9, delay); // initiate chain of recursive calls
+		Tree.drawTree(350, 600, -90, Tree.depth, delay); // initiate chain of recursive calls
 	},
 	
 	drawTree: function(x1, y1, angle, depth, delay) {
@@ -132,10 +133,18 @@ $( "#blue" ).slider( "value", 60 );
 
 
 // branch thickness slider
-$("#slider").slider({max: 10, min: 1, value: 3});
-$("#slider").on("slide", function(event, ui) {
+$("#thickSlider").slider({max: 10, min: 1, value: 3});
+$("#thickSlider").on("slide", function(event, ui) {
 	Tree.branchThickness = ui.value;
 	Tree.draw(0); // draw tree with new branch thickness
+});
+
+
+// depth slider
+$("#depthSlider").slider({max: 12, min: 5, value: 9});
+$("#depthSlider").on("slide", function(event, ui) {
+	Tree.depth = ui.value;
+	Tree.draw(0); // draw tree with new depth
 });
 
 
@@ -148,10 +157,13 @@ $("#canvas").on("click", function(event) {
 	clicked = !clicked;
 	if (clicked) {
 
+		Tree.depth = 9;
+		Tree.branchThickness = 3;
 		Tree.branchLength = 12; 
 		Tree.branchWidth = 20;
 		
 		Tree.draw(1); 
+		console.log(Tree);
 	
 		// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
 		$("#canvas" ).mousemove(function(event) {
