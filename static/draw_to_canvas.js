@@ -177,27 +177,13 @@ $("#orientationSlider").on("slide", function(event, ui) {
 
 
 
-// draw tree on mouse click with delay so it appears to grow
+
 var clicked = false;
 
 $("#canvas").on("click", function(event) {
 	
 	clicked = !clicked;
 	if (clicked) {
-
-		// default values for first image
-		Tree.depth = 9;
-		Tree.orientation = -90;
-		Tree.hex = "fcee21"; 
-		Tree.tilt = 0;
-		Tree.branchAngle = 18;
-		Tree.branchThickness = 3;
-		Tree.branchLength = 12; 
-		Tree.branchWidth = 20;
-		
-		Tree.draw(1); 
-		
-		//console.log("Tree obj inside of 'clicked':", Tree);
 	
 		// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
 		$("#canvas" ).mousemove(function(event) {
