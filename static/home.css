@@ -22,7 +22,7 @@ nav li {
 }
 
 nav {
-	background-color: #1A1A1A;
+	/*background-color: #1A1A1A;*/
 	/*background-color: #FFFFFF;*/
 	list-style-type: none;
 	font-size: 25px;
@@ -43,16 +43,20 @@ nav {
 
 #createImg {
 	float: right;
+	display: inline;
+	margin-right: 10px;
 }
 
 #save {
 	float: right;
-	margin: 20px;
+	display: inline;
+	margin-right: 15px;
 }
 
 #clearCanvas {
 	float: right;
-	margin: 0px;
+	display: inline;
+	margin-right: 10px;
 }
 
 
@@ -71,6 +75,12 @@ nav {
     margin: 15px;
 }
 
+#lengthSlider {
+	float: right;
+	width: 300px;
+	height: 5px;
+    margin: 15px;
+}
 
 #angleSlider {
 	float: right;
@@ -103,7 +113,7 @@ nav {
     margin: 15px;
 }
 
-  #swatch {
+ #swatch {
     width: 120px;
     height: 80px;
     margin-top: 15px;

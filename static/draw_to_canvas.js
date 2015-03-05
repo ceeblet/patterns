@@ -23,7 +23,6 @@ var Tree = {
 	orientation: undefined,
 	tilt: undefined,
 	branchAngle: undefined,
-	branchWidth: undefined,
 	branchLength: undefined,
 	branchThickness: undefined,
 	
@@ -144,6 +143,13 @@ $("#thickSlider").on("slide", function(event, ui) {
 	Tree.draw(0); // draw tree with new branch thickness
 });
 
+// branch length slider
+$("#lengthSlider").slider({max: 30, min: 5, value: 12});
+$("#lengthSlider").on("slide", function(event, ui) {
+	Tree.branchLength = ui.value;
+	Tree.draw(0); // draw tree with new branch length
+});
+
 
 // depth slider
 $("#depthSlider").slider({max: 12, min: 5, value: 9});
@@ -183,8 +189,8 @@ var clicked = false;
 $("#canvas").on("click", function(event) {
 	
 	clicked = !clicked;
-	if (clicked) {
 	
+	if (clicked) {
 		// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
 		$("#canvas" ).mousemove(function(event) {
 			
@@ -192,10 +198,8 @@ $("#canvas").on("click", function(event) {
 				var xCord = event.clientX;
 			 	var yCord = event.clientY;
 			
-			 	Tree.branchWidth = xCord/30;
-			 	Tree.branchLength = yCord/45;
-
-			 	//console.log(Tree.branchWidth);
+			 	Tree.branchAngle = xCord/30;
+			 	Tree.branchLength = yCord/30;
 
 			 	Tree.draw(0);
 			}
@@ -220,7 +224,6 @@ $("#createImg").on("click", function(event) {
 	Tree.branchAngle = 18;
 	Tree.branchThickness = 3;
 	Tree.branchLength = 12; 
-	Tree.branchWidth = 20;
 
 	Tree.draw(1);
 });
