@@ -67,7 +67,9 @@ var drawMath = {
 
 function drawLine(x1, y1, x2, y2) {
 	
-	ctx.strokeStyle = '#' + Tree.hex;		
+	// ctx.strokeStyle = '#' + Tree.hex;	
+	ctx.strokeStyle = '#000000';	
+	ctx.lineJoin = 'bevel';	
 	ctx.lineWidth = Tree.branchThickness;
 	
 	ctx.beginPath();
