@@ -36,6 +36,17 @@ def gallery():
 	return render_template('gallery.html', images = images)
 
 
+
+
+#  route to save user info to user's table
+
+# image_title = request.form.get("image-title")
+
+# company = request.form.get("company")
+
+
+
+
 @app.route('/save', methods=['POST'])
 def save_img():
 	

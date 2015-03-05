@@ -41,6 +41,10 @@ nav {
     display: inline-block;
 }
 
+#createImg {
+	float: right;
+}
+
 #save {
 	float: right;
 	margin: 20px;

@@ -223,9 +223,24 @@ $("#canvas").on("click", function(event) {
 
 });
 
+// cleate tree on click
+$("#createImg").on("click", function(event) {
+
+	// default values for image
+	Tree.depth = 9;
+	Tree.orientation = -90;
+	Tree.hex = "fcee21"; 
+	Tree.tilt = 0;
+	Tree.branchAngle = 18;
+	Tree.branchThickness = 3;
+	Tree.branchLength = 12; 
+	Tree.branchWidth = 20;
+
+	Tree.draw(1);
+});
 
 
-// clear canvas on mouse click 
+// clear canvas on click 
 $("#clearCanvas").on("click", function(event) {
 	ctx.clearRect(0, 0, 700, 600);
 	$( "#canvas").unbind( "mousemove" );
@@ -272,6 +287,23 @@ $("#save").on("click", function(event){
 
 // Things I may use later:
 
+// Model for form to pop up on 'save' to get more user info. Use ajax.
+// $("#save").on("click", 
+// 	info = promptUserForInfo();
+// 	sendPictureToServer(info);
+
+// 	});
+
+// function sendPictureToServer(userInfo) {
+// 		var canvas = document.getElementById('canvas');
+// 		var dataURL = canvas.toDataURL();
+// 		//document.getElementById('canvasImg').src = dataURL;
+// 		$.post('/save', {data: dataURL}, function(d){
+// 			alert("Saved!");
+// 			});
+// }
+
+
 // // branch length slider
 // $(function() {
 // 	$("#slider").slider({max: 16, min: 0, value: 8});
@@ -308,18 +340,3 @@ $("#save").on("click", function(event){
 
 
 
-// Model for form to pop up on 'save' to get more user info. Use ajax.
-// $("#save").on("click", 
-// 	info = promptUserForInfo();
-// 	sendPictureToServer(info);
-
-// 	});
-
-// function sendPictureToServer(userInfo) {
-// 		var canvas = document.getElementById('canvas');
-// 		var dataURL = canvas.toDataURL();
-// 		//document.getElementById('canvasImg').src = dataURL;
-// 		$.post('/save', {data: dataURL}, function(d){
-// 			alert("Saved!");
-// 			});
-// }
