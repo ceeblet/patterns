@@ -67,8 +67,8 @@ var drawMath = {
 
 function drawLine(x1, y1, x2, y2) {
 	
-	// ctx.strokeStyle = '#' + Tree.hex;	
-	ctx.strokeStyle = '#000000';	
+	ctx.strokeStyle = '#' + Tree.hex;	
+	// ctx.strokeStyle = '#000000';	
 	ctx.lineJoin = 'bevel';	
 	ctx.lineWidth = Tree.branchThickness;
 	
@@ -197,7 +197,7 @@ $("#canvas").on("click", function(event) {
 		
 		Tree.draw(1); 
 		
-		console.log("Tree obj inside of 'clicked':", Tree);
+		//console.log("Tree obj inside of 'clicked':", Tree);
 	
 		// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
 		$("#canvas" ).mousemove(function(event) {
@@ -208,6 +208,8 @@ $("#canvas").on("click", function(event) {
 			
 			 	Tree.branchWidth = xCord/30;
 			 	Tree.branchLength = yCord/45;
+
+			 	//console.log(Tree.branchWidth);
 
 			 	Tree.draw(0);
 			}

@@ -1,20 +1,20 @@
 /* Styling */
 
 body {
-   /* background-color: #1A1A1A;*/
-    background-color: #FFFFFF;
+    background-color: #1A1A1A;
+   /* background-color: #FFFFFF;*/
 }
 
 a:hover {
-	/*color: #FFFFFF;
-	background-color: #1A1A1A;*/
-	color: #1A1A1A; ;
-	background-color: #FFFFFF; 
+	color: #FFFFFF;
+	background-color: #1A1A1A;
+	/*color: #1A1A1A; ;
+	background-color: #FFFFFF; */
 }
 
 nav a {
-	/*color: #FFFFFF;*/
-	color: #1A1A1A;
+	color: #FFFFFF;
+	/*color: #1A1A1A;*/
 }
 
 nav li {
@@ -22,18 +22,18 @@ nav li {
 }
 
 nav {
-	/*background-color: #1A1A1A;*/
+	background-color: #1A1A1A;
 	/*background-color: #FFFFFF;*/
 	list-style-type: none;
 	font-size: 25px;
-	/*position: fixed;*/
+	position: fixed;
 }
 
 #canvas {
-	/*border: 1px solid white; */
-	/*background-color: #1A1A1A;*/
-	border: 1px solid black; 
-	background-color: #FFFFFF;
+	border: 1px solid white; 
+	background-color: #1A1A1A;
+	/*border: 1px solid black; 
+	background-color: #FFFFFF;*/
 	padding-left: 0;
     padding-right: 0;
     margin-left: 20px;
