@@ -37,20 +37,18 @@ def gallery():
 
 
 
-
-#  route to save user info to user's table
-
-# image_title = request.form.get("image-title")
-
-# company = request.form.get("company")
-
-
-
-
 @app.route('/save', methods=['POST'])
 def save_img():
 	
 	'''Saves user created image to database and s3'''
+
+
+	# image_title = request.form.get("image-title")
+
+	# company = request.form.get("company")
+
+
+
 	
 	boto.set_stream_logger('boto')
 
@@ -94,6 +92,11 @@ def save_img():
 	img.save()
 
 	return 'successful upload'
+
+
+
+
+
 
 
 

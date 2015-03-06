@@ -1,5 +1,7 @@
 /* Styling */
 
+/*TODO: create a class for sliders*/
+
 body {
     background-color: #1A1A1A;
    /* background-color: #FFFFFF;*/
@@ -46,6 +48,7 @@ nav {
 	display: inline;
 	margin-right: 10px;
 }
+
 
 #save {
 	float: right;

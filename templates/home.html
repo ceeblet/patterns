@@ -1,5 +1,8 @@
 <!-- HTML for 'Home' page goes here. -->
 
+<!-- TODO: consilidate code for sliders, create a class -->
+
+
 {% extends 'base.html' %}
 
 {% block body %}
@@ -80,12 +83,43 @@
 		<!-- end orientation slider -->
  
 
-		<br><br><br>
+		<br><br><br><br><br>
 
 		<button type="submit" value="submit" name="save" id="save">Add to Gallery</button>
 		<button type="submit" value="submit" name="clearCanvas" id="clearCanvas">Clear</button>
 		<button type="submit" value="submit" name="createImg" id="createImg">Create</button>
-		
+
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+			Add to Gallery
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Looks great!</h4>
+		      </div>
+		      <div class="modal-body">
+		        
+				<form id="save-form">
+				
+				What's your name? <input type="text" name="image-title"> <br>
+
+				What's your company's name? <input type="text" name="company">
+
+				</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+				
 	</div>
 </div>
 

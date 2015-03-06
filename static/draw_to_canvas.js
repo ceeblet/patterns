@@ -239,8 +239,7 @@ $("#clearCanvas").on("click", function(event) {
 
 // save image to gallery
 $("#save").on("click", function(event){
-		
-		var canvas = document.getElementById('canvas');
+
 		var dataURL = canvas.toDataURL(); // save image as base64 string
 		
 		// submit POST request to '/save' route in controller.py
@@ -251,46 +250,49 @@ $("#save").on("click", function(event){
 
 
 
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').focus()
+  })
+
+// $("#test").on("click", function(event){
+
+// })
+
+// //Model for form to pop up on 'save' to get more user info. Use ajax.
+
+// function promptUserForInfo() {
+
+// 	get the html form from save.html and display it
+// 	$("save-form".load(url)
+// 	returns dictionary {name: whatever user entered, company: whatever user entered}
+
+// }
 
 
+// function sendPictureToServer(userInfo) {
+// 		var dataURL = canvas.toDataURL();		
+
+// 		$.post('/save', {'data': dataURL, 'userInfo': userInfo}, function(d){
+// 			alert("Saved!"); // something else here so it just says saved on the form
+// 			});
+// }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Things I may use later:
-
-// Model for form to pop up on 'save' to get more user info. Use ajax.
 // $("#save").on("click", 
 // 	info = promptUserForInfo();
 // 	sendPictureToServer(info);
-
 // 	});
 
-// function sendPictureToServer(userInfo) {
-// 		var canvas = document.getElementById('canvas');
-// 		var dataURL = canvas.toDataURL();
-// 		//document.getElementById('canvasImg').src = dataURL;
-// 		$.post('/save', {data: dataURL}, function(d){
-// 			alert("Saved!");
-// 			});
-// }
+// need to add the user info to python file so it can be added to db
+
+
+
+
+
+
+
+
+
 
 
 // // branch length slider
