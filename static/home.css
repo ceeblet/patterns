@@ -49,6 +49,17 @@ nav {
 	margin-right: 10px;
 }
 
+#addToGallery {
+	float: right;
+	display: inline;
+	margin-right: 15px;
+
+}
+
+#savedAlert {
+	color: red;
+
+}
 
 #save {
 	float: right;

@@ -37,13 +37,13 @@ def gallery():
 
 
 
-@app.route('/save', methods=['POST'])
+@app.route('/save', methods=['GET', 'POST'])
 def save_img():
 	
 	'''Saves user created image to database and s3'''
 
 
-	# image_title = request.form.get("image-title")
+	# name = request.form.get("name")
 
 	# company = request.form.get("company")
 

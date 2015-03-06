@@ -236,23 +236,41 @@ $("#clearCanvas").on("click", function(event) {
 });
 
 
+// activate add to gallery modal
+$('#myModal').on('shown.bs.modal', function () {
+    $('#myInput').focus()
+  })
 
 // save image to gallery
-$("#save").on("click", function(event){
+$("#saveToGallery").on("click", function(event){
 
 		var dataURL = canvas.toDataURL(); // save image as base64 string
 		
 		// submit POST request to '/save' route in controller.py
 		$.post('/save', {'data': dataURL}, function(d){
-			alert("Saved!"); // alert user image has saved
+			//alert("Saved!"); // alert user image has saved 
+			$("#savedAlert").html('Saved!');
 			});
 });
 
 
 
-$('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').focus()
-  })
+// // save image to gallery
+// $("#save").on("click", function(event){
+
+// 		var dataURL = canvas.toDataURL(); // save image as base64 string
+		
+// 		// submit POST request to '/save' route in controller.py
+// 		$.post('/save', {'data': dataURL}, function(d){
+// 			alert("Saved!"); // alert user image has saved
+// 			});
+// });
+
+
+
+
+
+
 
 // $("#test").on("click", function(event){
 

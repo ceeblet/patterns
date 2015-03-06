@@ -28,24 +28,22 @@ def connect():
     return Session()
 
 
-# TODO: Standards for how long first_name and last_name strings be?
-# TODO: Revisit whether these should or should not be nullable.
 class User(Base):
     __tablename__= 'users'
     id = Column(Integer, primary_key = True)
     first_name = Column(String(30), nullable = True)
     last_name = Column(String(30), nullable = True)
-    email = Column(String(65), nullable = True)
+    company = Column(String(50), nullable = True)
 
     def save(self):
         db_session.add(self)
         db_session.commit()
 
     def __repr__(self):
-        return '<User: id=%r first name=%s last name=%s email=%s>' % (self.id, self.first_name, self.last_name, self.email)
+        return '<User: id=%r first name=%s company=%s>' % (self.id, self.first_name, self.company)
 
 
-#TODO: Make sure DateTime is capturing created at time
+#TODO: Remove datetime
 class Image(Base):
     __tablename__= 'images'
     id = Column(Integer, primary_key = True)
