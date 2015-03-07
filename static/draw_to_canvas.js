@@ -248,7 +248,6 @@ $("#saveToGallery").on("click", function(event){
 		
 		// submit POST request to '/save' route in controller.py
 		$.post('/save', {'data': dataURL}, function(d){
-			//alert("Saved!"); // alert user image has saved 
 			$("#savedAlert").html('Saved!');
 			});
 });

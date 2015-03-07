@@ -27,7 +27,7 @@ def create_db():
 
 #     return Session()
 
-
+#TODO: add email
 class User(Base):
     __tablename__= 'users'
     id = Column(Integer, primary_key = True)
