@@ -17,15 +17,15 @@ def create_db():
     '''Creates a new database when called'''
     Base.metadata.create_all(ENGINE)
 
-# Q: Remove?
-def connect():
-    global ENGINE
-    global Session
+# # Q: Remove?
+# def connect():
+#     global ENGINE
+#     global Session
 
-    ENGINE = create_engine('sqlite:///fractal_art.db', echo=True)
-    Session = sessionmaker(bind=ENGINE)
+#     ENGINE = create_engine('sqlite:///fractal_art.db', echo=True)
+#     Session = sessionmaker(bind=ENGINE)
 
-    return Session()
+#     return Session()
 
 
 class User(Base):
@@ -66,9 +66,9 @@ class Image(Base):
         return '<Image: id=%r user_id=%r filepath=%s filename=%s created_at=%s>' % (self.id, self.user_id, self.filepath, self.filename, self.created_at)
 
 
-# Q: Remove once DB established?
-def main():
-    connect()
+# # Q: Remove once DB established?
+# def main():
+#     connect()
 
 
 if __name__ == '__main__':
