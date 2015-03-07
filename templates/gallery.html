@@ -1,21 +1,38 @@
-<!-- HTML for 'Gallery' page goes here. -->
+<!DOCTYPE html>
 
-{% extends 'base.html' %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=0.5,user-scalable=no">
+        <title>Fractal Art</title>
 
-{% block body %}
+        <!-- load jQuery -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 
-<br>
-<br>
+        <!-- load Galleria -->
+        <script src="../static/folio/galleria/galleria-1.4.2.min.js"></script>
 
-{% for image in images %}
+    </head>
+<body>
+    <div class="content">
+        <div class="galleria">
 
-</div id="gallary-display">
-	<figure>
-		<img src = "https://s3.amazonaws.com/fractal-art/{{image.filename}}" alt="{{image.filename}}">
-	</figure>
-</div>
+        	{% for image in images %}
 
-{% endfor %}
+			<a href = "https://s3.amazonaws.com/fractal-art/{{image.filename}}">
+					<img src = "https://s3.amazonaws.com/fractal-art/{{image.filename}}" data-big="https://s3.amazonaws.com/fractal-art/{{image.filename}}" data-title="{{image.filename}}" data-description="test">
+			</a>
 
-{% endblock %} 
+			{% endfor %}
+                
+    </div>
+    <script>
 
+    Galleria.loadTheme('../static/folio/galleria/themes/folio/galleria.folio.min.js');
+
+    // Initialize Galleria
+    Galleria.run('.galleria');
+
+    </script>
+    </body>
+</html>
