@@ -6,7 +6,7 @@ var ctx; // global variable
 var canvas = document.getElementById('canvas');
 
 	
-// TODO: put this in a function?
+// TODO: put this in a function
 // set canvas context
 if (canvas.getContext) {
 	ctx = canvas.getContext('2d');
@@ -254,75 +254,11 @@ $("#saveToGallery").on("click", function(event){
 
 
 
-// // save image to gallery
-// $("#save").on("click", function(event){
-
-// 		var dataURL = canvas.toDataURL(); // save image as base64 string
-		
-// 		// submit POST request to '/save' route in controller.py
-// 		$.post('/save', {'data': dataURL}, function(d){
-// 			alert("Saved!"); // alert user image has saved
-// 			});
-// });
 
 
 
 
-
-
-
-// $("#test").on("click", function(event){
-
-// })
-
-// //Model for form to pop up on 'save' to get more user info. Use ajax.
-
-// function promptUserForInfo() {
-
-// 	get the html form from save.html and display it
-// 	$("save-form".load(url)
-// 	returns dictionary {name: whatever user entered, company: whatever user entered}
-
-// }
-
-
-// function sendPictureToServer(userInfo) {
-// 		var dataURL = canvas.toDataURL();		
-
-// 		$.post('/save', {'data': dataURL, 'userInfo': userInfo}, function(d){
-// 			alert("Saved!"); // something else here so it just says saved on the form
-// 			});
-// }
-
-
-// $("#save").on("click", 
-// 	info = promptUserForInfo();
-// 	sendPictureToServer(info);
-// 	});
-
-// need to add the user info to python file so it can be added to db
-
-
-
-
-
-
-
-
-
-
-
-// // branch length slider
-// $(function() {
-// 	$("#slider").slider({max: 16, min: 0, value: 8});
-// 	$("#slider").on("slide", function(event, ui) {
-// 		branchLength = ui.value;
-// 	});
-// });
-// // end branch length slider
-
-
-// Tree with random branch length
+// Tree with random branch length:
 // function drawTree(context, x1, y1, angle, depth, delay){
 // 	var BRANCH_LENGTH = random(0, 18);
 // 	if (depth != 0){
@@ -335,6 +271,7 @@ $("#saveToGallery").on("click", function(event){
 // 		drawTree(context, x2, y2, angle + random(15, 20), depth - 1, delay * 1.2);	
 // 	}
 // }
+
 
 
 // If I have multiple trees:

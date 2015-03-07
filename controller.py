@@ -5,7 +5,6 @@ from flask import session as flask_session
 from model import User, Image
 from utils import decode_img
 
-# Q: only import the specific methods used from these modules?
 import base64, os, uuid, boto
 
 
