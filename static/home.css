@@ -15,21 +15,19 @@ nav a {
 
 nav li {
 	display: inline;
+	font-size: 15px;
 }
 
 nav {
 	list-style-type: none;
-	font-size: 25px;
 	position: fixed;
 }
 
 #canvas {
-	border: 1px solid white; 
+	/*border: 2px solid black; */
 	background-color: #1A1A1A;
 	padding-left: 0;
     padding-right: 0;
-    margin-left: 20px;
-    margin-right: auto;
     display: inline-block;
 }
 
@@ -121,7 +119,7 @@ nav {
     width: 120px;
     height: 80px;
     margin-top: 15px;
-    margin-left: 150px;
+    margin-left: 225px;
     background-image: none;
 }
 

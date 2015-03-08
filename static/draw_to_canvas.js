@@ -10,7 +10,7 @@ function setCanvasContext() {
 	if (canvas.getContext) {
 		ctx = canvas.getContext('2d');
 	} else {
-		alert("HTML5 Canvas isn't supported by your browser!");
+		alert("Oh no! HTML5 Canvas isn't supported by your browser.");
 	}
 }
 
@@ -29,8 +29,8 @@ var Tree = {
 	branchThickness: undefined,
 	
 	draw: function(delay) {
-		ctx.clearRect(0, 0, 700, 600); // clear canvas
-		Tree.drawTree(350, 600, Tree.orientation, Tree.depth, delay); // initiate chain of recursive calls
+		ctx.clearRect(0, 0, 1200, 800); // clear canvas
+		Tree.drawTree(600, 450, Tree.orientation, Tree.depth, delay); // initiate chain of recursive calls
 	},
 	
 	drawTree: function(x1, y1, angle, depth, delay) {
@@ -173,7 +173,7 @@ $("#tiltSlider").on("slide", function(event, ui) {
 
 
 // orientation slider
-$("#orientationSlider").slider({max: -10, min: -180, value: -90});
+$("#orientationSlider").slider({max: 180, min: -180, value: -90});
 $("#orientationSlider").on("slide", function(event, ui) {
 	Tree.orientation = ui.value;
 	Tree.draw(0); // draw tree with new orientation
@@ -221,7 +221,7 @@ $("#createImg").on("click", function(event) {
 	Tree.tilt = 0;
 	Tree.branchAngle = 18;
 	Tree.branchThickness = 3;
-	Tree.branchLength = 12; 
+	Tree.branchLength = 9; 
 
 	Tree.draw(1);
 });
@@ -229,7 +229,7 @@ $("#createImg").on("click", function(event) {
 
 // clear canvas on click 
 $("#clearCanvas").on("click", function(event) {
-	ctx.clearRect(0, 0, 700, 600);
+	ctx.clearRect(0, 0, 1200, 800);
 	$("#canvas").unbind("mousemove");
 });
 
@@ -263,32 +263,6 @@ $("#saveToGallery").on("click", function(event){
 
 
 
-
-
-// Tree with random branch length:
-// function drawTree(context, x1, y1, angle, depth, delay){
-// 	var BRANCH_LENGTH = random(0, 18);
-// 	if (depth != 0){
-// 		var x2 = x1 + (cos(angle) * depth * BRANCH_LENGTH);
-// 		var y2 = y1 + (sin(angle) * depth * BRANCH_LENGTH);
-// 		window.setTimeout(function(){
-// 			drawLine(context, x1, y1, x2, y2, depth, hex);
-// 		}, 100 * delay);
-// 		drawTree(context, x2, y2, angle - random(15, 20), depth - 1, delay * 1.2);
-// 		drawTree(context, x2, y2, angle + random(15, 20), depth - 1, delay * 1.2);	
-// 	}
-// }
-
-
-
-// If I have multiple trees:
-// draw: function () {
-// 	this.branchWidth ..
-// },
-
-// drawBranch: function () {
-// 	this.draw
-// }
 
 
 
