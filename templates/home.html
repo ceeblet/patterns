@@ -1,14 +1,10 @@
 <!-- HTML for 'Home' page goes here. -->
 
-<!-- TODO: consilidate code for sliders, create a class -->
-
-
 {% extends 'base.html' %}
 
 {% block body %}
 
 <br><br><br>
-
 
 <div class="row">
   <div class="col-sm-6">
@@ -28,66 +24,25 @@
 
 		<br><br><br>
 
-		<!-- branch thickness slider -->
+		<!-- sliders -->
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-		<div id="thickSlider"></div>
-		<!-- end branch thickness slider -->
+		<div class="slider" id="thickSlider"></div><br><br>
+		<div class="slider" id="depthSlider"></div><br><br>
+		<div class="slider" id="lengthSlider"></div><br><br><br><br>
+		<div class="slider" id="angleSlider"></div><br><br>
+		<div class="slider" id="tiltSlider"></div><br><br>
+		<div class="slider" id="orientationSlider"></div>
+		<!-- end sliders -->
 
-		<br><br>
-
-		<!-- depth slider -->
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
-		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-		<div id="depthSlider"></div>
-		<!-- end depth slider --> 
-
-		<br><br>
-
-
-		<!-- branch length slider -->
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
-		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-		<div id="lengthSlider"></div>
-		<!-- end branch length slider -->
-
-		<br><br><br><br>
-
-
-		<!-- angle slider -->
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
-		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-		<div id="angleSlider"></div>
-		<!-- end angle slider -->
-		
-		<br><br>
-
-		<!-- tilt slider -->
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
-		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-		<div id="tiltSlider"></div>
-		<!-- end tilt slider -->
-
-		<br><br>
-
-		<!-- orientation slider -->
-		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
-		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-		<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-		<div id="orientationSlider"></div>
-		<!-- end orientation slider -->
- 
 
 		<br><br><br><br><br>
 
 
 		<button type="submit" class="btn btn-primary" value="submit" name="clearCanvas" id="clearCanvas">Clear</button>
 		<button type="submit" class="btn btn-primary" value="submit" name="createImg" id="createImg">Create</button>
+
 
 		<!-- Button trigger modal -->
 		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="addToGallery">
@@ -111,20 +66,19 @@
 				Company Name: <input type="text" name="company" id="company">
 
 				Email: <input type="text" name="company" id="company">
-				</form>
 
 				</form>
+
 		      </div>
 		      <div class="modal-footer">
 		      	<div id="savedAlert">Saved!</div>
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-default" data-dismiss="modal" id="close">Close</button>
 		        <button type="button" class="btn btn-primary" id="saveToGallery">Save</button>
 
 		      </div>
 		    </div>
 		  </div>
-		</div>
-				
+		</div>		
 	</div>
 </div>
 

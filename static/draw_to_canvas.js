@@ -66,7 +66,6 @@ var drawMath = {
 function drawLine(x1, y1, x2, y2) {
 	
 	ctx.strokeStyle = '#' + Tree.hex;	
-	// ctx.strokeStyle = '#000000';	
 	ctx.lineJoin = 'bevel';	
 	ctx.lineWidth = Tree.branchThickness;
 	
@@ -193,7 +192,7 @@ $("#canvas").on("click", function(event) {
 		// draw tree on mousemove with no delay, so it appears to change immediately with mouse movement
 		$("#canvas" ).mousemove(function(event) {
 			
-			if (Date.now() % 5 == 0){
+			if (Date.now() % 5 == 0) {
 				var xCord = event.clientX;
 			 	var yCord = event.clientY;
 			
@@ -231,7 +230,7 @@ $("#createImg").on("click", function(event) {
 // clear canvas on click 
 $("#clearCanvas").on("click", function(event) {
 	ctx.clearRect(0, 0, 700, 600);
-	$( "#canvas").unbind( "mousemove" );
+	$("#canvas").unbind("mousemove");
 });
 
 

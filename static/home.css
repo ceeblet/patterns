@@ -1,7 +1,5 @@
 /* Styling */
 
-/*TODO: create a class for sliders*/
-
 body {
     background-color: #1A1A1A;
 }
@@ -110,7 +108,7 @@ nav {
 }
 
 
-/* color picker sliders */
+/*color picker sliders */
  #red, #green, #blue {
     float: right;
     clear: right;

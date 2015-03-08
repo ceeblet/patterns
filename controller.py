@@ -36,21 +36,23 @@ def gallery():
 
 
 
-@app.route('/save', methods=['GET','POST'])
+@app.route('/save', methods=['GET', 'POST'])
 def save_img():
 	
 	'''Saves user created image to database and s3'''
 
 
-	# first_name = request.args.get("name")
+	name = request.args.get("name")
 
-	# company = request.args.get("company")
+	company = request.args.get("company")
 
-	# new_user = User(first_name=first_name, company=company)
+	email = request.args.get("email")
+
+	new_user = User(name=name, company=company, email=email)
 
 	# new_user.save()
 
-	# print "******************************", first_name, company
+	print "******************************", name, company, email
 
 	
 	boto.set_stream_logger('boto')
