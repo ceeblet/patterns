@@ -5,14 +5,16 @@ var ctx; // global variable
 // global variable
 var canvas = document.getElementById('canvas');
 
-	
-// TODO: put this in a function
-// set canvas context
-if (canvas.getContext) {
-	ctx = canvas.getContext('2d');
-} else {
-	alert("HTML5 Canvas isn't supported by your browser!");
+
+function setCanvasContext() {
+	if (canvas.getContext) {
+		ctx = canvas.getContext('2d');
+	} else {
+		alert("HTML5 Canvas isn't supported by your browser!");
+	}
 }
+
+setCanvasContext();
 
 
 // global class
@@ -56,10 +58,7 @@ var drawMath = {
 	},
 	deg_to_rad: function(angle) {
 		return angle*(Math.PI/180.0);
-	},
-	random: function (min, max) {
-		return min + Math.floor(Math.random()*(max+1-min));
-	}	
+	}
 }
 
 
@@ -241,6 +240,12 @@ $('#myModal').on('shown.bs.modal', function () {
     $('#myInput').focus()
   })
 
+
+// hide success notification
+$("#addToGallery").on("click", function(event){
+	$("#savedAlert").hide();
+})
+
 // save image to gallery
 $("#saveToGallery").on("click", function(event){
 
@@ -248,7 +253,10 @@ $("#saveToGallery").on("click", function(event){
 		
 		// submit POST request to '/save' route in controller.py
 		$.post('/save', {'data': dataURL}, function(d){
-			$("#savedAlert").html('Saved!');
+			
+			// display a success notification, then remove it
+			$("#savedAlert").show();
+			$('#savedAlert').delay(1000).fadeOut();
 		});
 
 });
