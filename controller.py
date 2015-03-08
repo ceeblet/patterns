@@ -30,7 +30,7 @@ def about():
 @app.route('/gallery')
 def gallery():
 
-	images = Image.query.order_by(Image.id.desc()).limit(20).all() # a list of image objects
+	images = Image.query.order_by(Image.id.desc()).limit(24).all() # a list of image objects
 	
 	return render_template('gallery.html', images = images)
 

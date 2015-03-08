@@ -1,32 +1,22 @@
-html, body {
-	background-color:#1A1A1A;
-	margin:0;
+head, body {
+    background-color: #1A1A1A;
 }
 
-body {
-	border-top:4px 
-	solid #eee;
-}
-
-.content {
-	color:#1A1A1A;
-	font:12px/1.4 "helvetica neue",arial,sans-serif;
-	margin:20px;
-}
-
-a {
-	color:#1A1A1A;
-	text-decoration:none;
-}
-
-.cred {
-	margin-top:20px;
-	font-size:11px;
-}
-
-.galleria { 
-	height: 432px; 
+a:hover {
+	color: #FFFFFF;
 	background-color: #1A1A1A;
 }
 
-     
+nav a {
+	color: #FFFFFF;
+}
+
+nav li {
+	display: inline;
+}
+
+nav {
+	list-style-type: none;
+	font-size: 25px;
+	position: fixed;
+}
