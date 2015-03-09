@@ -3,15 +3,23 @@
 .sliderLabel {
 	text-align: right;
 	margin-right: 10px;
+	color: #999;
 }
 
-body {
-    background-color: #1A1A1A;
+#header {
+	height: 62px;
+	position: relative;
+	background: linear-gradient(#111, #222);
+	border-bottom: 1px solid #3d3d3d;
+}
+
+h1, h1 {
+	font-size: 44px;
+	color: white;
 }
 
 a:hover {
 	color: #FFFFFF;
-	background-color: #1A1A1A;
 }
 
 nav a {
@@ -20,21 +28,26 @@ nav a {
 
 nav li {
 	display: inline;
-	font-size: 15px;
+	font-size: 18px;
+	color: white;
 }
 
 nav {
 	list-style-type: none;
-	position: fixed;
 	text-align: right;
 	margin-left: 100px;
 	margin-top: 20px;
 }
 
+body {
+    background-color: linear-gradient(#111, #222);
+}
+
 #canvas {
-	background-color: #1A1A1A;
+	background-color: linear-gradient(#111, #222);
 	width: 100%;
-  	height: auto;  	
+  	height: auto;  
+  	border-right: 1px solid #3d3d3d;	
 }
 
 #createImg {
@@ -55,6 +68,19 @@ nav {
 
 }
 
+
+.btn {
+	background: linear-gradient(#4d4d4d, #2f2f2f);
+	color: white !important;
+	font-size: 1.2em;
+	border-radius: 5px;
+	border: 1px solid black;
+	font-size: 1.2em;
+	text-align: center;
+
+}
+
+
 #save {
 	float: right;
 	display: inline;
@@ -67,6 +93,11 @@ nav {
 	margin-right: 10px;
 }
 
+.ui-slider-handle.ui-state-default.ui-corner-all {
+	width: 1em;
+	height: 1em;
+	cursor: default;
+}
 
 #thickSlider {
 	float: right;
