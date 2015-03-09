@@ -4,13 +4,14 @@
 
 {% block body %}
 
-<br><br><br>
+<br><br>
 
-<div class="row">
-  <div class="col-sm-6">
-	<canvas id="canvas" width="1200" height="800"></canvas>
-  </div>
-	<div class="col-sm-6">
+  	<div class="col-md-9">
+		<canvas id="canvas" width="1044" height="1385"></canvas>
+	</div>
+
+	<div class="col-md-3"> 
+		<p class="sliderLabel"> Color Picker </p>
 		<!-- color picker sliders -->
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -20,28 +21,47 @@
 		<div id="blue"></div>
 		<div id="swatch" class="ui-widget-content ui-corner-all"></div>
 		<!-- end color picker sliders -->
-
-
 		<br><br><br>
+		
 
 		<!-- sliders -->
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
 		<script src="//code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+		
+		<p class="sliderLabel"> Thickness </p>
 		<div class="slider" id="thickSlider"></div><br><br>
+		
+		<p class="sliderLabel"> Depth </p>
 		<div class="slider" id="depthSlider"></div><br><br>
-		<div class="slider" id="lengthSlider"></div><br><br><br><br>
+		
+		<p class="sliderLabel"> Size </p>
+		<div class="slider" id="lengthSlider"></div><br><br>
+		
+		<p class="sliderLabel"> Angle </p>
 		<div class="slider" id="angleSlider"></div><br><br>
+		
+		<p class="sliderLabel"> Bend </p>
 		<div class="slider" id="tiltSlider"></div><br><br>
+		
+		<p class="sliderLabel"> Rotate </p>
 		<div class="slider" id="orientationSlider"></div>
 		<!-- end sliders -->
 
 
-		<br><br><br><br><br>
+		<!-- <form action="/save" method="post" id="save-form">
+				
+				Name: <input type="text" name="name" id="name">
 
+				Company Name: <input type="text" name="company" id="company">
 
-		<button type="submit" class="btn btn-primary" value="submit" name="clearCanvas" id="clearCanvas">Clear</button>
-		<button type="submit" class="btn btn-primary" value="submit" name="createImg" id="createImg">Create</button>
+				Email: <input type="text" name="company" id="company">
+
+				<button type="submit" c value="submit" name="createImg" id="createImg">submit</button>
+
+		</form> -->
+
+		<br><br><br>
 
 
 		<!-- Button trigger modal -->
@@ -51,36 +71,40 @@
 
 		<!-- Modal -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel">Looks great!</h4>
-		      </div>
-		      <div class="modal-body"> 
-		        
-				<form action="/save" method="get" id="save-form">
-				
-				Name: <input type="text" name="name" id="name"> <br><br>
+			<div class="modal-dialog">
+			    <div class="modal-content">
+			      	<div class="modal-header">
+			        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        	<h4 class="modal-title" id="myModalLabel">Looks great!</h4>
+			      	</div>
+			      	<div class="modal-body"> 
+						<form action="/save" method="post" id="save-form">
+						
+							Name: <input type="text" name="name" id="name"> <br><br>
 
-				Company Name: <input type="text" name="company" id="company">
+							Company Name: <input type="text" name="company" id="company">
 
-				Email: <input type="text" name="company" id="company">
+							Email: <input type="text" name="company" id="company">
 
-				</form>
+						</form>
+			      	</div>
+			      	<div class="modal-footer">
+			      		<div id="savedAlert">Saved!</div>
+			        	<button type="button" class="btn btn-default" data-dismiss="modal" id="close">Close</button>
+			        	<button type="button" class="btn btn-primary" id="saveToGallery">Save</button>
+			      	</div>
+			    </div>
+			</div>
+		</div>
 
-		      </div>
-		      <div class="modal-footer">
-		      	<div id="savedAlert">Saved!</div>
-		        <button type="button" class="btn btn-default" data-dismiss="modal" id="close">Close</button>
-		        <button type="button" class="btn btn-primary" id="saveToGallery">Save</button>
+		<button type="submit" class="btn btn-primary" value="submit" name="clearCanvas" id="clearCanvas">Clear</button>
+		
 
-		      </div>
-		    </div>
-		  </div>
-		</div>		
-	</div>
-</div>
+		<button type="submit" class="btn btn-primary" value="submit" name="createImg" id="createImg">Start</button>
+
+	</div>	
+
+
 
 <!-- Get Javascript from draw_to_canvas.js -->
 <script type="text/javascript" src="../static/draw_to_canvas.js"></script>

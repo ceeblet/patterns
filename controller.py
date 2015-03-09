@@ -36,17 +36,17 @@ def gallery():
 
 
 
-@app.route('/save', methods=['GET', 'POST'])
+@app.route('/save', methods=['POST'])
 def save_img():
 	
 	'''Saves user created image to database and s3'''
 
 
-	name = request.args.get("name")
+	name = request.form.get("name")
 
-	company = request.args.get("company")
+	company = request.form.get("company")
 
-	email = request.args.get("email")
+	email = request.form.get("email")
 
 	new_user = User(name=name, company=company, email=email)
 

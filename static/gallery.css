@@ -18,6 +18,9 @@ nav li {
 
 nav {
 	list-style-type: none;
-	font-size: 25px;
+	text-align: right;
+	font-size: 20px;
 	position: fixed;
 }
+
+

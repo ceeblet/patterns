@@ -15,20 +15,28 @@
 
  </head> 
     <body>
-        <div class = "container-fluid">
-        <!-- TODO: Make responsive. Add rows and columns to hold content. --> 
-            <br>
-            <nav>
-                <ul>
-                    <li><a href="{{url_for('home')}}">Home</a></li> |
-                    <li><a href="{{url_for('about')}}">About</a></li> |
-                    <li><a href="{{url_for('gallery')}}">Gallery</a></li> 
-               </ul>
-            </nav>
-            {% block body %}
+        <div class ="container-fluid">
+
+            <div class ="row"> 
+                <div class="col-md-9" style="height:68px;"> <h1> patterns </h1> </div>
+                <div class="col-md-3" style="height:68px;"> 
+                    <nav>
+                        <ul>
+                            <li><a href="{{url_for('home')}}">Home</a></li> |
+                            <li><a href="{{url_for('about')}}">About</a></li> |
+                            <li><a href="{{url_for('gallery')}}">Gallery</a></li> 
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+          
+          
+                {% block body %}
 
             
-            {% endblock %}
+                {% endblock %}
+        
 
         </div>
         <script src="../static/bootstrap/js/bootstrap.min.js"></script>

@@ -29,7 +29,7 @@ var Tree = {
 	branchThickness: undefined,
 	
 	draw: function(delay) {
-		ctx.clearRect(0, 0, 1200, 800); // clear canvas
+		ctx.clearRect(0, 0, 1044, 1385); // clear canvas
 		Tree.drawTree(600, 450, Tree.orientation, Tree.depth, delay); // initiate chain of recursive calls
 	},
 	
@@ -229,7 +229,7 @@ $("#createImg").on("click", function(event) {
 
 // clear canvas on click 
 $("#clearCanvas").on("click", function(event) {
-	ctx.clearRect(0, 0, 1200, 800);
+	ctx.clearRect(0, 0, 1044, 1385);
 	$("#canvas").unbind("mousemove");
 });
 

@@ -1,5 +1,10 @@
 /* Styling */
 
+.sliderLabel {
+	text-align: right;
+	margin-right: 10px;
+}
+
 body {
     background-color: #1A1A1A;
 }
@@ -21,10 +26,12 @@ nav li {
 nav {
 	list-style-type: none;
 	position: fixed;
+	text-align: right;
+	margin-left: 100px;
+	margin-top: 20px;
 }
 
 #canvas {
-	/*border: 2px solid black; */
 	background-color: #1A1A1A;
 	padding-left: 0;
     padding-right: 0;
@@ -40,7 +47,7 @@ nav {
 #addToGallery {
 	float: right;
 	display: inline;
-	margin-right: 15px;
+	margin-right: 10px;
 
 }
 
@@ -52,7 +59,7 @@ nav {
 #save {
 	float: right;
 	display: inline;
-	margin-right: 15px;
+	margin-right: 10px;
 }
 
 #clearCanvas {
@@ -110,16 +117,15 @@ nav {
  #red, #green, #blue {
     float: right;
     clear: right;
-    width: 300px;
+    width: 210px;
     height: 5px;
     margin: 15px;
 }
 
  #swatch {
-    width: 120px;
-    height: 80px;
-    margin-top: 15px;
-    margin-left: 225px;
+    width: 80px;
+    height: 90px;
+    margin-left: 0px;
     background-image: none;
 }
 
