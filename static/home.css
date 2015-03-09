@@ -33,9 +33,8 @@ nav {
 
 #canvas {
 	background-color: #1A1A1A;
-	padding-left: 0;
-    padding-right: 0;
-    display: inline-block;
+	width: 100%;
+  	height: auto;  	
 }
 
 #createImg {

@@ -42,17 +42,35 @@ def save_img():
 	'''Saves user created image to database and s3'''
 
 
-	name = request.form.get("name")
+	# returns none when set to post request, still saves image
+	# name = request.form.get("name")
 
-	company = request.form.get("company")
+	# company = request.form.get("company")
 
-	email = request.form.get("email")
+	# email = request.form.get("email")
 
-	new_user = User(name=name, company=company, email=email)
 
-	# new_user.save()
+	# returns NameError: global name 'name' is not defined, does not save image when sent as get request
+	# name = request.form.get("name")
 
-	print "******************************", name, company, email
+	# company = request.form.get("company")
+
+	# email = request.form.get("email")
+
+
+	# # # this syntax returns 400 error, sent as Post request
+	# name = request.form['name']
+
+	# company = request.form['company']
+
+	# email = request.form['email']
+
+	# new_user = User(name=name, company=company, email=email)
+
+	# # new_user.save()
+
+	# print "******************************", name, company, email
+
 
 	
 	boto.set_stream_logger('boto')
@@ -76,7 +94,6 @@ def save_img():
 
 	path = 'https://s3.amazonaws.com/fractal-art/'
 
-	# TODO: UUID collision avoidence 
 	# create unique file name for user image
 	filename = str(uuid.uuid4()) + '.png'
 
@@ -87,7 +104,7 @@ def save_img():
 	key = bucket.new_key(filename)
 	key.set_contents_from_string(decoded_img)
 
-	# grant everyone read access so image will be available for public display
+	# set access so image will be available for public display
 	key.set_acl('public-read-write')
 
 	# instantiate instance of Image class

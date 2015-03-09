@@ -7,7 +7,7 @@
 <br><br>
 
   	<div class="col-md-9">
-		<canvas id="canvas" width="1044" height="1385"></canvas>
+		<canvas id="canvas" width="1000" height="700"></canvas>
 	</div>
 
 	<div class="col-md-3"> 
@@ -48,21 +48,7 @@
 		<div class="slider" id="orientationSlider"></div>
 		<!-- end sliders -->
 
-
-		<!-- <form action="/save" method="post" id="save-form">
-				
-				Name: <input type="text" name="name" id="name">
-
-				Company Name: <input type="text" name="company" id="company">
-
-				Email: <input type="text" name="company" id="company">
-
-				<button type="submit" c value="submit" name="createImg" id="createImg">submit</button>
-
-		</form> -->
-
 		<br><br><br>
-
 
 		<!-- Button trigger modal -->
 		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="addToGallery">
@@ -78,7 +64,7 @@
 			        	<h4 class="modal-title" id="myModalLabel">Looks great!</h4>
 			      	</div>
 			      	<div class="modal-body"> 
-						<form action="/save" method="post" id="save-form">
+						<form action="/save" method="POST" id="save-form">
 						
 							Name: <input type="text" name="name" id="name"> <br><br>
 
@@ -97,10 +83,10 @@
 			</div>
 		</div>
 
-		<button type="submit" class="btn btn-primary" value="submit" name="clearCanvas" id="clearCanvas">Clear</button>
+		<button type="button" class="btn btn-primary" value="submit" name="clearCanvas" id="clearCanvas">Clear</button>
 		
 
-		<button type="submit" class="btn btn-primary" value="submit" name="createImg" id="createImg">Start</button>
+		<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="After you click start, you can click anywhere in the empty space to the left to make your pattern move with your mouse. Another click will disable mouse control." id="createImg">Start</button>
 
 	</div>	
 
