@@ -39,39 +39,21 @@ def gallery():
 @app.route('/save', methods=['POST'])
 def save_img():
 	
-	'''Saves user created image to database and s3'''
+	'''Saves user information to database and saves user created image to database and s3'''
+
+	# step1: get user information and save it to database:
+	name = request.form.get('name')
+
+	company = request.form.get('company')
+
+	email = request.form.get('email')
+
+	new_user = User(name=name, company=company, email=email)
+
+	new_user.save()
 
 
-	# returns none when set to post request, still saves image
-	# name = request.form.get("name")
-
-	# company = request.form.get("company")
-
-	# email = request.form.get("email")
-
-
-	# returns NameError: global name 'name' is not defined, does not save image when sent as get request
-	# name = request.form.get("name")
-
-	# company = request.form.get("company")
-
-	# email = request.form.get("email")
-
-
-	# # # this syntax returns 400 error, sent as Post request
-	# name = request.form['name']
-
-	# company = request.form['company']
-
-	# email = request.form['email']
-
-	# new_user = User(name=name, company=company, email=email)
-
-	# # new_user.save()
-
-	# print "******************************", name, company, email
-
-
+	# step 2: get user created image and save it to database:
 	
 	boto.set_stream_logger('boto')
 
@@ -87,7 +69,7 @@ def save_img():
 
 	# get dataURL from draw_to_canvas.js and convert from unicode to string
 	# split dataURL and ignore leading 'data:image/png;base64'
-	_, b64data = str(request.form.get('data')).split(',')
+	_, b64data = str(request.form.get('imgData')).split(',')
 
 	# decode base64 data string ensuring the length is a multiple of 4 bytes
 	decoded_img = decode_img(b64data)
@@ -124,6 +106,7 @@ def save_img():
 
 if __name__ == '__main__':
     app.run(debug=True)
+ 
 
 
 

@@ -12,6 +12,54 @@
 
 	<div class="col-md-3" id="userTools"> 
 
+
+		<!-- <div class="btn-toolbar" role="toolbar" aria-label="...">
+		  <div class="btn-group" role="group" aria-label="...">color</div>
+		  <div class="btn-group" role="group" aria-label="...">color</div>
+		  <div class="btn-group" role="group" aria-label="...">color</div>
+		</div> -->
+
+
+		<!-- Button trigger modal -->
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="addToGallery">
+			Add to Gallery
+		</button>
+
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+			    <div class="modal-content">
+			      	<div class="modal-header">
+			        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        	<h4 class="modal-title" id="myModalLabel">Looks great!</h4>
+			      	</div>
+			      	<div class="modal-body"> 
+						<form action="/save" method="POST" id="save-form">
+						
+							Name: <input type="text" name="name" id="name"> <br><br>
+
+							Company Name: <input type="text" name="company" id="company">
+
+							Email: <input type="text" name="email" id="email">
+
+						</form>
+			      	</div>
+			      	<div class="modal-footer">
+			      		<div id="savedAlert">Saved!</div>
+			        	<button type="button" class="btn btn-primary" data-dismiss="modal" id="close">Close</button>
+			        	<button type="button" class="btn btn-primary" id="saveToGallery">Save</button>
+			      	</div>
+			    </div>
+			</div>
+		</div>
+
+		<button type="button" class="btn btn-primary" value="submit" name="clearCanvas" id="clearCanvas">Clear</button>
+		
+
+		<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="After you click start, you can click anywhere in the empty space to the left to make your pattern move with your mouse. Another click will disable mouse control." id="createImg">Start</button>
+
+		<br><br><br>		
+
 		<p class="sliderLabel"> Color Picker </p>
 		<!-- color picker sliders -->
 		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
@@ -50,44 +98,6 @@
 		<!-- end sliders -->
 
 		<br><br><br>
-
-		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="addToGallery">
-			Add to Gallery
-		</button>
-
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-			    <div class="modal-content">
-			      	<div class="modal-header">
-			        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        	<h4 class="modal-title" id="myModalLabel">Looks great!</h4>
-			      	</div>
-			      	<div class="modal-body"> 
-						<form action="/save" method="POST" id="save-form">
-						
-							Name: <input type="text" name="name" id="name"> <br><br>
-
-							Company Name: <input type="text" name="company" id="company">
-
-							Email: <input type="text" name="company" id="company">
-
-						</form>
-			      	</div>
-			      	<div class="modal-footer">
-			      		<div id="savedAlert">Saved!</div>
-			        	<button type="button" class="btn btn-default" data-dismiss="modal" id="close">Close</button>
-			        	<button type="button" class="btn btn-primary" id="saveToGallery">Save</button>
-			      	</div>
-			    </div>
-			</div>
-		</div>
-
-		<button type="button" class="btn btn-primary" value="submit" name="clearCanvas" id="clearCanvas">Clear</button>
-		
-
-		<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="After you click start, you can click anywhere in the empty space to the left to make your pattern move with your mouse. Another click will disable mouse control." id="createImg">Start</button>
 
 	</div>	
 

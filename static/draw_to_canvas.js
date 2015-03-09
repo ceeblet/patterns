@@ -245,13 +245,24 @@ $("#addToGallery").on("click", function(event){
 	$("#savedAlert").hide();
 })
 
+
 // save image to gallery
 $("#saveToGallery").on("click", function(event){
 
 		var dataURL = canvas.toDataURL(); // save image as base64 string
-		
+
+		var formData = $("#save-form").serializeArray()
+
+		data = {'imgData': dataURL}
+
+		for (var i=0; i<formData.length; i++){
+			data[formData[i].name] = formData[i].value
+
+		}
 		// submit POST request to '/save' route in controller.py
-		$.post('/save', {'data': dataURL}, function(d){
+		$.post('/save', data, function(d){
+		// $.post('/save', {'formData': formData}, function(d){
+
 			
 			// display a success notification, then remove it
 			$("#savedAlert").show();

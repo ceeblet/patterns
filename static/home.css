@@ -1,7 +1,7 @@
 /* Styling */
 
 .sliderLabel {
-	text-align: right;
+	text-align: left;
 	margin-right: 10px;
 	color: #999;
 }
@@ -24,18 +24,20 @@ a:hover {
 
 nav a {
 	color: #FFFFFF;
+	padding-left: 15px;
+	padding-right: 15px;
 }
+
 
 nav li {
 	display: inline;
-	font-size: 18px;
+	font-size: 20px;
 	color: white;
 }
 
 nav {
 	list-style-type: none;
 	text-align: right;
-	margin-left: 100px;
 	margin-top: 20px;
 }
 
@@ -80,6 +82,15 @@ body {
 
 }
 
+/*.btn-group {
+	background: linear-gradient(#4d4d4d, #2f2f2f);
+	font-size: 1.2em;
+	border-radius: 5px;
+	border: 1px solid black;
+	font-size: 1.2em;
+	text-align: center;
+}
+*/
 
 #save {
 	float: right;
@@ -102,7 +113,7 @@ body {
 #thickSlider {
 	float: right;
 	width: 300px;
-	height: 5px;
+	height: 8px;
     margin: 15px;
 }
 
@@ -110,35 +121,35 @@ body {
 #depthSlider {
 	float: right;
 	width: 300px;
-	height: 5px;
+	height: 8px;
     margin: 15px;
 }
 
 #lengthSlider {
 	float: right;
 	width: 300px;
-	height: 5px;
+	height: 8px;
     margin: 15px;
 }
 
 #angleSlider {
 	float: right;
 	width: 300px;
-	height: 5px;
+	height: 8px;
     margin: 15px;
 }
 
 #tiltSlider {
 	float: right;
 	width: 300px;
-	height: 5px;
+	height: 8px;
     margin: 15px;
 }
 
 #orientationSlider {
 	float: right;
 	width: 300px;
-	height: 5px;
+	height: 8px;
     margin: 15px;
 }
 
@@ -148,7 +159,7 @@ body {
     float: right;
     clear: right;
     width: 210px;
-    height: 5px;
+    height: 8px;
     margin: 15px;
 }
 
