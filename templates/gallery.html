@@ -46,7 +46,7 @@
         	{% for image in images %}
 
 			<a href = "https://s3.amazonaws.com/fractal-art/{{image.filename}}">
-					<img src = "https://s3.amazonaws.com/fractal-art/{{image.filename}}" data-big="https://s3.amazonaws.com/fractal-art/{{image.filename}}" data-title="{{image.filename}}" data-description="test">
+					<img src = "https://s3.amazonaws.com/fractal-art/{{image.filename}}" data-big="https://s3.amazonaws.com/fractal-art/{{image.filename}}" data-title="{{image.user_id.name}}" data-description="test">
 			</a>
 
 			{% endfor %}

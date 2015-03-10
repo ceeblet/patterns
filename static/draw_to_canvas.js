@@ -278,6 +278,23 @@ $(function () {
 })
 
 
+// start animation on page load
+window.onload = function() {
+	Tree.depth = 12;
+	Tree.orientation = -90;
+	Tree.hex = "b3001e"; 
+	Tree.tilt = 0;
+	Tree.branchAngle = 120;
+	Tree.branchThickness = 1;
+	Tree.branchLength = 15; 
+	Tree.draw(1);
+
+	//hide animation -- fade out
+
+};
+
+
+
 
 
 
