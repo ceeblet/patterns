@@ -53,9 +53,10 @@ class Image(Base):
 
     user = relationship('User', backref = backref('images', order_by = id))
 
-    def __init__(self, filepath, filename):
+    def __init__(self, filepath, filename, user_id):
         self.filepath = filepath
         self.filename = filename
+        self.user_id = user_id
 
     def save(self):
         db_session.add(self)

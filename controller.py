@@ -48,9 +48,12 @@ def save_img():
 
 	email = request.form.get('email')
 
-	new_user = User(name=name, company=company, email=email)
+	user = User(name=name, company=company, email=email)
 
-	new_user.save()
+	user.save()
+
+	# get current users id (to use as forgein key in images table)
+	user_id = user.id
 
 
 	# step 2: get user created image and save it to database:
@@ -90,7 +93,7 @@ def save_img():
 	key.set_acl('public-read-write')
 
 	# instantiate instance of Image class
-	img = Image(fullpath, filename)
+	img = Image(fullpath, filename, user_id)
 	
 	# save image details to database
 	img.save()
