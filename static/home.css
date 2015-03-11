@@ -1,5 +1,14 @@
 /* Styling */
 
+#collapseOne {
+	background-color: #111;
+	color: white;
+	font-size: 1.2em;
+	border-radius: 5px;
+	border: 1px solid black;
+	font-size: 1.2em;
+	text-align: left;
+}
 
 #header {
 	height: 62px;

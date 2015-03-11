@@ -218,13 +218,13 @@ $("#canvas").on("click", function(event) {
 $("#createImg").on("click", function(event) {
 
 	// default values for image
-	Tree.depth = 9;
+	Tree.depth = 11;
 	Tree.orientation = -90;
-	Tree.hex = "fcee21"; 
+	Tree.hex = "CCFF33"; 
 	Tree.tilt = 0;
 	Tree.branchAngle = 18;
-	Tree.branchThickness = 3;
-	Tree.branchLength = 9; 
+	Tree.branchThickness = 1;
+	Tree.branchLength = 6; 
 
 	Tree.draw(1);
 });
@@ -234,6 +234,17 @@ $("#createImg").on("click", function(event) {
 $("#clearCanvas").on("click", function(event) {
 	ctx.clearRect(0, 0, 1000, 700);
 	$("#canvas").unbind("mousemove");
+	
+	// resent values
+	Tree.hex = undefined;
+	Tree.depth = true;
+	Tree.orientation = undefined;
+	Tree.tilt = undefined;
+	Tree.branchAngle = undefined;
+	Tree.branchLength = undefined;
+	Tree.branchThickness = undefined;
+
+	console.log(Tree);
 });
 
 
@@ -286,11 +297,11 @@ $(function () {
 // start unique animation on each page load 
 window.onload = function() {
 	
-	var colorArray = ["b3001e", "CCFF33", "CC0099", "66FF33", "33CCFF", "CC3300"];
+	var colorArray = ["b3001e", "CCFF33", "CC0099", "66FF33", "33CCFF", "CC3300", "FE642E", "8904B1", "2E2EFE"];
 
 	Tree.depth = drawMath.getRandomInt(10, 15);
 	Tree.orientation = drawMath.getRandomInt(-90, -180);
-	Tree.hex = colorArray[drawMath.getRandomInt(0, 5)];
+	Tree.hex = colorArray[drawMath.getRandomInt(0, 9)];
 	Tree.tilt = -90;
 	Tree.branchAngle = drawMath.getRandomInt(-360, 360);
 	Tree.branchThickness = drawMath.getRandomInt(1, 3);
