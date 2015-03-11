@@ -31,61 +31,66 @@
 
 		<br>
 
-		<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="addToGallery">
-			Add to Gallery
-		</button>
+		<div class="btn-toolbar" role="toolbar" aria-label="toolbar" id="toolbar">	
 
-		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-			    <div class="modal-content">
-			      	<div class="modal-header">
-			        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-			        	<h4 class="modal-title" id="myModalLabel">Looks great!</h4>
-			      	</div>
-			      	<div class="modal-body"> 
-						<form action="/save" method="POST" id="save-form">
-						
-							Name: <input type="text" name="name" id="name"> <br><br>
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="addToGallery">
+				Add to Gallery
+			</button>
 
-							Company Name: <input type="text" name="company" id="company">
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+				    <div class="modal-content">
+				      	<div class="modal-header">
+				        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				        	<h4 class="modal-title" id="myModalLabel">Looks great!</h4>
+				      	</div>
+				      	<div class="modal-body"> 
+							<form action="/save" method="POST" id="save-form">
+							
+								Name: <input type="text" name="name" id="name"> <br><br>
 
-							Email: <input type="text" name="email" id="email">
+								Company Name: <input type="text" name="company" id="company">
 
-						</form>
-			      	</div>
-			      	<div class="modal-footer">
-			      		<div id="savedAlert">Saved!</div>
-			        	<button type="button" class="btn btn-primary" data-dismiss="modal" id="close">Close</button>
-			        	<button type="button" class="btn btn-primary" id="saveToGallery">Save</button>
-			      	</div>
-			    </div>
+								Email: <input type="text" name="email" id="email">
+
+							</form>
+				      	</div>
+				      	<div class="modal-footer">
+				      		<div id="savedAlert">Saved!</div>
+				        	<button type="button" class="btn btn-primary" data-dismiss="modal" id="close">Close</button>
+				        	<button type="button" class="btn btn-primary" id="saveToGallery">Save</button>
+				      	</div>
+				    </div>
+				</div>
 			</div>
+
+			<button type="button" class="btn btn-primary" value="submit" name="clearCanvas" id="clearCanvas">Clear</button>
+			
+
+			<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Begin again with a new pattern template." id="createImg">Create</button>
 		</div>
 
-		<button type="button" class="btn btn-primary" value="submit" name="clearCanvas" id="clearCanvas">Clear</button>
-		
-
-		<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Begin again with a new pattern template." id="createImg">Create</button>
-
-		<br><br><br><br>	
+		<br><br>	
 
 		<!-- Color swatches -->
-		<div class="btn-toolbar" role="toolbar" aria-label="...">
+		<div class="btn-toolbar" role="toolbar" aria-label="colors">
 			<button type="button" class="btn btn-default" id="red-swatch"></button>
   			<button type="button" class="btn btn-default" id="yellow-swatch"></button>
   			<button type="button" class="btn btn-default" id="pink-swatch"></button>
   			<button type="button" class="btn btn-default" id="blue-swatch"></button>
   			<button type="button" class="btn btn-default" id="green-swatch"></button>
+  			<button type="button" class="btn btn-default" id="gold-swatch"></button>
 		</div>
 		<br> 
-		<div class="btn-toolbar" role="toolbar" aria-label="...">
+		<div class="btn-toolbar" role="toolbar" aria-label="more-colors">
 			<button type="button" class="btn btn-default" id="purple-swatch"></button>
 			<button type="button" class="btn btn-default" id="orange-swatch"></button>
 			<button type="button" class="btn btn-default" id="dark-blue-swatch"></button>
 			<button type="button" class="btn btn-default" id="dark-purple-swatch"></button>
 			<button type="button" class="btn btn-default" id="pale-turquoise-swatch"></button>
+			<button type="button" class="btn btn-default" id="light-pink-swatch"></button>
 		</div>
 		<!-- end color swatches --> 
 

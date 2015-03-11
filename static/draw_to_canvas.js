@@ -203,6 +203,19 @@ $("#pale-turquoise-swatch").on("click", function(event) {
 	Tree.draw(0); 
 });
 
+// draw in light pink 
+$("#light-pink-swatch").on("click", function(event) {
+	hex = "e5a3ad";
+	Tree.hex = hex; 
+	Tree.draw(0); 
+});
+
+// draw in gold
+$("#gold-swatch").on("click", function(event) {
+	hex = "ffa700;";
+	Tree.hex = hex; 
+	Tree.draw(0); 
+});
 
 
 

@@ -19,11 +19,14 @@
 
 .header, body {
     background-color: linear-gradient(#111, #222);
+    padding-left: 0;
+    padding-right: 0;
 }
 
 h1, h1 {
 	font-size: 44px;
 	color: white;
+	padding-left: 15px;
 }
 
 a:hover {
@@ -66,6 +69,17 @@ p {
 	margin: 0px;
 }
 
+.col-md-3 {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.container-fluid {
+	padding-left: 0px;
+	padding-right: 0px;
+
+}
+
 #createImg {
 	float: right;
 	display: inline;
@@ -101,69 +115,92 @@ p {
 
 }
 
+#toolbar {
+	padding-left: 5px;
+	padding-right: 10px;
+}
+
+.btn-toolbar {
+	padding-left: 0px;
+	padding-right: 0px;
+	margin: 0;
+}
+
 #red-swatch {
-	width: 3em;
+	width: 2.8em;
 	height: 3em;
 	background: #B80000;
 }
 
 
 #yellow-swatch {
-	width: 3em;
+	width: 2.8em;
 	height: 3em;
 	background: #CCFF33;
 }
 
 #pink-swatch {
-	width: 3em;
+	width: 2.8em;
 	height: 3em;
 	background: #CC0099;
 
 }
 
 #blue-swatch {
-	width: 3em;
+	width: 2.8em;
 	height: 3em;
 	background: #33CCFF;
 }
 
 #green-swatch {
-	width: 3em;
+	width: 2.8em;
 	height: 3em;
 	background: #00FF00;
 }
 
 #orange-swatch {
-	width: 3em;
+	width: 2.8em;
 	height: 3em;
 	background: #CC3300;
 }
 
 #purple-swatch {
-	width: 3em;
+	width: 2.8em;
 	height: 3em;
 	background: #8904b1;
 }
 
 #dark-blue-swatch {
-	width: 3em;
+	width: 2.8em;
 	height: 3em;
 	background: #2E2EFE;
 }
 
 #dark-purple-swatch {
-	width: 3em;
+	width: 2.8em;
 	height: 3em;
 	background: #800080;
 }
 
 #pale-turquoise-swatch {
-	width: 3em;
+	width: 2.8em;
 	height: 3em;
 	background: #AEEEEE;
 
 }
 
+
+#light-pink-swatch {
+	width: 2.8em;
+	height: 3em;
+	background: #e5a3ad;
+}
+
+#gold-swatch {
+	width: 2.8em;
+	height: 3em;
+	background: #ffa700;
+}
 
 #userTools {
 	padding-right: 10px;
@@ -189,44 +226,44 @@ p {
 
 #thickSlider {
 	float: right;
-	width: 300px;
+	width: 320px;
 	height: 8px;
-    margin: 15px;
+    margin: 10px;
 }
 
 
 #depthSlider {
 	float: right;
-	width: 300px;
+	width: 320px;
 	height: 8px;
-    margin: 15px;
+    margin: 10px;
 }
 
 #lengthSlider {
 	float: right;
-	width: 300px;
+	width: 320px;
 	height: 8px;
-    margin: 15px;
+    margin: 10px;
 }
 
 #angleSlider {
 	float: right;
-	width: 300px;
+	width: 320px;
 	height: 8px;
-    margin: 15px;
+    margin: 10px;
 }
 
 #tiltSlider {
 	float: right;
-	width: 300px;
+	width: 320px;
 	height: 8px;
-    margin: 15px;
+    margin: 10px;
 }
 
 #orientationSlider {
 	float: right;
-	width: 300px;
+	width: 320px;
 	height: 8px;
-    margin: 15px;
+    margin: 10px;
 }
 
