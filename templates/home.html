@@ -4,8 +4,8 @@
 
 {% block body %}
 
-  	<div class="col-md-9">
-		<canvas id="canvas" width="1000" height="700"></canvas>
+  	<div class="col-md-9" id ="canvas-column">
+		<canvas id="canvas"width="1000" height="700"></canvas>
 	</div>
 
 	<div class="col-md-3" id="userTools"> 
@@ -30,7 +30,27 @@
 		</div>
 
 		<br>
+
+		<!-- Color swatches -->
+		<div class="btn-toolbar" role="toolbar" aria-label="...">
+				<button type="button" class="btn btn-default" id="red-swatch"></button>
+  				<button type="button" class="btn btn-default" id="yellow-swatch"></button>
+  				<button type="button" class="btn btn-default" id="pink-swatch"></button>
+  				<button type="button" class="btn btn-default" id="blue-swatch"></button>
+  				<button type="button" class="btn btn-default" id="green-swatch"></button>
+		</div>
+		<br> 
+		<div class="btn-toolbar" role="toolbar" aria-label="...">
+			<button type="button" class="btn btn-default" id="red-swatch"></button>
+				<button type="button" class="btn btn-default" id="yellow-swatch"></button>
+				<button type="button" class="btn btn-default" id="pink-swatch"></button>
+				<button type="button" class="btn btn-default" id="blue-swatch"></button>
+				<button type="button" class="btn btn-default" id="green-swatch"></button>
+		</div>
+		<!-- end color swatches --> 
 		
+		<br>
+
 		<!-- Button trigger modal -->
 		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" id="addToGallery">
 			Add to Gallery

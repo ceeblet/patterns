@@ -182,6 +182,47 @@ $("#orientationSlider").on("slide", function(event, ui) {
 	Tree.draw(0); // draw tree with new orientation
 });
 
+// draw in red
+$("#red-swatch").on("click", function(event) {
+	hex = "B80000";
+	Tree.hex = hex; 
+	Tree.draw(0); 
+
+});
+
+// draw in yellow
+$("#yellow-swatch").on("click", function(event) {
+	hex = "CCFF33";
+	Tree.hex = hex; 
+	Tree.draw(0); 
+
+});
+
+// draw in pink
+$("#pink-swatch").on("click", function(event) {
+	hex = "CC0099";
+	Tree.hex = hex; 
+	Tree.draw(0); 
+
+});
+
+// draw in green
+$("#green-swatch").on("click", function(event) {
+	hex = "00FF00";
+	Tree.hex = hex; 
+	Tree.draw(0); 
+
+});
+
+// draw in blue
+$("#blue-swatch").on("click", function(event) {
+	hex = "33CCFF";
+	Tree.hex = hex; 
+	Tree.draw(0); 
+
+});
+
+
 
 
 
@@ -297,7 +338,7 @@ $(function () {
 // start unique animation on each page load 
 window.onload = function() {
 	
-	var colorArray = ["b3001e", "CCFF33", "CC0099", "66FF33", "33CCFF", "CC3300", "FE642E", "8904B1", "2E2EFE"];
+	var colorArray = ["b3001e", "CCFF33", "CC0099", "00FF00", "33CCFF", "CC3300", "FE642E", "8904B1", "2E2EFE"];
 
 	Tree.depth = drawMath.getRandomInt(10, 15);
 	Tree.orientation = drawMath.getRandomInt(-90, -180);
