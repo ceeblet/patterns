@@ -82,61 +82,6 @@ function drawLine(x1, y1, x2, y2) {
 }
 
 
-
-// color picker slider
-function hexFromRGB(r, g, b) {
-	
-	var rgb_hex = [
-	  r.toString( 16 ),
-	  g.toString( 16 ),
-	  b.toString( 16 )
-	];
-	
-	$.each( rgb_hex, function( nr, val ) {
-	  if ( val.length === 1 ) {
-	    rgb_hex[ nr ] = "0" + val;
-	  }
-	});
-	
-	// returns hex values for red, green, and blue sliders
-	return rgb_hex.join( "" ).toUpperCase();
-}
-
-function refreshSwatch() {
-	
-	var red = $( "#red" ).slider( "value" );
-	var green = $( "#green" ).slider( "value" );
-	var blue = $( "#blue" ).slider( "value" );
-
-	// creates one hex code with the combined rgb color values
-	hex = hexFromRGB( red, green, blue );
-
-	Tree.hex = hex; // sets hex to current slider swatch value
-	
-	Tree.draw(0); // draw tree with new color
-
-	// sets swatch backbround to user selected color 
-	$( "#swatch" ).css( "background-color", "#" + hex );
-
-}
-
-$( "#red, #green, #blue" ).slider({
-	orientation: "horizontal",
-	range: "min",
-	max: 255,
-	value: 127,
-	slide: refreshSwatch,
-	change: refreshSwatch
-});
-
-
-$( "#red" ).slider( "value", 255 );
-$( "#green" ).slider( "value", 140 );
-$( "#blue" ).slider( "value", 60 );
-
-//end color picker slider
-
-
 // branch thickness slider
 $("#thickSlider").slider({max: 5, min: 1, value: 3});
 $("#thickSlider").on("slide", function(event, ui) {
@@ -222,10 +167,46 @@ $("#blue-swatch").on("click", function(event) {
 
 });
 
+// draw in orange
+$("#orange-swatch").on("click", function(event) {
+	hex = "CC3300";
+	Tree.hex = hex; 
+	Tree.draw(0); 
+
+});
+
+// draw in purple
+$("#purple-swatch").on("click", function(event) {
+	hex = "8904b1";
+	Tree.hex = hex; 
+	Tree.draw(0); 
+});
+
+// draw in dark blue
+$("#dark-blue-swatch").on("click", function(event) {
+	hex = "2E2EFE";
+	Tree.hex = hex; 
+	Tree.draw(0); 
+});
+
+// draw in dark purple
+$("#dark-purple-swatch").on("click", function(event) {
+	hex = "800080";
+	Tree.hex = hex; 
+	Tree.draw(0); 
+});
+
+// draw in pale turquoise 
+$("#pale-turquoise-swatch").on("click", function(event) {
+	hex = "AEEEEE";
+	Tree.hex = hex; 
+	Tree.draw(0); 
+});
 
 
 
 
+// set flag
 var clicked = false;
 
 $("#canvas").on("click", function(event) {
@@ -334,23 +315,20 @@ $(function () {
 
 
 
-
 // start unique animation on each page load 
 window.onload = function() {
 	
-	var colorArray = ["b3001e", "CCFF33", "CC0099", "00FF00", "33CCFF", "CC3300", "FE642E", "8904B1", "2E2EFE"];
+	var colorArray = ["b3001e", "CCFF33", "CC0099", "00FF00", "33CCFF", "CC3300", "8904B1", "2E2EFE"];
 
 	Tree.depth = drawMath.getRandomInt(10, 15);
 	Tree.orientation = drawMath.getRandomInt(-90, -180);
-	Tree.hex = colorArray[drawMath.getRandomInt(0, 9)];
+	Tree.hex = colorArray[drawMath.getRandomInt(0, 8)];
 	Tree.tilt = -90;
 	Tree.branchAngle = drawMath.getRandomInt(-360, 360);
 	Tree.branchThickness = drawMath.getRandomInt(1, 3);
 	Tree.branchLength = drawMath.getRandomInt(10, 15);
 	Tree.draw(1);
-	console.log(Tree);
-	// $("canvas").fadeOut(3000);
-	// $("canvas").show("fast");
+	console.log(Tree);	
 };
 
 
