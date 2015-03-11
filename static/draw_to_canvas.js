@@ -90,7 +90,7 @@ $("#thickSlider").on("slide", function(event, ui) {
 });
 
 // branch length slider
-$("#lengthSlider").slider({max: 30, min: 5, value: 12});
+$("#lengthSlider").slider({max: 30, min: 6, value: 18});
 $("#lengthSlider").on("slide", function(event, ui) {
 	Tree.branchLength = ui.value;
 	Tree.draw(0); // draw tree with new branch length
@@ -98,7 +98,7 @@ $("#lengthSlider").on("slide", function(event, ui) {
 
 
 // depth slider
-$("#depthSlider").slider({max: 12, min: 5, value: 9});
+$("#depthSlider").slider({max: 12, min: 4, value: 8});
 $("#depthSlider").on("slide", function(event, ui) {
 	Tree.depth = ui.value;
 	Tree.draw(0); // draw tree with new depth
@@ -106,7 +106,7 @@ $("#depthSlider").on("slide", function(event, ui) {
 
 
 // branch angle slider
-$("#angleSlider").slider({max: 360, min: -360, value: 10});
+$("#angleSlider").slider({max: 360, min: -360, value: 0});
 $("#angleSlider").on("slide", function(event, ui) {
 	Tree.branchAngle = ui.value;
 	Tree.draw(0); // draw tree with new angles
@@ -121,7 +121,7 @@ $("#tiltSlider").on("slide", function(event, ui) {
 
 
 // orientation slider
-$("#orientationSlider").slider({max: 180, min: -180, value: -90});
+$("#orientationSlider").slider({max: 180, min: -180, value: 0});
 $("#orientationSlider").on("slide", function(event, ui) {
 	Tree.orientation = ui.value;
 	Tree.draw(0); // draw tree with new orientation

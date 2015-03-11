@@ -39,6 +39,11 @@ nav a {
 	padding-right: 15px;
 }
 
+ul {
+	padding-left: 0px;
+	text-align: center;
+	padding-right: 30px;
+}
 
 nav li {
 	display: inline;
