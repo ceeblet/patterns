@@ -1,5 +1,6 @@
 /* Styling */
 
+
 #collapseOne {
 	background-color: #111;
 	color: white;
@@ -60,6 +61,7 @@ nav {
 
 #canvas-column {
 	position: relative;
+	padding-left: 0px;
 }
 
 #canvas {
