@@ -283,26 +283,22 @@ $(function () {
 
 
 
-
-
 // start unique animation on each page load 
 window.onload = function() {
 	
 	var colorArray = ["b3001e", "CCFF33", "CC0099", "66FF33", "33CCFF", "CC3300"];
 
 	Tree.depth = drawMath.getRandomInt(10, 15);
-	Tree.orientation = drawMath.getRandomInt(-180, 180);
+	Tree.orientation = drawMath.getRandomInt(-90, -180);
 	Tree.hex = colorArray[drawMath.getRandomInt(0, 5)];
-	Tree.tilt = drawMath.getRandomInt(-90, 90);
+	Tree.tilt = -90;
 	Tree.branchAngle = drawMath.getRandomInt(-360, 360);
 	Tree.branchThickness = drawMath.getRandomInt(1, 3);
-	Tree.branchLength = drawMath.getRandomInt(8, 15);
+	Tree.branchLength = drawMath.getRandomInt(10, 15);
 	Tree.draw(1);
-
-	//hide animation -- fade out
-  //$("#canvas").fadeOut( "slow");
-// });
-
+	console.log(Tree);
+	// $("canvas").fadeOut(3000);
+	// $("canvas").show("fast");
 };
 
 

@@ -1,16 +1,15 @@
 /* Styling */
 
-.sliderLabel {
-	text-align: left;
-	margin-right: 10px;
-	color: #999;
-}
 
 #header {
 	height: 62px;
 	position: relative;
 	background: linear-gradient(#111, #222);
 	border-bottom: 1px solid #3d3d3d;
+}
+
+.header, body {
+    background-color: linear-gradient(#111, #222);
 }
 
 h1, h1 {
@@ -37,19 +36,22 @@ nav li {
 
 nav {
 	list-style-type: none;
-	text-align: right;
+	text-align: center;
 	margin-top: 20px;
 }
 
-body {
-    background-color: linear-gradient(#111, #222);
-}
+
 
 #canvas {
 	background-color: linear-gradient(#111, #222);
 	width: 100%;
-  	height: auto;  
-  	border-right: 1px solid #3d3d3d;	
+  	height: 100%;  
+  	border-right: 1px solid #3d3d3d;
+  	margin: 0px;	
+}
+
+p {
+	margin: 0px;
 }
 
 #createImg {
@@ -66,10 +68,15 @@ body {
 }
 
 #savedAlert {
-	color: red;
+	color: #222;
 
 }
 
+.sliderLabel {
+	text-align: left;
+	margin-right: 10px;
+	color: #999;
+}
 
 .btn {
 	background: linear-gradient(#4d4d4d, #2f2f2f);
@@ -82,15 +89,9 @@ body {
 
 }
 
-/*.btn-group {
-	background: linear-gradient(#4d4d4d, #2f2f2f);
-	font-size: 1.2em;
-	border-radius: 5px;
-	border: 1px solid black;
-	font-size: 1.2em;
-	text-align: center;
+#userTools {
+	padding-right: 10px;
 }
-*/
 
 #save {
 	float: right;
@@ -161,6 +162,10 @@ body {
     width: 210px;
     height: 8px;
     margin: 15px;
+}
+
+#description {
+	color: white;
 }
 
  #swatch {
