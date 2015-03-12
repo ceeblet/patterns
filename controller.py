@@ -108,13 +108,20 @@ def save_img():
                   sender="sara.falkoff@gmail.com",
                   recipients=[email])
 	# msg.body = "Thanks so much for chatting with me today! Here is the pattern you created:"
-	msg.html = "<p> Thanks for chatting with me today! Here is the pattern you created at my demo: </p> <img src= fullpath>"
+	msg.html = "<p> Thanks for chatting with me today! Here is the pattern you created at my demo: </p> " + "<img src=" + fullpath + ">"
 	mail.send(msg)
 
+	# send_email("[microblog] %s is now following you!" % follower.nickname,
+ #               ADMINS[0],
+ #               [followed.email],
+ #               render_template("follower_email.txt", 
+ #                               user=followed, follower=follower),
+ #               render_template("follower_email.html", 
+ #                               user=followed, follower=follower))
 
 
 
-	
+
 
 	return 'successful upload'
 
