@@ -278,8 +278,6 @@ $("#clearCanvas").on("click", function(event) {
 	Tree.branchAngle = undefined;
 	Tree.branchLength = undefined;
 	Tree.branchThickness = undefined;
-
-	console.log(Tree);
 });
 
 
@@ -295,35 +293,32 @@ $("#addToGallery").on("click", function(event){
 })
 
 
-// save image to gallery
+// save image to gallery and save user information in database
 $("#saveToGallery").on("click", function(event){
 
-		var dataURL = canvas.toDataURL(); // save image as base64 string
+	var dataURL = canvas.toDataURL(); // save image as base64 string
 
-		var formData = $("#save-form").serializeArray()
+	var formData = $("#save-form").serializeArray()
 
-		data = {'imgData': dataURL}
+	data = {'imgData': dataURL}
 
-		for (var i=0; i<formData.length; i++){
-			data[formData[i].name] = formData[i].value
+	for (var i=0; i<formData.length; i++){
+		data[formData[i].name] = formData[i].value
 
-		}
-		// submit POST request to '/save' route in controller.py
-		$.post('/save', data, function(d){
-		// $.post('/save', {'formData': formData}, function(d){
-
-			
-			// display a success notification, then remove it
-			$("#savedAlert").show();
-			$('#savedAlert').delay(1000).fadeOut();
-		});
-
+	}
+	// submit POST request to '/save' route in controller.py
+	$.post('/save', data, function(d){
+	
+		// display a success notification, then remove it
+		$("#savedAlert").show();
+		$('#savedAlert').delay(1000).fadeOut();
+	});
 });
 
 
 // activate 'Start' button tooltip
 $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
+	$('[data-toggle="tooltip"]').tooltip()
 })
 
 

@@ -23,43 +23,40 @@
         <!-- load Galleria -->
         <script src="../static/folio/galleria/galleria-1.4.2.min.js"></script>
 
-       <!-- load CSS -->
+        <!-- load CSS -->
         <link rel="stylesheet" type="text/css" href="../static/gallery.css">
 
         <div class ="gallery-header" style="height:48px"> 
-        <nav>
-            <ul class ="gallery-ul">
-                <li><a href="{{url_for('home')}}">Home</a></li>
-                <li><a href="{{url_for('about')}}">About</a></li>
-                <li><a href="{{url_for('gallery')}}">Gallery</a></li> 
-           </ul>
-        </nav>
+            <!-- <h1 id="gallery-site-name"> patterns </h1>  -->
+            <nav>
+                <ul class ="gallery-ul">
+                    <li><a href="{{url_for('home')}}">Home</a></li>
+                    <li><a href="{{url_for('about')}}">About</a></li>
+                    <li><a href="{{url_for('gallery')}}">Gallery</a></li> 
+               </ul>
+            </nav>
         </div>
-
     </head>
-<body>
 
-<br>
+    <body>
+        <br>
+        <div class="content">
+            <div class="galleria">
 
-    <div class="content">
-        <div class="galleria">
+            	{% for image in images %}
 
-        	{% for image in images %}
+    			<a href = "https://s3.amazonaws.com/fractal-art/{{image.filename}}">
+    					<img src = "https://s3.amazonaws.com/fractal-art/{{image.filename}}" data-big="https://s3.amazonaws.com/fractal-art/{{image.filename}}">
+    			</a>
 
-			<a href = "https://s3.amazonaws.com/fractal-art/{{image.filename}}">
-					<img src = "https://s3.amazonaws.com/fractal-art/{{image.filename}}" data-big="https://s3.amazonaws.com/fractal-art/{{image.filename}}" data-title="{{image.user_id.name}}" data-description="test">
-			</a>
+    			{% endfor %}     
 
-			{% endfor %}
-                
-    </div>
-    <script>
+        </div>
+        <script>
+            Galleria.loadTheme('../static/folio/galleria/themes/folio/galleria.folio.min.js');
 
-    Galleria.loadTheme('../static/folio/galleria/themes/folio/galleria.folio.min.js');
-
-    // Initialize Galleria
-    Galleria.run('.galleria');
-
-    </script>
+            // Initialize Galleria
+            Galleria.run('.galleria');
+        </script>
     </body>
 </html>
