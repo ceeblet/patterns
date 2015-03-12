@@ -5,6 +5,11 @@ SQLAlchemy==0.9.8
 boto==2.36.0
 
 
+Flask-Mail==0.9.1 
+blinker==1.3
+
+Flask-Sendmail==0.1
+
 Flask-WTF==0.8
 Werkzeug==0.10.1
 wsgiref==0.1.2

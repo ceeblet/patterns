@@ -5,11 +5,14 @@ from flask import session as flask_session
 from model import User, Image
 from utils import decode_img
 
+
+from flask.ext.sendmail import Mail, Message
+
 import base64, os, uuid, boto
 
 
 app = Flask(__name__)
-
+mail = Mail(app)
 
 # TODO: hide this  
 app.secret_key = 'fU0Og5yop7EddZQOGUE$FMENpdw1'
@@ -40,6 +43,7 @@ def gallery():
 def save_img():
 	
 	'''Saves user information to database and saves user created image to database and s3'''
+	
 
 	# step1: get user information and save it to database:
 	name = request.form.get('name')
@@ -97,6 +101,20 @@ def save_img():
 	
 	# save image details to database
 	img.save()
+
+
+	# step 3: send image as email
+	msg = Message("Great Meeting You at Hackbright Demo Day!",
+                  sender="sara.falkoff@gmail.com",
+                  recipients=[email])
+	# msg.body = "Thanks so much for chatting with me today! Here is the pattern you created:"
+	msg.html = "<p> Thanks for chatting with me today! Here is the pattern you created at my demo: </p> <img src= fullpath>"
+	mail.send(msg)
+
+
+
+
+	
 
 	return 'successful upload'
 
