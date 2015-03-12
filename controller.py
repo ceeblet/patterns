@@ -42,7 +42,7 @@ def gallery():
 @app.route('/save', methods=['POST'])
 def save_img():
 	
-	'''Saves user information to database and saves user created image to database and s3'''
+	'''Saves user information to database; saves user created image to database and s3; sends user an email with their image'''
 	
 
 	# step1: get user information and save it to database:
@@ -58,6 +58,7 @@ def save_img():
 
 	# get current users id (to use as forgein key in images table)
 	user_id = user.id
+
 
 
 	# step 2: get user created image and save it to database:
@@ -103,29 +104,24 @@ def save_img():
 	img.save()
 
 
-	# step 3: send image as email
+
+	# step 3: send user an email with the image 
 	msg = Message("Great Meeting You at Hackbright Demo Day!",
                   sender="sara.falkoff@gmail.com",
                   recipients=[email])
 	# msg.body = "Thanks so much for chatting with me today! Here is the pattern you created:"
-	msg.html = "<p> Thanks for chatting with me today! Here is the pattern you created at my demo: </p> " + "<img src=" + fullpath + ">"
+	msg.html = "<p>Hi " + name + "," "<br>" + "<p> Thanks for chatting with me today! Here is the image you created with \
+		<a href = 'https://github.com/sfalkoff/patterns'> Patterns</a>. \
+		I'm happy to answer any additional questions you may have for me! </p>" + "<img src=" + fullpath + ">" \
+		+ "<p> Thanks again! <br> Sara Falkoff <br><br> \
+		Email: sara.falkoff@gmail.com \
+		<br> LinkedIn: linkedin.com/in/sarafalkoff \
+		<br> GitHub: github.com/sfalkoff \
+		<br> Twitter: <a href='https://twitter.com/SaraFalkoff'> @SaraFalkoff </a></p>"
 	mail.send(msg)
+ 
 
-	# send_email("[microblog] %s is now following you!" % follower.nickname,
- #               ADMINS[0],
- #               [followed.email],
- #               render_template("follower_email.txt", 
- #                               user=followed, follower=follower),
- #               render_template("follower_email.html", 
- #                               user=followed, follower=follower))
-
-
-
-
-
-	return 'successful upload'
-
-
+	return 'email sent and successful upload'
 
 
 
