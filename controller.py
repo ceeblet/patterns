@@ -109,8 +109,9 @@ def save_img():
 	msg = Message("Great Meeting You at Hackbright Demo Day!",
                   sender="sara.falkoff@gmail.com",
                   recipients=[email])
+
 	# msg.body = "Thanks so much for chatting with me today! Here is the pattern you created:"
-	msg.html = "<p>Hi " + name + "," "<br>" + "<p> Thanks for chatting with me today! Here is the image you created with \
+	msg.html = "<p>Hi " + name + "," + "<p> Thanks for chatting with me today! Here is the image you created with \
 		<a href = 'https://github.com/sfalkoff/patterns'> Patterns</a>. \
 		I'm happy to answer any additional questions you may have for me! </p>" + "<img src=" + fullpath + ">" \
 		+ "<p> Thanks again! <br> Sara Falkoff <br><br> \
