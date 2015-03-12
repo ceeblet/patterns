@@ -9,12 +9,11 @@
         <style>
             html,body{background:#fff;margin:0;}
             body{border-top:4px solid #eee;}
-            .content{color:#777;font:12px/1.4 "helvetica neue",arial,sans-serif;margin:20px;}
+            .content{color:#777;font:12px/1.4 "helvetica neue",arial,sans-serif;}
             h1{font-size:12px;font-weight:normal;color:#222;margin:0;}
-            p{margin:0 0 20px}
+            p{margin:0 0 0px}
             a {color:#22BCB9;text-decoration:none;}
             .cred{margin-top:20px;font-size:11px;}
-
             .galleria{ height: 432px; }
         </style>
 
@@ -27,18 +26,20 @@
        <!-- load CSS -->
         <link rel="stylesheet" type="text/css" href="../static/gallery.css">
 
+        <div class ="gallery-header" style="height:48px"> 
         <nav>
-            <ul>
-                <li><a href="{{url_for('home')}}">Home</a></li> |
-                <li><a href="{{url_for('about')}}">About</a></li> |
+            <ul class ="gallery-ul">
+                <li><a href="{{url_for('home')}}">Home</a></li>
+                <li><a href="{{url_for('about')}}">About</a></li>
                 <li><a href="{{url_for('gallery')}}">Gallery</a></li> 
            </ul>
         </nav>
+        </div>
 
     </head>
 <body>
 
-<br><br><br>
+<br>
 
     <div class="content">
         <div class="galleria">

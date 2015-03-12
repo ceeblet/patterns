@@ -341,7 +341,6 @@ window.onload = function() {
 	Tree.branchThickness = drawMath.getRandomInt(1, 3);
 	Tree.branchLength = drawMath.getRandomInt(10, 15);
 	Tree.draw(1);
-	console.log(Tree);	
 };
 
 

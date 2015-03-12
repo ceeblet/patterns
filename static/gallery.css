@@ -2,9 +2,18 @@ head, body {
     background-color: #1A1A1A;
 }
 
+.galleria-thumbnails {
+	margin-left: 15px
+}
+
+h1, h1 {
+	font-size: 44px;
+	color: white;
+	padding-left: 15px;
+}
+
 a:hover {
 	color: #FFFFFF;
-	background-color: #1A1A1A;
 }
 
 nav a {
@@ -13,15 +22,26 @@ nav a {
 	padding-right: 15px;
 }
 
+.gallery-ul {
+	padding-left: 0px;
+	text-align: right;
+	padding-right: 30px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.gallery-header {
+	border-bottom: 1px solid #3d3d3d;
+	height: 48px;
+}
+
 nav li {
 	display: inline;
 	font-size: 20px;
+	color: white;
 }
 
 nav {
 	list-style-type: none;
-	text-align: right;
+	text-align: center;
 	margin-top: 20px;
 }
-
-
