@@ -119,7 +119,7 @@ def save_img():
 		<br> GitHub: github.com/sfalkoff \
 		<br> Twitter: <a href='https://twitter.com/SaraFalkoff'> @SaraFalkoff </a></p>"
 	mail.send(msg)
- 
+
 
 	return 'email sent and successful upload'
 

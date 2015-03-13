@@ -331,7 +331,7 @@ window.onload = function() {
 	
 	var colorArray = ["b3001e", "CCFF33", "CC0099", "00FF00", "33CCFF", "CC3300", "8904B1", "2E2EFE"];
 
-	Tree.depth = drawMath.getRandomInt(10, 15);
+	Tree.depth = drawMath.getRandomInt(10, 12);
 	Tree.orientation = drawMath.getRandomInt(-90, -180);
 	Tree.hex = colorArray[drawMath.getRandomInt(0, 8)];
 	Tree.tilt = -90;
