@@ -19,6 +19,11 @@ mail = Mail(app)
 app.secret_key = 'fU0Og5yop7EddZQOGUE$FMENpdw1'
 
 
+@app.route('/')
+def landing():
+
+	return render_template('landing.html')
+
 @app.route('/home')
 def home():
     
@@ -62,7 +67,7 @@ def save_img():
 
 
 
-	# Step 2: get user created image and save it to database:
+	# Step 2: get user created image and save it:
 	boto.set_stream_logger('boto')
 
 	# create a connection to s3Connection object
