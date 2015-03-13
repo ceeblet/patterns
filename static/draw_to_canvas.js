@@ -312,6 +312,9 @@ $("#saveToGallery").on("click", function(event){
 		// display a success notification, then remove it
 		$("#savedAlert").show();
 		$('#savedAlert').delay(1000).fadeOut();
+
+		// redirect to gallery
+		window.location.replace("http://localhost:5000/gallery");
 	});
 });
 
