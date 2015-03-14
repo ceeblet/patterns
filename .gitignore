@@ -2,8 +2,6 @@
 
 *.pyc
 
-twitter_keys.sh
-
 image_uploads/*.png
 
 s3_keys.sh
