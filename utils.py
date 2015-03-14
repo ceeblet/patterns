@@ -1,5 +1,3 @@
-# This file contains utility functions
-
 import base64
 
 
