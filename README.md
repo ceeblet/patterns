@@ -2,7 +2,7 @@
 
 Patterns is a space to create, share, and admire abstract art inspired by fractal patterns found in nature. Begin with a tree on your canvas, and watch it transform into surprising and unexpected shapes with the movement of your mouse. Save your masterpieces to a public art gallery, and while you’re there, be sure to take a look around.
 
-#Technology Stack: 
+###Technology Stack: 
 
 JavaScript, HTML, CSS, Python, Flask, SQLAlchemy, SQLite, AWS S3 API
 
@@ -28,13 +28,11 @@ JavaScript, HTML, CSS, Python, Flask, SQLAlchemy, SQLite, AWS S3 API
 
 	pip install -r requirements.txt
 
-5. Get your own secrect keys for AWS S3 and save them to a file s3_keys.sh. s3_keys.sh should look something like this:
+5. Get your own secrect keys for [AWS S3] (http://aws.amazon.com/s3/) and save them to a file s3_keys.sh. Your file should look something like this:
 
-	
 	export AWS_ACCESS_KEY_ID='YOURSECRETKEYIDHERE'
 	export AWS_SECRET_ACCESS_KEY='YOURSECRETACCESSKEYHERE'
 	
-
 6. Source your secret keys:
 
 	source s3_keys.sh
