@@ -54,6 +54,7 @@ Run the app:
 python controller.py
 
 ```
+Navigate to `localhost:5000/home` to create your own patterns!
 
 
 
