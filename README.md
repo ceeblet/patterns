@@ -12,34 +12,37 @@ JavaScript, HTML, CSS, Python, Flask, SQLAlchemy, SQLite, AWS S3 API
 
 ###Getting Started
 
-1. Clone or fork this repo: 
+Clone or fork this repo: 
 
-	https://github.com/sfalkoff/patterns.git
+	`https://github.com/sfalkoff/patterns.git`
 
-2. Create a virtual environment inside your project directory: 
+Create a virtual environment inside your project directory: 
 
-	virtualenv env
+	`virtualenv env`
 
-3. Activate the virtual environment:
+Activate the virtual environment:
 
-	source env/bin/activate
+	`source env/bin/activate`
 
-4. Install the requirements:
+Install the requirements:
 
-	pip install -r requirements.txt
+	`pip install -r requirements.txt`
 
 5. Get your own secrect keys for [AWS S3] (http://aws.amazon.com/s3/) and save them to a file s3_keys.sh. Your file should look something like this:
 
+	```
 	export AWS_ACCESS_KEY_ID='YOURSECRETKEYIDHERE'
 	export AWS_SECRET_ACCESS_KEY='YOURSECRETACCESSKEYHERE'
+
+	```
 	
-6. Source your secret keys:
+Source your secret keys:
 
-	source s3_keys.sh
+	`source s3_keys.sh`
 
-7. Run the app:
+Run the app:
 
-	python controller.py
+	`python controller.py`
 
 
 
