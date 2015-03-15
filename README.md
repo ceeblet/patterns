@@ -47,6 +47,7 @@ Source your secret keys:
 source s3_keys.sh
 
 ```
+Add your own default email message and sender in `controller.py`. Please note that this feature was added exclusively for Hackbright Demo Day on 3/18/2015 and is slated to be removed after that date.
 
 Run the app:
 
