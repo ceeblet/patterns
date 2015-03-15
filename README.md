@@ -19,16 +19,11 @@ https://github.com/sfalkoff/patterns.git
 
 ```
 
-Create a virtual environment inside your project directory: 
+Create and activate a virtual environment inside your project directory: 
 
 ```
 virtualenv env
 
-```
-
-Activate the virtual environment:
-
-```
 source env/bin/activate
 
 ```
@@ -40,7 +35,7 @@ pip install -r requirements.txt
 
 ```
 
-Get your own secrect keys for [AWS S3] (http://aws.amazon.com/s3/) and save them to a file s3_keys.sh. Your file should look something like this:
+Get your own secrect keys for [AWS S3] (http://aws.amazon.com/s3/) and save them to a file `s3_keys.sh`. Your file should look something like this:
 
 ```
 export AWS_ACCESS_KEY_ID='YOURSECRETKEYIDHERE'
