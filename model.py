@@ -18,16 +18,6 @@ def create_db():
     Base.metadata.create_all(ENGINE)
 
 
-# def connect():
-#     global ENGINE
-#     global Session
-
-#     ENGINE = create_engine('sqlite:///fractal_art.db', echo=True)
-#     Session = sessionmaker(bind=ENGINE)
-
-#     return Session()
-
-
 class User(Base):
     __tablename__= 'users'
     id = Column(Integer, primary_key = True)
@@ -66,8 +56,6 @@ class Image(Base):
         return '<Image: id=%r user_id=%r filepath=%s filename=%s created_at=%s>' % (self.id, self.user_id, self.filepath, self.filename, self.created_at)
 
 
-# def main():
-#     connect()
 
 
 if __name__ == '__main__':
