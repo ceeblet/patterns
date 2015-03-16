@@ -58,6 +58,10 @@ python controller.py
 ```
 Navigate to `localhost:5000/home` to create your own patterns!
 
+##Moving Forward
+
+Check out the [issues log for this project] (https://github.com/sfalkoff/patterns/issues) to see what's up next.
+
 ##About Sara
 
 Sara came to Hackbright with a background in project management, marketing, and customer service for startups. She's currently looking for full-stack software engineering positions where she can be a part of an awesome team. Check out her [LinkedIn profile] (https://www.linkedin.com/in/sarafalkoff) to learn more. Thanks for stopping by!
