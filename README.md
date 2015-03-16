@@ -20,6 +20,7 @@ https://github.com/sfalkoff/patterns.git
 Create and activate a virtual environment inside your project directory: 
 
 ```
+
 virtualenv env
 
 source env/bin/activate
@@ -59,7 +60,7 @@ Navigate to `localhost:5000/home` to create your own patterns!
 
 ##About Sara
 
-Sara came to Hackbright with a background in project management, marketing, and customer service for startups. She's currently looking for full-stack software engineering positions where she can be a part of an awesome team. Check out her [LinkedIn profile] (https://www.linkedin.com/in/sarafalkoff) to learn more.
+Sara came to Hackbright with a background in project management, marketing, and customer service for startups. She's currently looking for full-stack software engineering positions where she can be a part of an awesome team. Check out her [LinkedIn profile] (https://www.linkedin.com/in/sarafalkoff) to learn more. Thanks for stopping by!
 
 
 
