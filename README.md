@@ -8,7 +8,7 @@ Technology Stack: JavaScript, HTML, CSS, Python, Flask, SQLAlchemy, SQLite, AWS 
 
 ![image](/static/images/gallery.png) 
 
-#Getting Started
+##Getting Started
 
 Clone or fork this repo: 
 
@@ -57,9 +57,9 @@ python controller.py
 ```
 Navigate to `localhost:5000/home` to create your own patterns!
 
-#About Sara
+##About Sara
 
-Sara came to Hackbright with a background in project management, marketing, and customer service for startups. She's currently looking for full-stack software engineering positions where she can be a part of an awesome team. Check out her [linkedIn profile] (www.linkedin.com/in/sarafalkoff) to learn more.
+Sara came to Hackbright with a background in project management, marketing, and customer service for startups. She's currently looking for full-stack software engineering positions where she can be a part of an awesome team. Check out her [LinkedIn profile] (www.linkedin.com/in/sarafalkoff) to learn more.
 
 
 
