@@ -109,20 +109,16 @@ def save_img():
 	img.save()
 
 
+	# This feature has been removed because gmail has blocked the messages in an effort to prevent "unsolicited mail"
 	# Step 3: send user an email with the image 
 	# msg = Message("Great Meeting You at Hackbright Demo Day!",
- #                  sender="sara.falkoff@gmail.com",
+ #                  sender="my.email@gmail.com",
  #                  recipients=[email])
 
-	# # msg.body = "Thanks so much for chatting with me today! Here is the pattern you created:"
 	# msg.html = "<p>Hi " + name + "," + "<p> Thanks for chatting with me today! Here is the image we created with \
 	# 	<a href = 'https://github.com/sfalkoff/patterns'> Patterns</a> during our conversation. \
 	# 	I'm happy to answer any additional questions you may have for me! </p>" + "<img src=" + fullpath + ">" \
-	# 	+ "<p> Thanks again! <br> Sara <br><br> Sara Falkoff <br> \
-	# 	Email: sara.falkoff@gmail.com \
-	# 	<br> LinkedIn: linkedin.com/in/sarafalkoff \
-	# 	<br> GitHub: github.com/sfalkoff \
-	# 	<br> Twitter: <a href='https://twitter.com/SaraFalkoff'> @SaraFalkoff </a></p>"
+	# 	+ "<p> Thanks again! <br> Sara <br><br> </p>"
 	# mail.send(msg)
 
 
