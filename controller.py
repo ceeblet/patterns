@@ -19,11 +19,6 @@ mail = Mail(app)
 app.secret_key = 'fU0Og5yop7EddZQOGUE$FMENpdw1'
 
 
-@app.route('/')
-def landing():
-
-	return render_template('landing.html')
-
 @app.route('/home')
 def home():
     
