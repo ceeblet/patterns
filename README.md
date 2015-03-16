@@ -9,6 +9,71 @@ JavaScript, jQuery, HTML, CSS, Python, Flask, SQLAlchemy, SQLite, AWS S3 API, Bo
 
 ![image](/static/images/gallery.png) 
 
+## What It Does & How It Works
+
+```javascript
+
+var Tree = {
+	
+	hex: undefined,
+	depth: true,
+	orientation: undefined,
+	tilt: undefined,
+	branchAngle: undefined,
+	branchLength: undefined,
+	branchThickness: undefined,
+	
+	draw: function(delay) {
+		ctx.clearRect(0, 0, 1000, 700); // clear canvas
+		Tree.drawTree(500, 475, Tree.orientation, Tree.depth, delay); // initiate chain of recursive calls
+	},
+	
+	drawTree: function(x1, y1, angle, depth, delay) {
+		if (depth != 0){
+			var x2 = x1 + (drawMath.cos(angle) * depth * Tree.branchLength);
+			var y2 = y1 + (drawMath.sin(angle) * depth * Tree.branchLength);
+			
+			window.setTimeout(function() {drawLine(x1, y1, x2, y2); }, 100 * delay);
+
+			Tree.drawTree(x2, y2, angle + Tree.branchAngle + Tree.tilt, depth - 1, delay * 1.2);
+			Tree.drawTree(x2, y2, angle - Tree.branchAngle + Tree.tilt, depth - 1, delay * 1.2);
+		}
+	}			
+}
+
+var drawMath = {
+	
+	cos: function(angle) {
+		return Math.cos(drawMath.deg_to_rad(angle));
+	},
+	sin: function(angle) {
+		return Math.sin(drawMath.deg_to_rad(angle));
+	},
+	deg_to_rad: function(angle) {
+		return angle*(Math.PI/180.0);
+	},
+	getRandomInt: function(min, max) {
+  		return Math.floor(Math.random() * (max - min)) + min;
+	}
+}
+
+function drawLine(x1, y1, x2, y2) {
+	
+	ctx.strokeStyle = '#' + Tree.hex;	
+	ctx.lineJoin = 'bevel';	
+	ctx.lineWidth = Tree.branchThickness;
+	
+	ctx.beginPath();
+	ctx.moveTo(x1, y1);
+	ctx.lineTo(x2, y2);
+	ctx.closePath();
+	
+	ctx.stroke();
+	ctx.save();
+}
+
+```
+
 ##Getting Started
 
 Clone or fork this repo: 
