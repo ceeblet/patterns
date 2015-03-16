@@ -144,8 +144,8 @@ $("#yellow-swatch").on("click", function(event) {
 });
 
 // draw in pink
-$("#pink-swatch").on("click", function(event) {
-	hex = "CC0099";
+$("#forest-green-swatch").on("click", function(event) {
+	hex = "009601";
 	Tree.hex = hex; 
 	Tree.draw(0); 
 
@@ -153,7 +153,7 @@ $("#pink-swatch").on("click", function(event) {
 
 // draw in green
 $("#green-swatch").on("click", function(event) {
-	hex = "00FF00";
+	hex = "4AD900";
 	Tree.hex = hex; 
 	Tree.draw(0); 
 
@@ -184,14 +184,14 @@ $("#purple-swatch").on("click", function(event) {
 
 // draw in dark blue
 $("#dark-blue-swatch").on("click", function(event) {
-	hex = "2E2EFE";
+	hex = "1833BF";
 	Tree.hex = hex; 
 	Tree.draw(0); 
 });
 
 // draw in dark purple
 $("#dark-purple-swatch").on("click", function(event) {
-	hex = "800080";
+	hex = "59137C";
 	Tree.hex = hex; 
 	Tree.draw(0); 
 });
@@ -203,9 +203,9 @@ $("#pale-turquoise-swatch").on("click", function(event) {
 	Tree.draw(0); 
 });
 
-// draw in light pink 
-$("#light-pink-swatch").on("click", function(event) {
-	hex = "e5a3ad";
+// draw in pale purple
+$("#pale-purple-swatch").on("click", function(event) {
+	hex = "DFB0E7";
 	Tree.hex = hex; 
 	Tree.draw(0); 
 });

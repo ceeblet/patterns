@@ -146,10 +146,10 @@ p {
 	background: #CCFF33;
 }
 
-#pink-swatch {
+#forest-green-swatch {
 	width: 2.8em;
 	height: 3em;
-	background: #CC0099;
+	background: #009601;
 
 }
 
@@ -162,7 +162,7 @@ p {
 #green-swatch {
 	width: 2.8em;
 	height: 3em;
-	background: #00FF00;
+	background: #4AD900;
 }
 
 #orange-swatch {
@@ -180,13 +180,13 @@ p {
 #dark-blue-swatch {
 	width: 2.8em;
 	height: 3em;
-	background: #2E2EFE;
+	background: #1833BF;
 }
 
 #dark-purple-swatch {
 	width: 2.8em;
 	height: 3em;
-	background: #800080;
+	background: #59137C;
 }
 
 #pale-turquoise-swatch {
@@ -197,10 +197,10 @@ p {
 }
 
 
-#light-pink-swatch {
+#pale-purple-swatch {
 	width: 2.8em;
 	height: 3em;
-	background: #e5a3ad;
+	background: #DFB0E7;
 }
 
 #gold-swatch {
