@@ -110,20 +110,20 @@ def save_img():
 
 
 	# Step 3: send user an email with the image 
-	msg = Message("Great Meeting You at Hackbright Demo Day!",
-                  sender="sara.falkoff@gmail.com",
-                  recipients=[email])
+	# msg = Message("Great Meeting You at Hackbright Demo Day!",
+ #                  sender="sara.falkoff@gmail.com",
+ #                  recipients=[email])
 
-	# msg.body = "Thanks so much for chatting with me today! Here is the pattern you created:"
-	msg.html = "<p>Hi " + name + "," + "<p> Thanks for chatting with me today! Here is the image we created with \
-		<a href = 'https://github.com/sfalkoff/patterns'> Patterns</a> during our conversation. \
-		I'm happy to answer any additional questions you may have for me! </p>" + "<img src=" + fullpath + ">" \
-		+ "<p> Thanks again! <br> Sara <br><br> Sara Falkoff <br> \
-		Email: sara.falkoff@gmail.com \
-		<br> LinkedIn: linkedin.com/in/sarafalkoff \
-		<br> GitHub: github.com/sfalkoff \
-		<br> Twitter: <a href='https://twitter.com/SaraFalkoff'> @SaraFalkoff </a></p>"
-	mail.send(msg)
+	# # msg.body = "Thanks so much for chatting with me today! Here is the pattern you created:"
+	# msg.html = "<p>Hi " + name + "," + "<p> Thanks for chatting with me today! Here is the image we created with \
+	# 	<a href = 'https://github.com/sfalkoff/patterns'> Patterns</a> during our conversation. \
+	# 	I'm happy to answer any additional questions you may have for me! </p>" + "<img src=" + fullpath + ">" \
+	# 	+ "<p> Thanks again! <br> Sara <br><br> Sara Falkoff <br> \
+	# 	Email: sara.falkoff@gmail.com \
+	# 	<br> LinkedIn: linkedin.com/in/sarafalkoff \
+	# 	<br> GitHub: github.com/sfalkoff \
+	# 	<br> Twitter: <a href='https://twitter.com/SaraFalkoff'> @SaraFalkoff </a></p>"
+	# mail.send(msg)
 
 
 	return 'email sent and successful upload'
