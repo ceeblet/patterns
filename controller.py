@@ -7,13 +7,13 @@ from flask import session as flask_session
 
 from model import User, Image
 from utils import decode_img
-from flask.ext.sendmail import Mail, Message
+#from flask.ext.sendmail import Mail, Message
 
 import base64, os, uuid, boto
 
 
 app = Flask(__name__)
-mail = Mail(app)
+#mail = Mail(app)
 
 
 app.secret_key = 'fU0Og5yop7EddZQOGUE$FMENpdw1'
@@ -43,8 +43,7 @@ def gallery():
 @app.route('/save', methods=['POST'])
 def save_img():
 	
-	'''Saves user information to database; saves user created image to database and s3;
-	sends user an email with their image'''
+	'''Saves user information to database; saves user created image to database and s3'''
 
 	# Step1: get user information and save it to the database:
 	name = request.form.get('name')
