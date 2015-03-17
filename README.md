@@ -5,8 +5,6 @@ Patterns is a space to create, share, and admire abstract art inspired by fracta
 ####Technology Stack
 JavaScript, jQuery, HTML, CSS, Python, Flask, SQLAlchemy, SQLite, AWS S3 API, Boto
 
-##What it Does & How it Works
-
 #### Creating Patterns
 
 Every pattern is composed of a series of lines drawn to the HTML5 canvas element. When a user clicks <kbd>Start</kbd>,
