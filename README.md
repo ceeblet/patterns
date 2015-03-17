@@ -22,7 +22,7 @@ Every pattern is composed of a series of lines drawn to the HTML5 canvas element
 The following code snippet from <kbd>static/draw_to_canvas.js</kbd> shows the class, Tree, from which each unique pattern is instantiated. The value of an attribute is set when a user makes an action that corresponds to that attribute. Possible actions include: moving a slider to the left or right, clicking a color button, and moving the mouse anywhere inside the canvas element. The values of each Tree attribute are used in the drawTree() method; different combinations result in a diverse collection of patterns.
 
 
-When a user makes an action that changes the values of any one or more Tree attributes, the entire pattern is redrawn by calling Tree.draw() with no delay. This animation gives users the ability to have dynamic interactions with the patterns they create.
+When a user makes an action that changes the value(s) of any one or more Tree attributes, the entire pattern is redrawn by calling Tree.draw() with no delay. This animation gives users the ability to have dynamic interactions with the patterns they create.
 
 
 ```javascript
@@ -47,7 +47,7 @@ var Tree = {
 			var x2 = x1 + (drawMath.cos(angle) * depth * Tree.branchLength);
 			var y2 = y1 + (drawMath.sin(angle) * depth * Tree.branchLength);
 			
-			window.setTimeout(function() {drawLine(x1, y1, x2, y2); }, 100 * delay);
+			window.setTimeout(function() {drawLine(x1, y1, x2, y2);}, 100 * delay);
 
 			Tree.drawTree(x2, y2, angle + Tree.branchAngle + Tree.tilt, depth - 1, delay * 1.2);
 			Tree.drawTree(x2, y2, angle - Tree.branchAngle + Tree.tilt, depth - 1, delay * 1.2);
