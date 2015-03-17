@@ -2,15 +2,14 @@
 
 Patterns is a space to create, share, and admire abstract art inspired by fractal patterns found in nature. Begin with a tree on your canvas, and watch it transform into surprising and unexpected shapes with the movement of your mouse. Save your masterpieces to a public art gallery, and while you’re there, be sure to take a look around.
 
-**Technology Stack:** 
+####Technology Stack
 JavaScript, jQuery, HTML, CSS, Python, Flask, SQLAlchemy, SQLite, AWS S3 API, Boto
 
-## What it Does & How it Works
 
 #### Creating Patterns
 
 Every pattern is composed of a series of lines drawn to the HTML5 canvas element. When a user clicks `start`,
-`window.setTimeout()` is used to execute a line drawing function over a period of time. This makes a tree appear to grow on their screen. Every pattern a user creates originates from this tree.
+`window.setTimeout()` is used to execute a recursive line drawing function over a period of time. This makes a tree appear to grow on their screen. Every pattern a user creates originates from this tree.
 
 ![image](/static/images/home.png) 
 
@@ -53,9 +52,10 @@ Here are a few examples of patterns a user can create:
 ![image](/static/images/yellow.png) 
 ![image](/static/images/purple.png) 
 
+#### Saving & Sharing Patterns
 
 
-##Getting Started
+##Get Patterns Running on Your Machine
 
 Clone or fork this repo: 
 
