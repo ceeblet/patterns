@@ -61,7 +61,10 @@ Here are a few examples of patterns a user can create:
 
 Users can save the patterns they create to a public art gallery. When a user clicks <kbd>Save</kbd> the pattern they created is assigned a UUID filename and saved to AWS S3. The pattern's filepath (a url reference to its location on S3) is saved to an SQLite database. A query for the most recently saved pattern urls is used to retrieve the pattern images and populate the gallery. Here is a sneak peek of the gallery page -- users can click on any image in the gallery to view it fullscreen or begin scrolling through the gallery pattern by pattern.
 
-![image](/static/images/gallery.png)
+<p align="center">
+  <img align="center" src="/static/images/gallery.gif" alt="Home-Page">
+</p>
+
 
 
 ##Get Patterns Running on Your Machine
