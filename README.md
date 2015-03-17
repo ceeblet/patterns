@@ -9,11 +9,11 @@ JavaScript, jQuery, HTML, CSS, Python, Flask, SQLAlchemy, SQLite, AWS S3 API, Bo
 #### Creating Patterns
 
 Every pattern is composed of a series of lines drawn to the HTML5 canvas element. When a user clicks `start`,
-`window.setTimeout()` is used to execute a recursive line drawing function over a period of time. This makes a tree appear to grow on their screen. Every pattern a user creates originates from this tree.
+`window.setTimeout()` is used to execute a recursive line drawing function over a period of time. This makes a tree appear to grow on the screen. Every pattern a user creates originates from this tree.
 
 ![image](/static/images/home.png) 
 
-The following code snippet shows the Tree class along with its attributes and methods. The value of an attribute is set when a user makes an action that corresponds to that attribute. Actions include: moving a slider to the left or right, clicking a color button, and moving the mouse anywhere inside the canvas element. The values of each Tree attribute are used in the drawTree method; different combinations result in a diverse collection of patterns.
+The following code snippet from `static/draw_to_canvas.js` shows the Tree class along with its attributes and methods. The value of an attribute is set when a user makes an action that corresponds to that attribute.Possible actions include: moving a slider to the left or right, clicking a color button, and moving the mouse anywhere inside the canvas element. The values of each Tree attribute are used in the drawTree method; different combinations result in a diverse collection of patterns.
 
 ```javascript
 
@@ -53,6 +53,10 @@ Here are a few examples of patterns a user can create:
 ![image](/static/images/purple.png) 
 
 #### Saving & Sharing Patterns
+
+Users can save the patterns they create to a public art gallery. When a user clicks `save` the pattern they created is assigned a UUID filename and saved to AWS S3. The pattern's filepath (a url reference to its location on S3) is saved to a SQLite database. A query for the 24 most recently saved pattern urls is used to retrieve the pattern images and populate the gallery. Here is a sneak peek of the gallery page:
+
+![image](/static/imags/gallery.png)
 
 
 ##Get Patterns Running on Your Machine
