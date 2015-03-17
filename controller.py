@@ -43,9 +43,10 @@ def gallery():
 @app.route('/save', methods=['POST'])
 def save_img():
 	
-	'''Saves user information to database; saves user created image to database and s3'''
+	'''Saves user information to database; saves user created image to s3 and filepath url to database'''
 
 	# Step1: get user information and save it to the database:
+	
 	name = request.form.get('name')
 
 	company = request.form.get('company')
@@ -56,12 +57,13 @@ def save_img():
 
 	user.save()
 
-	# get current user's id (to use as forgein key in images table)
+	# get current user's id (to use as foreign key in images table)
 	user_id = user.id
 
 
 
 	# Step 2: get user created image and save it:
+	
 	boto.set_stream_logger('boto')
 
 	# create a connection to s3Connection object
@@ -116,7 +118,7 @@ def save_img():
 	# mail.send(msg)
 
 
-	return 'email sent and successful upload'
+	return 'successful upload'
 
 
 
