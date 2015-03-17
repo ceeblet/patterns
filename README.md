@@ -5,11 +5,16 @@ Patterns is a space to create, share, and admire abstract art inspired by fracta
 **Technology Stack:** 
 JavaScript, jQuery, HTML, CSS, Python, Flask, SQLAlchemy, SQLite, AWS S3 API, Boto
 
+## What It Does & How It Works
+
+#### Creating Patterns
+
+Patterns are composed of a series of lines drawn to the HTML5 canvas element. When a user clicks `start`,
+`window.setTimeout()` is used to execute a line drawing function over a period of time. This makes a tree appear to grow on their screen. Every pattern a user creates originates from this tree.
+
 ![image](/static/images/home.png) 
 
-![image](/static/images/gallery.png) 
-
-## What It Does & How It Works
+The following code snippet shows the Tree class along with it's attributes and methods. 
 
 ```javascript
 
@@ -39,37 +44,6 @@ var Tree = {
 			Tree.drawTree(x2, y2, angle - Tree.branchAngle + Tree.tilt, depth - 1, delay * 1.2);
 		}
 	}			
-}
-
-var drawMath = {
-	
-	cos: function(angle) {
-		return Math.cos(drawMath.deg_to_rad(angle));
-	},
-	sin: function(angle) {
-		return Math.sin(drawMath.deg_to_rad(angle));
-	},
-	deg_to_rad: function(angle) {
-		return angle*(Math.PI/180.0);
-	},
-	getRandomInt: function(min, max) {
-  		return Math.floor(Math.random() * (max - min)) + min;
-	}
-}
-
-function drawLine(x1, y1, x2, y2) {
-	
-	ctx.strokeStyle = '#' + Tree.hex;	
-	ctx.lineJoin = 'bevel';	
-	ctx.lineWidth = Tree.branchThickness;
-	
-	ctx.beginPath();
-	ctx.moveTo(x1, y1);
-	ctx.lineTo(x2, y2);
-	ctx.closePath();
-	
-	ctx.stroke();
-	ctx.save();
 }
 
 ```
