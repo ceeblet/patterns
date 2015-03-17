@@ -16,7 +16,7 @@ app = Flask(__name__)
 #mail = Mail(app)
 
 
-app.secret_key = 'fU0Og5yop7EddZQOGUE$FMENpdw1'
+app.secret_key = os.environ['FLASK_SECRET_KEY']
 
 
 @app.route('/home')

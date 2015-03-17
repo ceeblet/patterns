@@ -90,11 +90,12 @@ pip install -r requirements.txt
 
 ```
 
-Get your own secrect keys for [AWS S3] (http://aws.amazon.com/s3/) and save them to a file <kbd>s3_keys.sh`</kbd>. Your file should look something like this:
+Get your own secrect keys for [AWS S3] (http://aws.amazon.com/s3/) and save them to a file <kbd>keys.sh</kbd>. You should also set your own secrect key for Flask. Your file should look something like this:
 
 ```
 export AWS_ACCESS_KEY_ID='YOURSECRETKEYIDHERE'
 export AWS_SECRET_ACCESS_KEY='YOURSECRETACCESSKEYHERE'
+export FLASK_SECRET_KEY='YOURFLASKSECRECTKEY'
 
 ```
 	
