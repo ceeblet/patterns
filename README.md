@@ -1,6 +1,7 @@
 #Patterns
 
-Patterns is a space to create, share, and admire abstract art inspired by fractal patterns found in nature. Begin with a tree on your canvas, and watch it transform into surprising and unexpected shapes with the movement of your mouse. Save your masterpieces to a public art gallery, and while you’re there, be sure to take a look around.
+Patterns is a space to create, share, and admire abstract art inspired by fractal patterns found in nature. Create a tree on your canvas, and watch it transform into surprising and unexpected shapes with the movement of your mouse. Save your masterpiece to a public gallery, and see other users' creations.
+
 
 ####Technology Stack
 JavaScript, jQuery, HTML, CSS, AJAX, Python, Flask, Jinja, SQLAlchemy, SQLite, AWS S3 API, Boto
@@ -11,7 +12,7 @@ JavaScript, jQuery, HTML, CSS, AJAX, Python, Flask, Jinja, SQLAlchemy, SQLite, A
 #### Creating Patterns
 
 Every pattern is composed of a series of lines drawn to the HTML5 canvas element. When a user clicks <kbd>Start</kbd>,
-`window.setTimeout()` is used to execute a recursive line drawing function over a period of time. This makes a tree appear to grow on the screen. Every pattern a user creates originates from this tree. There are oh-so-many possibilities!
+`window.setTimeout()` is used to execute a recursive line drawing function over a period of time. This makes a tree appear to grow on the screen. Every pattern a user creates originates from this tree.
 
 <p align="center">
   <img align="center" src="/static/images/create-pattern.gif" alt="Home-Page">
@@ -63,7 +64,7 @@ Here are a few examples of patterns a user might create:
 
 #### Saving & Sharing Patterns
 
-Users can save the patterns they create to a public art gallery. When a user clicks <kbd>Save</kbd>, the pattern they created is assigned a UUID file name and securely saved to the AWS S3 cloud storage platform. The pattern file path (a url reference to its location on S3) is saved to an SQLite database. A query for the most recently saved pattern urls is used to retrieve the pattern images and populate the gallery. Here is a sneak peek of the gallery page -- users can click on any image in the gallery to view it full screen or begin scrolling through the gallery pattern by pattern.
+Users can save the patterns they create to a public art gallery. When a user clicks <kbd>Save</kbd>, the pattern they created is assigned a UUID file name and securely saved to the AWS S3 cloud storage platform. The pattern file path (a url reference to its location on S3) is saved to an SQLite database. A query for a list of the most recently saved pattern urls is used to retrieve the pattern images and populate the gallery. Here is a sneak peek of the gallery page -- users can click on any image in the gallery to view it full screen or begin scrolling through the gallery pattern by pattern.
 
 <p align="center">
   <img align="center" src="/static/images/gallery.gif" alt="Gallery-Page">
