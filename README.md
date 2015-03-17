@@ -9,7 +9,7 @@ JavaScript, jQuery, HTML, CSS, Python, Flask, SQLAlchemy, SQLite, AWS S3 API, Bo
 
 #### Creating Patterns
 
-Every pattern is composed of a series of lines drawn to the HTML5 canvas element. When a user clicks <kbd>start</kbd>,
+Every pattern is composed of a series of lines drawn to the HTML5 canvas element. When a user clicks <kbd>Start</kbd>,
 `window.setTimeout()` is used to execute a recursive line drawing function over a period of time. This makes a tree appear to grow on the screen. Every pattern a user creates originates from this tree.
 
 ![image](/static/images/home.png) 
@@ -55,7 +55,7 @@ Here are a few examples of patterns a user can create:
 
 #### Saving & Sharing Patterns
 
-Users can save the patterns they create to a public art gallery. When a user clicks <kbd>save</kbd> the pattern they created is assigned a UUID filename and saved to AWS S3. The pattern's filepath (a url reference to its location on S3) is saved to an SQLite database. A query for the most recently saved pattern urls is used to retrieve the pattern images and populate the gallery. Here is a sneak peek of the gallery page -- users can click on any image in the gallery to view it fullscreen or begin scrolling through the gallery pattern by pattern.
+Users can save the patterns they create to a public art gallery. When a user clicks <kbd>Save</kbd> the pattern they created is assigned a UUID filename and saved to AWS S3. The pattern's filepath (a url reference to its location on S3) is saved to an SQLite database. A query for the most recently saved pattern urls is used to retrieve the pattern images and populate the gallery. Here is a sneak peek of the gallery page -- users can click on any image in the gallery to view it fullscreen or begin scrolling through the gallery pattern by pattern.
 
 ![image](/static/images/gallery.png)
 
@@ -86,7 +86,7 @@ pip install -r requirements.txt
 
 ```
 
-Get your own secrect keys for [AWS S3] (http://aws.amazon.com/s3/) and save them to a file `s3_keys.sh`. Your file should look something like this:
+Get your own secrect keys for [AWS S3] (http://aws.amazon.com/s3/) and save them to a file <kbd>s3_keys.sh`</kbd>. Your file should look something like this:
 
 ```
 export AWS_ACCESS_KEY_ID='YOURSECRETKEYIDHERE'
