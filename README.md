@@ -5,6 +5,7 @@ Patterns is a space to create, share, and admire abstract art inspired by fracta
 ####Technology Stack
 JavaScript, jQuery, HTML, CSS, Python, Flask, SQLAlchemy, SQLite, AWS S3 API, Boto
 
+##What it Does & How it Works:
 
 #### Creating Patterns
 
@@ -54,7 +55,7 @@ Here are a few examples of patterns a user can create:
 
 #### Saving & Sharing Patterns
 
-Users can save the patterns they create to a public art gallery. When a user clicks `save` the pattern they created is assigned a UUID filename and saved to AWS S3. The pattern's filepath (a url reference to its location on S3) is saved to an SQLite database. A query for the most recently saved pattern urls is used to retrieve the pattern images and populate the gallery. Here is a sneak peek of the gallery page:
+Users can save the patterns they create to a public art gallery. When a user clicks `save` the pattern they created is assigned a UUID filename and saved to AWS S3. The pattern's filepath (a url reference to its location on S3) is saved to an SQLite database. A query for the most recently saved pattern urls is used to retrieve the pattern images and populate the gallery. Here is a sneak peek of the gallery page -- users can click on any image in the gallery to view it fullscreen or begin scrolling through the gallery pattern by pattern.
 
 ![image](/static/images/gallery.png)
 
