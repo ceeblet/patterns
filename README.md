@@ -5,16 +5,16 @@ Patterns is a space to create, share, and admire abstract art inspired by fracta
 **Technology Stack:** 
 JavaScript, jQuery, HTML, CSS, Python, Flask, SQLAlchemy, SQLite, AWS S3 API, Boto
 
-## What It Does & How It Works
+## What it Does & How it Works
 
 #### Creating Patterns
 
-Patterns are composed of a series of lines drawn to the HTML5 canvas element. When a user clicks `start`,
+Every pattern is composed of a series of lines drawn to the HTML5 canvas element. When a user clicks `start`,
 `window.setTimeout()` is used to execute a line drawing function over a period of time. This makes a tree appear to grow on their screen. Every pattern a user creates originates from this tree.
 
 ![image](/static/images/home.png) 
 
-The following code snippet shows the Tree class along with it's attributes and methods. 
+The following code snippet shows the Tree class along with its attributes and methods. The value of an attribute is set when a user makes an action that corresponds to that attribute. Actions include: moving a slider to the left or right, clicking a color button, and moving the mouse anywhere inside the canvas element. The values of each Tree attribute are used in the drawTree method; different combinations result in a diverse collection of patterns.
 
 ```javascript
 
@@ -47,6 +47,13 @@ var Tree = {
 }
 
 ```
+Here are a few examples of patterns a user can create:
+
+![image](/static/images/blue.png) 
+![image](/static/images/yellow.png) 
+![image](/static/images/purple.png) 
+
+
 
 ##Getting Started
 
