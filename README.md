@@ -5,16 +5,16 @@ Patterns is a space to create, share, and admire abstract art inspired by fracta
 ####Technology Stack
 JavaScript, jQuery, HTML, CSS, Python, Flask, SQLAlchemy, SQLite, AWS S3 API, Boto
 
-##What it Does & How it Works:
+##What it Does & How it Works
 
 #### Creating Patterns
 
-Every pattern is composed of a series of lines drawn to the HTML5 canvas element. When a user clicks `start`,
+Every pattern is composed of a series of lines drawn to the HTML5 canvas element. When a user clicks <kbd>start</kbd>,
 `window.setTimeout()` is used to execute a recursive line drawing function over a period of time. This makes a tree appear to grow on the screen. Every pattern a user creates originates from this tree.
 
 ![image](/static/images/home.png) 
 
-The following code snippet from `static/draw_to_canvas.js` shows the Tree class along with its attributes and methods. The value of an attribute is set when a user makes an action that corresponds to that attribute. Possible actions include: moving a slider to the left or right, clicking a color button, and moving the mouse anywhere inside the canvas element. The values of each Tree attribute are used in the drawTree method; different combinations result in a diverse collection of patterns.
+The following code snippet from <kbd>static/draw_to_canvas.js</kbd> shows the Tree class along with its attributes and methods. The value of an attribute is set when a user makes an action that corresponds to that attribute. Possible actions include: moving a slider to the left or right, clicking a color button, and moving the mouse anywhere inside the canvas element. The values of each Tree attribute are used in the drawTree method; different combinations result in a diverse collection of patterns.
 
 ```javascript
 
@@ -29,8 +29,8 @@ var Tree = {
 	branchThickness: undefined,
 	
 	draw: function(delay) {
-		ctx.clearRect(0, 0, 1000, 700); // clear canvas
-		Tree.drawTree(500, 475, Tree.orientation, Tree.depth, delay); // initiate chain of recursive calls
+		ctx.clearRect(0, 0, 1000, 700); 
+		Tree.drawTree(500, 475, Tree.orientation, Tree.depth, delay); 
 	},
 	
 	drawTree: function(x1, y1, angle, depth, delay) {
@@ -55,7 +55,7 @@ Here are a few examples of patterns a user can create:
 
 #### Saving & Sharing Patterns
 
-Users can save the patterns they create to a public art gallery. When a user clicks `save` the pattern they created is assigned a UUID filename and saved to AWS S3. The pattern's filepath (a url reference to its location on S3) is saved to an SQLite database. A query for the most recently saved pattern urls is used to retrieve the pattern images and populate the gallery. Here is a sneak peek of the gallery page -- users can click on any image in the gallery to view it fullscreen or begin scrolling through the gallery pattern by pattern.
+Users can save the patterns they create to a public art gallery. When a user clicks <kbd>save</kbd> the pattern they created is assigned a UUID filename and saved to AWS S3. The pattern's filepath (a url reference to its location on S3) is saved to an SQLite database. A query for the most recently saved pattern urls is used to retrieve the pattern images and populate the gallery. Here is a sneak peek of the gallery page -- users can click on any image in the gallery to view it fullscreen or begin scrolling through the gallery pattern by pattern.
 
 ![image](/static/images/gallery.png)
 
