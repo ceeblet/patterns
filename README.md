@@ -11,7 +11,7 @@ JavaScript, jQuery, HTML, CSS, AJAX, Python, Flask, Jinja, SQLAlchemy, SQLite, A
 #### Creating Patterns
 
 Every pattern is composed of a series of lines drawn to the HTML5 canvas element. When a user clicks <kbd>Start</kbd>,
-`window.setTimeout()` is used to execute a recursive line drawing function over a period of time. This makes a tree appear to grow on the screen. Every pattern a user creates originates from this tree. There are oh-so-many possiblities!
+`window.setTimeout()` is used to execute a recursive line drawing function over a period of time. This makes a tree appear to grow on the screen. Every pattern a user creates originates from this tree. There are oh-so-many possibilities!
 
 <p align="center">
   <img align="center" src="/static/images/create-pattern.gif" alt="Home-Page">
@@ -63,7 +63,7 @@ Here are a few examples of patterns a user might create:
 
 #### Saving & Sharing Patterns
 
-Users can save the patterns they create to a public art gallery. When a user clicks <kbd>Save</kbd>, the pattern they created is assigned a UUID filename and securely saved to the AWS S3 cloud storage platform. The pattern's filepath (a url reference to its location on S3) is saved to an SQLite database. A query for the most recently saved pattern urls is used to retrieve the pattern images and populate the gallery. Here is a sneak peek of the gallery page -- users can click on any image in the gallery to view it fullscreen or begin scrolling through the gallery pattern by pattern.
+Users can save the patterns they create to a public art gallery. When a user clicks <kbd>Save</kbd>, the pattern they created is assigned a UUID file name and securely saved to the AWS S3 cloud storage platform. The pattern file path (a url reference to its location on S3) is saved to an SQLite database. A query for the most recently saved pattern urls is used to retrieve the pattern images and populate the gallery. Here is a sneak peek of the gallery page -- users can click on any image in the gallery to view it full screen or begin scrolling through the gallery pattern by pattern.
 
 <p align="center">
   <img align="center" src="/static/images/gallery.gif" alt="Gallery-Page">
@@ -109,7 +109,7 @@ export FLASK_SECRET_KEY='YOURFLASKSECRECTKEY'
 Source your secret keys:
 
 ```
-source s3_keys.sh
+source keys.sh
 
 ```
 
