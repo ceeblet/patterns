@@ -13,7 +13,7 @@ Every pattern is composed of a series of lines drawn to the HTML5 canvas element
 
 ![image](/static/images/home.png) 
 
-The following code snippet from `static/draw_to_canvas.js` shows the Tree class along with its attributes and methods. The value of an attribute is set when a user makes an action that corresponds to that attribute.Possible actions include: moving a slider to the left or right, clicking a color button, and moving the mouse anywhere inside the canvas element. The values of each Tree attribute are used in the drawTree method; different combinations result in a diverse collection of patterns.
+The following code snippet from `static/draw_to_canvas.js` shows the Tree class along with its attributes and methods. The value of an attribute is set when a user makes an action that corresponds to that attribute. Possible actions include: moving a slider to the left or right, clicking a color button, and moving the mouse anywhere inside the canvas element. The values of each Tree attribute are used in the drawTree method; different combinations result in a diverse collection of patterns.
 
 ```javascript
 
@@ -54,9 +54,9 @@ Here are a few examples of patterns a user can create:
 
 #### Saving & Sharing Patterns
 
-Users can save the patterns they create to a public art gallery. When a user clicks `save` the pattern they created is assigned a UUID filename and saved to AWS S3. The pattern's filepath (a url reference to its location on S3) is saved to a SQLite database. A query for the 24 most recently saved pattern urls is used to retrieve the pattern images and populate the gallery. Here is a sneak peek of the gallery page:
+Users can save the patterns they create to a public art gallery. When a user clicks `save` the pattern they created is assigned a UUID filename and saved to AWS S3. The pattern's filepath (a url reference to its location on S3) is saved to an SQLite database. A query for the most recently saved pattern urls is used to retrieve the pattern images and populate the gallery. Here is a sneak peek of the gallery page:
 
-![image](/static/imags/gallery.png)
+![image](/static/images/gallery.png)
 
 
 ##Get Patterns Running on Your Machine
