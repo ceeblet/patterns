@@ -3,7 +3,7 @@
 Patterns is a space to create, share, and admire abstract art inspired by fractal patterns found in nature. Begin with a tree on your canvas, and watch it transform into surprising and unexpected shapes with the movement of your mouse. Save your masterpieces to a public art gallery, and while you’re there, be sure to take a look around.
 
 ####Technology Stack
-JavaScript, jQuery, HTML, CSS, Python, Flask, SQLAlchemy, SQLite, AWS S3 API, Boto
+JavaScript, jQuery, HTML, CSS, AJAX, Python, Flask, Jinja, SQLAlchemy, SQLite, AWS S3 API, Boto
 
 ![image](/static/images/home.png) 
 
@@ -11,14 +11,18 @@ JavaScript, jQuery, HTML, CSS, Python, Flask, SQLAlchemy, SQLite, AWS S3 API, Bo
 #### Creating Patterns
 
 Every pattern is composed of a series of lines drawn to the HTML5 canvas element. When a user clicks <kbd>Start</kbd>,
-`window.setTimeout()` is used to execute a recursive line drawing function over a period of time. This makes a tree appear to grow on the screen. Every pattern a user creates originates from this tree.
+`window.setTimeout()` is used to execute a recursive line drawing function over a period of time. This makes a tree appear to grow on the screen. Every pattern a user creates originates from this tree. There are oh-so-many possiblities!
 
 <p align="center">
   <img align="center" src="/static/images/create-pattern.gif" alt="Home-Page">
 </p>
 
 
-The following code snippet from <kbd>static/draw_to_canvas.js</kbd> shows the Tree class along with its attributes and methods. The value of an attribute is set when a user makes an action that corresponds to that attribute. Possible actions include: moving a slider to the left or right, clicking a color button, and moving the mouse anywhere inside the canvas element. The values of each Tree attribute are used in the drawTree method; different combinations result in a diverse collection of patterns.
+The following code snippet from <kbd>static/draw_to_canvas.js</kbd> shows the class, Tree, from which each unique pattern is instantiated. The value of an attribute is set when a user makes an action that corresponds to that attribute. Possible actions include: moving a slider to the left or right, clicking a color button, and moving the mouse anywhere inside the canvas element. The values of each Tree attribute are used in the drawTree() method; different combinations result in a diverse collection of patterns.
+
+
+When a user makes an action that changes the values of any one or more Tree attributes, the entire pattern is redrawn by calling Tree.draw() with no delay. This animation gives users the ability to have dynamic interactions with the patterns they create.
+
 
 ```javascript
 
@@ -51,7 +55,7 @@ var Tree = {
 }
 
 ```
-Here are a few examples of patterns a user can create:
+Here are a few examples of patterns a user might create:
 
 ![image](/static/images/blue.png) 
 ![image](/static/images/yellow.png) 
@@ -59,10 +63,10 @@ Here are a few examples of patterns a user can create:
 
 #### Saving & Sharing Patterns
 
-Users can save the patterns they create to a public art gallery. When a user clicks <kbd>Save</kbd> the pattern they created is assigned a UUID filename and saved to AWS S3. The pattern's filepath (a url reference to its location on S3) is saved to an SQLite database. A query for the most recently saved pattern urls is used to retrieve the pattern images and populate the gallery. Here is a sneak peek of the gallery page -- users can click on any image in the gallery to view it fullscreen or begin scrolling through the gallery pattern by pattern.
+Users can save the patterns they create to a public art gallery. When a user clicks <kbd>Save</kbd>, the pattern they created is assigned a UUID filename and securely saved to the AWS S3 cloud storage platform. The pattern's filepath (a url reference to its location on S3) is saved to an SQLite database. A query for the most recently saved pattern urls is used to retrieve the pattern images and populate the gallery. Here is a sneak peek of the gallery page -- users can click on any image in the gallery to view it fullscreen or begin scrolling through the gallery pattern by pattern.
 
 <p align="center">
-  <img align="center" src="/static/images/gallery.gif" alt="Home-Page">
+  <img align="center" src="/static/images/gallery.gif" alt="Gallery-Page">
 </p>
 
 
@@ -93,7 +97,7 @@ pip install -r requirements.txt
 
 ```
 
-Get your own secrect keys for [AWS S3] (http://aws.amazon.com/s3/) and save them to a file <kbd>keys.sh</kbd>. You should also set your own secrect key for Flask. Your file should look something like this:
+Get your own secret keys for [AWS S3] (http://aws.amazon.com/s3/) and save them to a file <kbd>keys.sh</kbd>. You should also set your own secret key for Flask. Your file should look something like this:
 
 ```
 export AWS_ACCESS_KEY_ID='YOURSECRETKEYIDHERE'
